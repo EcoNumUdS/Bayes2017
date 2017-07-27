@@ -26,7 +26,7 @@ This folder should *not* include:
 
 ## Practice
 It is not yet clear what this folder will hold exactly. It will likely be a combination of
-  - .R files
+	- .R files
 	- .tex files with exercices
 	- .tex files with solutions
 	- .RnW files with exercices
