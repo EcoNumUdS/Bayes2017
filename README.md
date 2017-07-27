@@ -20,7 +20,7 @@ This folder may (but does not have to) include:
   - .Rnw files if people want to develop their lecture using knitr
   - .Rmd files if people want to develop their lecture using Rmarkdown
 
-*Note*: When the an .Rnw or a .Rmd file is available it should be used to construct the lecture because some aspect may not show in the final .pdf.
+*Note*: When an .Rnw or .Rmd file is available it should be used to construct the lecture instead of the .tex file because some aspect may not show in the final .pdf if only the .tex is used.
 
 This folder should *not* include:
   - .pdf files used for the presentation
