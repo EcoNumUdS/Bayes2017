@@ -1,0 +1,10 @@
+*.DS_Store
+
+# beamer junk
+*.aux
+*.log
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc

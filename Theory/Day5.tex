@@ -1,0 +1,173 @@
+\documentclass{eecslides}
+\mode<presentation>
+%\usecolortheme{BBSDark}
+
+%%------------------
+% Language and font
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+%%------------------
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{calc, shapes, backgrounds, arrows}
+
+% --- include packages
+\usepackage{subfigure}
+\usepackage{multicol}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+%%------------------
+\DeclareRobustCommand\refmark[1]{\textsuperscript{\ref{#1}}}
+
+%%------------------ Tune the template
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\title[Day 5]{Model Comparison}
+\vspace{0.4cm}
+\vspace{0.6cm}
+
+%%% Begin slideshow
+
+\begin{document}
+
+\frame{
+  \titlepage
+}
+
+\section{Introduction}
+
+\frame{
+	\frametitle{Day 5 Schedule}
+	
+	\small
+	\vspace{-0.5cm}
+	
+	\begin{itemize}[leftmargin=2.5cm]
+		\item[\bf 8h30 - 10h00] Model Comparison (And other topics) (Matthew Talluto)
+		\item[\bf 10h15 - 12h00] Simple example
+		\begin{itemize}
+			\item Perhaps the easiest thing will be to compute DIC and a naive AIC (using all pseudoparameters) for the hierarchical model from day 4
+		\end{itemize}
+		\item[\bf 13h30 - 17h30] Student presentations
+		\item[\bf 17h30 - 18h00] Project work and wrap up
+	\end{itemize}
+}
+
+\frame{
+\frametitle{Introduction to Model Comparison}
+			\begin{itemize}
+	\item why compare models?
+	\item importance of identifying goals in model comparison/evaluation
+	\item predictive performance? hypothesis testing? reduction of overfitting (related to prediction)? simplification (if n is limiting?)
+	\item first piece of advice if you want to do model comparison: DON'T
+	\begin{itemize}
+		\item rather compare effect sizes, standard deviations
+		\item prefer methods of model predictive performance if prediction is the goal
+	\end{itemize}
+\end{itemize}
+}
+%
+\frame{
+	\frametitle{Model comparison methods}
+	\begin{itemize}
+		\item posterior predictive density (good for models with same size, same n)
+		\item Bayes factor (similar to likelihood ratio) (perhaps this is where MAP estimation should be mentioned, as it has bearing on BF - BF uses the MAP)
+			\begin{itemize}
+				\item can compute the MAP from posterior samples (just look for the mode); however this is computationally intensive
+				\item another approach is to use another optimization method (e.g., LA, SA) to estimate the MAP, compute BF, then take posterior samples for best model
+		\end{itemize}
+	\end{itemize}
+}
+
+\frame{
+\frametitle{Information criteria}
+	\begin{itemize}
+		\item DIC, WAIC (BIC?)
+		\item why/why not to use
+		\item why not AIC? (what is k for a hierarchical model?)
+		\item DIC is not a significance test, and IC thresholds aren't meaningful
+		\item Taper and Ponciano [2016] (if time)
+	\end{itemize}
+
+}
+\frame{
+	\frametitle{other topics (to be mentioned, but not discussed in detail)}
+	\begin{itemize}
+		\item Bayesian model averaging
+		\item RJ-MCMC
+		\item Other algorithms? HMC?
+\end{itemize}
+}
+
+
+
+%
+%
+%\section{Example}
+%
+%\frame{
+%\frametitle{Ecological example discussed during the other day with an additional layer of complexity}
+%For example add another species of tree or a patch level effect
+%}
+%
+%\section{Model building}
+%
+%\frame{
+%\frametitle{Conceptually using Direct Acyclic Diagram (DAG)}
+%}
+%
+%\frame{
+%\frametitle{The importance of defining the pieces properly}
+%\begin{itemize}
+%  \item Priors
+%  \item Parameters
+%  \item Data
+%\end{itemize}
+%}
+%
+%\frame{
+%\frametitle{Deciding on the technical aspects of the model}
+%\begin{itemize}
+%  \item Distribution from which to sample
+%  \item Properties of priors
+%\end{itemize}
+%}
+%
+%\frame{
+%\frametitle{Defining the model mathematically}
+%}
+%
+%\frame{
+%\frametitle{How to estimate the model?}
+%Based on what we learned so far
+%}
+%
+%\frame{
+%\frametitle{Writing down the sampler}
+%Maybe this is a bit too difficult ??
+%}
+%
+%\section{Parameter estimation}
+%
+%\frame{
+%\frametitle{Different way to estimate the parameters}
+%}
+%
+%\section{Parameter estimation}
+%
+%\frame{
+%\frametitle{MCMC}
+%}
+%
+%\frame{
+%\frametitle{Check for convergence}
+%}
+%
+
+\end{document}
