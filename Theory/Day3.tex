@@ -92,8 +92,84 @@
 
 \section{Introduction}
 
+
+\frame{
+\frametitle{Ecological context}
+\framesubtitle{How important is elevation in defining sugar maple distribution on mont Sutton?}
+
+
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
+
+Mont Sutton
+
+\vspace{-0.7cm}
+
+  \begin{center}
+    \scalebox{0.2}{
+      \includegraphics{Image/Mont_Sutton.jpg}
+    }
+  \end{center}
+
+  \vspace{-0.2cm}
+  
+  {\large\bf Model}
+  
+  \vspace{-0.5cm}
+  
+  {\large $$y = \beta x + \epsilon$$}
+
+  \vspace{-0.8cm}
+
+ where
+ \begin{itemize}
+  \item[$y$] is the distribution of sugar maple
+  \item[$x$] is elevation
+  \textcolor{red}{\large\item[$\beta$] is the importance of elevation}
+  \item[$\epsilon$] is the model residuals
+ \end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\vspace{-0.5cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/acerSacc-1} 
+
+\end{knitrout}
+\end{column}
+\end{columns}
+}
+
 \frame{
 \frametitle{Linking Frequentist and Bayesian Statistics}
+\framesubtitle{How can we estimate $\beta$ and what does it imply?}
+
+{\Large\bf Main interest of Frequentist}
+
+\vspace{0.1cm}
+
+Answering the question : How well is the data true to the model?
+{\Large 
+	$$\textcolor{blue}{\text{Likelihood}}\hspace{1.5cm}P(\text{Data}|\text{Model})$$
+}
+
+{\large{\bf Maximizing} the \textcolor{blue}{\text{Likelihood}}}
+
+\vspace{0.4cm}
+
+{\bf This can be done through}
+
+\begin{itemize}
+  \item Simulated annealing
+  \item Nelder-Mead Simplex
+  \item Minimizing the sums of squares
+  \item \dots
+\end{itemize}
+}
+
+\frame{
+\frametitle{Linking Frequentist and Bayesian Statistics}
+\framesubtitle{How can we estimate $\beta$ and what does it imply?}
 
 {\Large\bf Main interest of Frequentist}
 
@@ -122,51 +198,6 @@ Answering the question : How well is the model true to the data?
 }
 
 \section{MCMC}
-
-\frame{
-\frametitle{Ecological context}
-\framesubtitle{How important is elevation in defining sugar maple distribution on mont Sutton?}
-
-
-\begin{columns}[T]
-\begin{column}{0.5\textwidth}
-
-\vspace{-0.2cm}
-
-  \begin{center}
-    \scalebox{0.2}{
-      \includegraphics{Image/Mont_Sutton.jpg}
-    }
-  \end{center}
-  
-  \vspace{-0.2cm}
-  
-  {\large\bf Model}
-  
-  \vspace{-0.5cm}
-  
-  {\large $$y = \beta x + \epsilon$$}
-
-  \vspace{-0.8cm}
-
- where
- \begin{itemize}
-  \item[$y$] is the distribution of sugar maple
-  \item[$x$] is elevation
-  \item[$\beta$] is the importance of elevation
-  \item[$\epsilon$] is the model residuals
- \end{itemize}
-\end{column}
-\begin{column}{0.5\textwidth}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/acerSacc-1} 
-
-\end{knitrout}
-\end{column}
-\end{columns}
-
-}
 
 \frame{
 \frametitle{The basis of Markov Chain Monte Carlo (MCMC)}
