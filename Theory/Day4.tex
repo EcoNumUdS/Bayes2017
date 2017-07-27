@@ -1,0 +1,117 @@
+\documentclass{eecslides}
+\mode<presentation>
+%\usecolortheme{BBSDark}
+
+%%------------------
+% Language and font
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+%%------------------
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{calc, shapes, backgrounds, arrows}
+
+% --- include packages
+\usepackage{subfigure}
+\usepackage{multicol}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+%%------------------
+\DeclareRobustCommand\refmark[1]{\textsuperscript{\ref{#1}}}
+
+%%------------------ Tune the template
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\title[Day 4]{Hierarchical models}
+\vspace{0.4cm}
+\vspace{0.6cm}
+
+%%% Begin slideshow
+
+\begin{document}
+
+\frame{
+  \titlepage
+}
+
+\section{Introduction}
+
+\frame{
+\frametitle{What is a hierarchical model?}
+\begin{itemize}
+\end{itemize}
+}
+
+\frame{
+\frametitle{Why are hierarchical model worth studying?}
+}
+
+
+\section{Example}
+
+\frame{
+\frametitle{Ecological example discussed during the other day with an additional layer of complexity}
+For example add another species of tree or a patch level effect
+}
+
+\section{Model building}
+
+\frame{
+\frametitle{Conceptually using Direct Acyclic Diagram (DAG)}
+}
+
+\frame{
+\frametitle{The importance of defining the pieces properly}
+\begin{itemize}
+  \item Priors
+  \item Parameters
+  \item Data
+\end{itemize}
+}
+
+\frame{
+\frametitle{Deciding on the technical aspects of the model}
+\begin{itemize}
+  \item Distribution from which to sample
+  \item Properties of priors
+\end{itemize}
+}
+
+\frame{
+\frametitle{Defining the model mathematically}
+}
+
+\frame{
+\frametitle{How to estimate the model?}
+Based on what we learned so far
+}
+
+\frame{
+\frametitle{Writing down the sampler}
+Maybe this is a bit too difficult ??
+}
+
+\section{Parameter estimation}
+
+\frame{
+\frametitle{Different way to estimate the parameters}
+}
+
+\section{Parameter estimation}
+
+\frame{
+\frametitle{MCMC}
+}
+
+\frame{
+\frametitle{Check for convergence}
+}
+
+
+\end{document}

@@ -1,0 +1,247 @@
+\documentclass{eecslides}
+\mode<presentation>
+%\usecolortheme{BBSDark}
+
+%%------------------
+% Language and font
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+%%------------------
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{calc, shapes, backgrounds, arrows}
+
+% --- include packages
+\usepackage{subfigure}
+\usepackage{multicol}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumitem}
+
+%%------------------
+\DeclareRobustCommand\refmark[1]{\textsuperscript{\ref{#1}}}
+
+%%------------------ Tune the template
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+\title[Day 3]{Markov Chain Monte Carlo (MCMC) and Model Evaluation}
+\vspace{0.4cm}
+\vspace{0.6cm}
+
+%%% Begin slideshow
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{Introduction}
+
+\frame{
+\frametitle{Linking Frequentist and Bayesian Statistics}
+
+{\Large\bf Main interest of Frequentist}
+
+\vspace{0.1cm}
+
+Answering the question : How well is the data true to the model?
+{\Large 
+	$$\textcolor{blue}{\text{Likelihood}}\hspace{1.5cm}P(\text{Data}|\text{Model})$$
+}
+
+{\large{\bf Maximizing} the \textcolor{blue}{\text{Likelihood}}}
+
+\vspace{0.4cm}
+
+{\Large\bf Main interest of Bayesian}
+
+\vspace{0.1cm}
+
+Answering the question : How well is the model true to the data?
+{\Large 
+	$$\textcolor{orange}{\text{Posterior}}\hspace{1.5cm}P(\text{Model}|\text{Data})$$
+}
+
+{\large Finding the {\bf mean} of the \textcolor{orange}{\text{posterior}} distribution}
+
+}
+
+\section{MCMC}
+
+\frame{
+\frametitle{Ecological context}
+\framesubtitle{How important is elevation in defining sugar maple distribution on mont Sutton?}
+
+
+\begin{columns}[T]
+\begin{column}{0.5\textwidth}
+
+\vspace{-0.2cm}
+
+  \begin{center}
+    \scalebox{0.2}{
+      \includegraphics{Image/Mont_Sutton.jpg}
+    }
+  \end{center}
+  
+  \vspace{-0.2cm}
+  
+  {\large\bf Model}
+  
+  \vspace{-0.5cm}
+  
+  {\large $$y = \beta x + \epsilon$$}
+
+  \vspace{-0.8cm}
+
+ where
+ \begin{itemize}
+  \item[$y$] is the distribution of sugar maple
+  \item[$x$] is elevation
+  \item[$\beta$] is the importance of elevation
+  \item[$\epsilon$] is the model residuals
+ \end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+<<acerSacc,dev="tikz",fig.width = 4,fig.height = 5.75,echo=FALSE,eval=TRUE>>=
+setwd("~/Documents/Recherche/Dataset/Inventaires herbacés/")
+library(reshape2)
+### Read Sutton data
+suttonLong <- read.csv("sut_herbacee_2015.csv", header=TRUE, 
+                   sep = ";")
+
+### Format the data
+suttonMelt <- melt(suttonLong[ ,c(1:2, 5:6)],
+                   id.vars = c("BORX", "BORY", "ESPECE"))
+
+suttonAll <- dcast(suttonMelt, BORX * BORY ~ ESPECE, 
+                   fun.aggregate = length)
+                   
+### Extract species, elevation and coordinates
+sutton <- suttonAll[,-c(1:2,75)]
+trer <- as.matrix(sutton$TRER)
+xy <- suttonAll[,1:2]
+elev<-as.matrix(xy[,2])
+
+### Draw map
+par(mar=c(0,0,0,0))
+plot(xy,type="n",asp=1,axes=FALSE,xlab="",ylab="",las=1)
+points(xy[which(trer==1),],pch=15,cex=1.5)
+points(xy[which(trer==0),],pch=0,cex=1.5)
+@
+\end{column}
+\end{columns}
+
+}
+
+\frame{
+\frametitle{The basis of Markov Chain Monte Carlo (MCMC)}
+
+{\Large\bf Ecological question}
+
+How important is elevation for sugar maple distribution on mont Sutton
+
+
+
+In simulated annealing
+}
+
+\section{Metropolis-Hasting}
+
+\frame{
+\frametitle{The Metropolis-Hasting Algorithm}
+
+}
+
+\subsection{Adaptive Metropolis}
+
+\frame{
+\frametitle{The Adaptive Metropolis Algorithm}
+
+}
+
+\subsection{SCAM}
+
+\frame{
+\frametitle{The Single Component Adaptive Metropolis Algorithm}
+
+}
+
+\frame{
+\frametitle{The Single Component Adaptive Metropolis Algorithm with Rotation}
+
+}
+
+\section{Gibbs}
+
+\frame{
+\frametitle{Gibbs Sampling}
+
+}
+
+\section{Conjugate Prior}
+
+\frame{
+\frametitle{Conjugate Prior Distribution}
+
+}
+
+\section{Diagnostics}
+\subsection{Visual}
+
+\frame{
+\frametitle{Trace plot}
+
+}
+
+\frame{
+\frametitle{Density plot}
+
+}
+
+\subsection{Statistics}
+
+\frame{
+\frametitle{Gelman and Rubin's convergence diagnostics}
+
+}
+
+\frame{
+\frametitle{Geweke's convergence diagnostics}
+
+}
+
+\frame{
+\frametitle{Heidelberger and Welch's convergence diagnostics}
+
+}
+
+\section{Good Practices}
+
+\frame{
+\frametitle{Number of iterations}
+
+}
+
+\frame{
+\frametitle{Burning}
+
+}
+
+\frame{
+\frametitle{Thinning}
+
+}
+
+\frame{
+\frametitle{Convergence}
+
+}
+
+
+\end{document}
