@@ -125,24 +125,28 @@ points(xy[which(trer==0),],pch=0,cex=1.25)
 \frametitle{Linking Frequentist and Bayesian Statistics}
 \framesubtitle{How can we estimate $\beta$ and what does it imply?}
 
-{\Large\bf Main interest of Frequentist}
+{\Large\bf Frequentist}
 
 \vspace{0.1cm}
 
-Answering the question : How well is the data true to the model?
+%Want to find the best model parameter(s) ($\beta$) for the data at hand (sugar maple distribution)
+Want to find the best model parameter(s) for the data at hand
+
 {\Large 
 	$$\textcolor{blue}{\text{Likelihood}}\hspace{1.5cm}P(\text{Data}|\text{Model})$$
 }
 
-{\large{\bf Maximizing} the \textcolor{blue}{\text{Likelihood}}}
+{\large They are interested in {\bf maximizing} the \textcolor{blue}{\text{Likelihood}}}
+
+{\large They need data}
 
 \vspace{0.4cm}
 
-{\bf This can be done through}
+{\bf This can be done using}
 
 \begin{itemize}
   \item Simulated annealing
-  \item Nelder-Mead Simplex
+  \item The Nelder-Mead Simplex
   \item Minimizing the sums of squares
   \item \dots
 \end{itemize}
@@ -152,57 +156,79 @@ Answering the question : How well is the data true to the model?
 \frametitle{Linking Frequentist and Bayesian Statistics}
 \framesubtitle{How can we estimate $\beta$ and what does it imply?}
 
-{\Large\bf Main interest of Frequentist}
+{\Large\bf Bayesian}
 
 \vspace{0.1cm}
 
-Answering the question : How well is the data true to the model?
-{\Large 
-	$$\textcolor{blue}{\text{Likelihood}}\hspace{1.5cm}P(\text{Data}|\text{Model})$$
-}
+%Want to find how good the model parameter(s) ($\beta$) given some data (sugar maple distribution)
+Want to find how good the model parameter(s) are given some data
 
-{\large{\bf Maximizing} the \textcolor{blue}{\text{Likelihood}}}
-
-\vspace{0.4cm}
-
-{\Large\bf Main interest of Bayesian}
-
-\vspace{0.1cm}
-
-Answering the question : How well is the model true to the data?
 {\Large 
 	$$\textcolor{orange}{\text{Posterior}}\hspace{1.5cm}P(\text{Model}|\text{Data})$$
 }
 
-{\large Finding the {\bf mean} of the \textcolor{orange}{\text{posterior}} distribution}
+{\large They are intered in the \textcolor{orange}{\text{posterior}} distribution}
 
+{\large They need data and prior information}
+
+{\large Recall that}
+
+{\Large 
+	$$\underbrace{P(\text{Model}|\text{Data})}_{\textcolor{orange}{Posterior}}\propto \underbrace{P(\text{Data}|\text{Model})}_\text{\textcolor{blue}{Likelihood}}\underbrace{P(\text{Model})}_\text{\textcolor{green!50!black}{Prior}}$$
+}
+
+}
+
+\section{Bayesian}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{Estimating $\beta$}
+
+{\Large When the likelihood {\bf can} be solved analytically (Simple problem)}
+
+Example using conjugate prior distribution (explain what this is in this section)
+
+}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{Estimating $\beta$}
+Exercice (by hand?)
+}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{Estimating $\beta$}
+
+{\Large When the likelihood {\bf cannot} be solved analytically (Difficult problem)}
+
+Talk about MCMC
+Mention that MCMC {\bf can} be used for simple problems but it is generally time consumming so generally not the best way to go
 }
 
 \section{MCMC}
 
 \frame{
-\frametitle{The basis of Markov Chain Monte Carlo (MCMC)}
+\frametitle{The general concepts underlying Markov Chain Monte Carlo (MCMC)}
 
-{\Large\bf Ecological question}
-
-How important is elevation for sugar maple distribution on mont Sutton
-
-
-
-In simulated annealing
+Link with simulated annealing
 }
 
 \section{Metropolis-Hasting}
 
 \frame{
 \frametitle{The Metropolis-Hasting Algorithm}
-
+Present a detailled example of the algorithm
 }
 
 \subsection{Adaptive Metropolis}
 
 \frame{
 \frametitle{The Adaptive Metropolis Algorithm}
+Show what needs to be added to make MA adaptative
+
+show how this helps with the example
 
 }
 
@@ -210,26 +236,35 @@ In simulated annealing
 
 \frame{
 \frametitle{The Single Component Adaptive Metropolis Algorithm}
+Show what needs to be added to make MA a SCAM
 
+show how this helps with the example
 }
 
 \frame{
 \frametitle{The Single Component Adaptive Metropolis Algorithm with Rotation}
+Show what needs to be added to make MA a SCAM
 
+show how this helps with the example
 }
-
-\section{Gibbs}
 
 \frame{
 \frametitle{Gibbs Sampling}
+Gibbs sampling is a special case of MA
 
+Show an example of how this works
+
+This is particularly useful for hierarchical models
 }
 
-\section{Conjugate Prior}
+\frame{
+\frametitle{Metropolis-Hastings }
+Exercice: Build your own for a one parameter model
+}
 
 \frame{
-\frametitle{Conjugate Prior Distribution}
-
+\frametitle{Metropolis-Hastings \& Gibbs sampler}
+Exercice: Build your own for a two parameter model
 }
 
 \section{Diagnostics}
@@ -242,6 +277,12 @@ In simulated annealing
 
 \frame{
 \frametitle{Density plot}
+
+}
+
+\frame{
+\frametitle{Trace plot}
+Exercice: Build your own and compare it to the one of \texttt{coda}
 
 }
 
@@ -262,8 +303,17 @@ In simulated annealing
 
 }
 
+\frame{
+\frametitle{Raftery and Lewis's convergence diagnostics}
+
+}
+
 \section{Good Practices}
 
+\frame{
+\frametitle{Number of runs}
+
+}
 \frame{
 \frametitle{Number of iterations}
 
