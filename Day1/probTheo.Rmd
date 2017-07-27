@@ -1,0 +1,191 @@
+---
+title: "Few notes on probability theory"
+subtitle: "flip the coin and compute the likelihood (am: 1h20 + 1h20 / pm 2h + 15min)"
+author: Kevin Cazelles
+institute: University of Guelph
+date: August 14, 2017
+documentclass: eecslides
+babel-lang: english
+output:
+  beamer_presentation:
+    highlight: tango
+    includes:
+      in_header: header.tex
+# Rscript -e 'rmarkdown::render("probTheo.Rmd", "all")'
+---
+
+
+# Part 1 (AM-1 1h20)
+
+Probability theory from scratch
+
+
+# Few notes about History (15 min - 7 slides)
+
+```{r set, echo = FALSE}
+myblue <- "#7eb6d6"
+myred <- "#e080a3"
+mygreen <- "#d4e09b"
+mygrey <- "grey35"
+mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las = 1, cex.main=2, cex.axis=1.4, cex.lab=1.4, bty="l")
+```
+
+- Few ideas on the underlying philosophy
+
+- Le Chevalier De Méré, Pascal and Fermat: *the problem of points*
+
+- Laplace *Théorie Analytique des Probabilités in 1812*
+
+- Reverend Bayes *An Essay Towards Solving a Problem in the Doctrine of Chances*
+
+- Kolmogorov / Shannon
+
+- Importance of probabilities in Ecology
+    - A few important ecology papers that use tricky proba results
+    - First I have in mind in Allesina and Tang Science 2012
+
+
+
+# Basic concepts (10min - 4 slides)
+
+- Few basic concepts:
+    1. Probability space $\left(\Omega, \mathcal{F}, P\right)$
+    2. Trial, Outcome, sample, Events
+
+- Determining the probability of events:
+    4. Cardinal, Combinatorics
+    5. $\bigcap$ $\bigcup$
+
+
+# Practice 1 (15 min - 3 slides)
+
+\begin{exampleblock}{Basic Combinatorics}
+    - flip the coin and roll the dice
+
+    - I'll try to make it fun, *e.g.* how to simulate a dice using a coin?
+\end{exampleblock}
+
+
+# Random variables (20 min - 6 slides)
+
+  1. random variables $X$, P($X$)
+  2. discrete vs continuous
+  3. distributions pdf/cdf (ex: pdf next slides)
+
+
+# Example of a probability density function (pdf)
+
+<!-- probability distribution function -->
+<!-- a probability mass function -->
+
+  ```{r distrib, echo=FALSE}
+  seqx <- seq(-7,7,0.1)
+  par(mypar)
+  plot(seqx, dnorm(seqx), type="l", col=myblue, lwd=4)
+  ```
+
+
+# Practice 2 (15 min - 3 slides)
+
+  \begin{exampleblock}{Random variables}
+      - same kind of exercises as did previously but using the new formalism
+  \end{exampleblock}
+
+
+
+# Expectation / Variance / Moments / Quantiles (10 min - 4 slides)
+
+- Definitions
+- Basic examples
+<!-- - Shannon Entropy -->
+- König-Huygens theorem (it may be useful, I'll see if I keep it)
+
+
+
+
+
+# Part 2 (AM-2)
+
+Be independent or not to be independent, that is the question.
+
+
+# Independence (15 min - 4 slides)
+
+- Definition
+- This needs to be understood I'll therefore exemplify!
+
+
+# Bayes theorem (15 min - 4 slides)
+
+- What the reverend said: the original question he asked!
+- Theorem (the one we learn)
+- Implications
+
+
+# Practice 3 (50 min - 3 slides)
+
+\begin{exampleblock}{Let's recap}
+    - 1 to 3 examples that would use *almost* everything mentioned so far!
+    - I may use a classical example of conditional probability.
+\end{exampleblock}
+
+
+
+
+
+
+# Part 3 (PM-1 2h)
+
+In part 3, I will:
+
+1. Take some time to detail solutions of practice 3   
+2. explain the link between probability theory and statistics     
+3. based on this link, I'll propose exercises to calculate what students
+know very well: p-values and/or a CI!
+4. The idea is to lead student towards the idea of likelihood that will be detailed by Dom.
+
+# Practice 3 - answers (15 min - 3 slides)
+
+# Probability and Stats (15 min - 6 slides)
+  - I'll detail a couple of general ideas about probability and statistics link.
+  I can't say too much, I want them to "discover" the concepts. To do so, I'll
+  build 2 exercices.
+
+
+
+# Practice 4 (1h20 - 6 slides)
+
+1. I'll use a simple example: say we flip 100 times
+  a given coin and record Heads and Tails, what can we learn form this data
+  about the coin? Is is biased? How to proceed.
+    - what is the probability of obtaining such results if the $p$ (obtaining T)
+    is 0? 1? 0.5? is 0.1?
+    - compute $P(p\in[.4,.6])$
+    - find a way to get a and b such as $P(p\in[a,b])=.95$
+    - Let's introduce a second coin and a new set of data, are the two coins similar?
+
+2. Same kind of exercise with a normal distribution.
+
+3. Find a way to find the best parameter values?
+
+
+# Let's take a step back (4 slides - 10 min)
+
+- I'll take some time to explain what they actually did.
+
+
+
+
+
+# Part 4 (PM-2 15 min)
+
+Examples of usage of conditional probabilities.
+TIB and co-occurrence
+
+
+
+----
+
+\begin{alertblock}{AlertBlock}
+  Pass auf!
+\end{alertblock}
