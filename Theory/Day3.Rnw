@@ -67,7 +67,7 @@ Mont Sutton
   
   \vspace{-0.5cm}
   
-  {\large $$y = \beta x + \epsilon$$}
+  {\large $$P(y=1) = \beta x + \epsilon$$}
 
   \vspace{-0.8cm}
 
@@ -123,26 +123,32 @@ points(xy[which(trer==0),],pch=0,cex=1.25)
 
 \frame{
 \frametitle{Linking Frequentist and Bayesian Statistics}
-\framesubtitle{How can we estimate $\beta$ and what does it imply?}
+\framesubtitle{How can we estimate model parameters and what does it imply?}
 
-{\Large\bf Main interest of Frequentist}
+{\Large\bf Frequentist}
 
 \vspace{0.1cm}
 
-Answering the question : How well is the data true to the model?
+%Want to find the best model parameter(s) ($\beta$) for the data at hand (sugar maple distribution)
+Want to find the best model parameter(s) for the data at hand
+
 {\Large 
 	$$\textcolor{blue}{\text{Likelihood}}\hspace{1.5cm}P(\text{Data}|\text{Model})$$
 }
 
-{\large{\bf Maximizing} the \textcolor{blue}{\text{Likelihood}}}
+{\large They are interested in {\bf maximizing} the \textcolor{blue}{\text{Likelihood}}}
 
-\vspace{0.4cm}
+\vspace{0.1cm}
 
-{\bf This can be done through}
+{\large They need data}
+
+\vspace{0.2cm}
+
+{\bf This can be done using}
 
 \begin{itemize}
   \item Simulated annealing
-  \item Nelder-Mead Simplex
+  \item The Nelder-Mead Simplex
   \item Minimizing the sums of squares
   \item \dots
 \end{itemize}
@@ -150,59 +156,241 @@ Answering the question : How well is the data true to the model?
 
 \frame{
 \frametitle{Linking Frequentist and Bayesian Statistics}
-\framesubtitle{How can we estimate $\beta$ and what does it imply?}
+\framesubtitle{How can we estimate model parameters and what does it imply?}
 
-{\Large\bf Main interest of Frequentist}
-
-\vspace{0.1cm}
-
-Answering the question : How well is the data true to the model?
-{\Large 
-	$$\textcolor{blue}{\text{Likelihood}}\hspace{1.5cm}P(\text{Data}|\text{Model})$$
-}
-
-{\large{\bf Maximizing} the \textcolor{blue}{\text{Likelihood}}}
-
-\vspace{0.4cm}
-
-{\Large\bf Main interest of Bayesian}
+{\Large\bf Bayesian}
 
 \vspace{0.1cm}
 
-Answering the question : How well is the model true to the data?
+%Want to find how good the model parameter(s) ($\beta$) given some data (sugar maple distribution)
+Want to find how good the model parameter(s) are given some data
+
 {\Large 
 	$$\textcolor{orange}{\text{Posterior}}\hspace{1.5cm}P(\text{Model}|\text{Data})$$
 }
 
-{\large Finding the {\bf mean} of the \textcolor{orange}{\text{posterior}} distribution}
+{\large They are intered in the \textcolor{orange}{\text{posterior}} distribution}
 
+\vspace{0.1cm}
+
+{\large They need data and prior information}
+
+\vspace{0.2cm}
+
+{\large\bf Recall that}
+
+{\Large 
+	$$\underbrace{P(\text{Model}|\text{Data})}_{\textcolor{orange}{Posterior}}\propto \underbrace{P(\text{Data}|\text{Model})}_\text{\textcolor{blue}{Likelihood}}\underbrace{P(\text{Model})}_\text{\textcolor{green!50!black}{Prior}}$$
+}
+
+}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{A few words about the prior}
+
+{\Large Definition of prior probability}
+
+\vspace{0.1cm}
+
+The {\bf prior probability} informes us about the probability of the model being true \textit{before} the current data is considered.
+
+\vspace{0.5cm}
+
+{\Large Types of priors}
+
+\vspace{0.1cm}
+
+{\bf\large Uninformative}
+
+\vspace{0.1cm}
+
+These priors are meant to bring very little information about the model
+
+\vspace{0.1cm}
+
+{\bf\large Informative}
+
+\vspace{0.1cm}
+
+These priors bring information about the model that is available
+
+}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{A few words about the prior}
+
+{\Large\bf Uninformative priors}
+
+\vspace{0.1cm}
+
+{\bf Example:} If we have no idea of how elevation influence sugar maple
+
+\vspace{0.1cm}
+
+{\bf Gaussian distribution}
+
+\vspace{0.1cm}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\large $$\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+\end{column}
+with
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+  \item $\mu = 0$
+  \item $\sigma = \text{Large say 100}$
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.2cm}
+<<uninfoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=2>>=
+par(mar=c(0.5,5,0.5,0.5))
+couleur<-rainbow(5)
+curve(dnorm, -100, 100, n = 10000, col = couleur[1], xaxt = "n",
+      xlab = "", ylab = "Density", las = 1, cex.lab=1.5, lwd = 3)
+curve(dnorm(x,mean = 0, sd = 2), -1000, 1000, add=TRUE,
+      n=10000, col="orange", lwd = 3)
+curve(dnorm(x,mean = 0, sd = 5), -1000, 1000, add=TRUE,
+      n=10000,col=couleur[3], lwd = 3)
+curve(dnorm(x,mean = 0, sd = 8), -1000, 1000, add=TRUE,
+      n=10000,col=couleur[4], lwd = 3)
+curve(dnorm(x,mean = 0, sd = 10), -1000, 1000, add=TRUE,
+      n=10000,col=couleur[5], lwd = 3)
+curve(dnorm(x,mean = 0, sd = 100), -1000, 1000, add=TRUE,
+      n=10000, lwd = 3)
+legend("topright",legend=c("$\\sigma=1$",
+                           "$\\sigma=2$",
+                           "$\\sigma=5$",
+                           "$\\sigma=8$",
+                           "$\\sigma=10$",
+                           "$\\sigma=100$"),col=c(couleur[1],
+                                                   "orange",
+                                                   couleur[3:5],
+                                                   "black"),
+       lty=1, lwd=3)
+@
+
+}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{A few words about the prior}
+
+{\Large\bf Informative priors}
+
+\vspace{0.1cm}
+
+{\bf Example:} If we know that 
+\begin{itemize}
+  \item There are less sugar maples the higher we go
+  \item The influence of elevation on sugar maple cannot be more than two folds
+\end{itemize}
+
+\vspace{0.1cm}
+
+{\bf Uniform distribution}
+
+\vspace{0.1cm}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\large $$\left\{
+  \begin{array}{cl}
+    \frac{1}{b-a} & \text{for } x\in [a,b]\\
+    0 &\text{otherwise}\\
+  \end{array}
+\right.$$
+\end{column}
+with
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+  \item $a > -2$
+  \item $b < 0$
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.2cm}
+<<infoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=1.5>>=
+par(mar=c(2,5,0.5,0.5))
+curve(dunif(x,min = -2, max = 0), -2.5, 0.5, xlab = "",
+      ylab = "Density", las = 1, cex.lab=1.5, lwd = 3)
+@
+}
+
+
+\section{Bayesian}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{Estimating model parameters}
+
+{\large\bf When the likelihood \textit{can} be solved analytically}
+
+\vspace{0.2cm}
+
+{\bf Example}
+
+\vspace{0.1cm}
+
+Assuming that the sugar maple follows a binomial distribution where
+
+\begin{itemize}[leftmargin=2cm]
+  \item[Data:] $y$
+  \item[Model ($\theta$):] $\beta x$
+\end{itemize}
+then the \textcolor{blue}{likelihood} is
+\begin{align*}
+  P(y|\theta)&=\binom{1}{y}\theta^y\left(1-\theta\right)^{1-y}\\
+  &\propto\theta^y\left(1-\theta\right)^{1-y}\\
+  &\propto\left(\beta x\right)^y\left(1-\beta x\right)^{1-y}\\
+\end{align*}
+
+
+}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{Estimating $\beta$}
+Exercice (by hand?)
+}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{Estimating $\beta$}
+
+{\Large When the likelihood {\bf cannot} be solved analytically (Difficult problem)}
+
+Talk about MCMC
+Mention that MCMC {\bf can} be used for simple problems but it is generally time consumming so generally not the best way to go
 }
 
 \section{MCMC}
 
 \frame{
-\frametitle{The basis of Markov Chain Monte Carlo (MCMC)}
+\frametitle{The general concepts underlying Markov Chain Monte Carlo (MCMC)}
 
-{\Large\bf Ecological question}
-
-How important is elevation for sugar maple distribution on mont Sutton
-
-
-
-In simulated annealing
+Link with simulated annealing
 }
 
 \section{Metropolis-Hasting}
 
 \frame{
 \frametitle{The Metropolis-Hasting Algorithm}
-
+Present a detailled example of the algorithm
 }
 
 \subsection{Adaptive Metropolis}
 
 \frame{
 \frametitle{The Adaptive Metropolis Algorithm}
+Show what needs to be added to make MA adaptative
+
+show how this helps with the example
 
 }
 
@@ -210,26 +398,35 @@ In simulated annealing
 
 \frame{
 \frametitle{The Single Component Adaptive Metropolis Algorithm}
+Show what needs to be added to make MA a SCAM
 
+show how this helps with the example
 }
 
 \frame{
 \frametitle{The Single Component Adaptive Metropolis Algorithm with Rotation}
+Show what needs to be added to make MA a SCAM
 
+show how this helps with the example
 }
-
-\section{Gibbs}
 
 \frame{
 \frametitle{Gibbs Sampling}
+Gibbs sampling is a special case of MA
 
+Show an example of how this works
+
+This is particularly useful for hierarchical models
 }
 
-\section{Conjugate Prior}
+\frame{
+\frametitle{Metropolis-Hastings }
+Exercice: Build your own for a one parameter model
+}
 
 \frame{
-\frametitle{Conjugate Prior Distribution}
-
+\frametitle{Metropolis-Hastings \& Gibbs sampler}
+Exercice: Build your own for a two parameter model
 }
 
 \section{Diagnostics}
@@ -242,6 +439,12 @@ In simulated annealing
 
 \frame{
 \frametitle{Density plot}
+
+}
+
+\frame{
+\frametitle{Trace plot}
+Exercice: Build your own and compare it to the one of \texttt{coda}
 
 }
 
@@ -262,8 +465,17 @@ In simulated annealing
 
 }
 
+\frame{
+\frametitle{Raftery and Lewis's convergence diagnostics}
+
+}
+
 \section{Good Practices}
 
+\frame{
+\frametitle{Number of runs}
+
+}
 \frame{
 \frametitle{Number of iterations}
 
@@ -276,11 +488,6 @@ In simulated annealing
 
 \frame{
 \frametitle{Thinning}
-
-}
-
-\frame{
-\frametitle{Convergence}
 
 }
 
