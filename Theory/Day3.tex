@@ -117,7 +117,7 @@ Mont Sutton
   
   \vspace{-0.5cm}
   
-  {\large $$y = \beta x + \epsilon$$}
+  {\large $$P(y=1) = \beta x + \epsilon$$}
 
   \vspace{-0.8cm}
 
@@ -142,7 +142,7 @@ Mont Sutton
 
 \frame{
 \frametitle{Linking Frequentist and Bayesian Statistics}
-\framesubtitle{How can we estimate $\beta$ and what does it imply?}
+\framesubtitle{How can we estimate model parameters and what does it imply?}
 
 {\Large\bf Frequentist}
 
@@ -157,9 +157,11 @@ Want to find the best model parameter(s) for the data at hand
 
 {\large They are interested in {\bf maximizing} the \textcolor{blue}{\text{Likelihood}}}
 
+\vspace{0.1cm}
+
 {\large They need data}
 
-\vspace{0.4cm}
+\vspace{0.2cm}
 
 {\bf This can be done using}
 
@@ -173,7 +175,7 @@ Want to find the best model parameter(s) for the data at hand
 
 \frame{
 \frametitle{Linking Frequentist and Bayesian Statistics}
-\framesubtitle{How can we estimate $\beta$ and what does it imply?}
+\framesubtitle{How can we estimate model parameters and what does it imply?}
 
 {\Large\bf Bayesian}
 
@@ -188,9 +190,13 @@ Want to find how good the model parameter(s) are given some data
 
 {\large They are intered in the \textcolor{orange}{\text{posterior}} distribution}
 
+\vspace{0.1cm}
+
 {\large They need data and prior information}
 
-{\large Recall that}
+\vspace{0.2cm}
+
+{\large\bf Recall that}
 
 {\Large 
 	$$\underbrace{P(\text{Model}|\text{Data})}_{\textcolor{orange}{Posterior}}\propto \underbrace{P(\text{Data}|\text{Model})}_\text{\textcolor{blue}{Likelihood}}\underbrace{P(\text{Model})}_\text{\textcolor{green!50!black}{Prior}}$$
@@ -198,15 +204,150 @@ Want to find how good the model parameter(s) are given some data
 
 }
 
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{A few words about the prior}
+
+{\Large Definition of prior probability}
+
+\vspace{0.1cm}
+
+The {\bf prior probability} informes us about the probability of the model being true \textit{before} the current data is considered.
+
+\vspace{0.5cm}
+
+{\Large Types of priors}
+
+\vspace{0.1cm}
+
+{\bf\large Uninformative}
+
+\vspace{0.1cm}
+
+These priors are meant to bring very little information about the model
+
+\vspace{0.1cm}
+
+{\bf\large Informative}
+
+\vspace{0.1cm}
+
+These priors bring information about the model that is available
+
+}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{A few words about the prior}
+
+{\Large\bf Uninformative priors}
+
+\vspace{0.1cm}
+
+{\bf Example:} If we have no idea of how elevation influence sugar maple
+
+\vspace{0.1cm}
+
+{\bf Gaussian distribution}
+
+\vspace{0.1cm}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\large $$\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+\end{column}
+with
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+  \item $\mu = 0$
+  \item $\sigma = \text{Large say 100}$
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.2cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/uninfoPrior-1} 
+
+\end{knitrout}
+
+}
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{A few words about the prior}
+
+{\Large\bf Informative priors}
+
+\vspace{0.1cm}
+
+{\bf Example:} If we know that 
+\begin{itemize}
+  \item There are less sugar maples the higher we go
+  \item The influence of elevation on sugar maple cannot be more than two folds
+\end{itemize}
+
+\vspace{0.1cm}
+
+{\bf Uniform distribution}
+
+\vspace{0.1cm}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\large $$\left\{
+  \begin{array}{cl}
+    \frac{1}{b-a} & \text{for } x\in [a,b]\\
+    0 &\text{otherwise}\\
+  \end{array}
+\right.$$
+\end{column}
+with
+\begin{column}{0.5\textwidth}
+\begin{itemize}
+  \item $a > -2$
+  \item $b < 0$
+\end{itemize}
+\end{column}
+\end{columns}
+
+\vspace{0.2cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/infoPrior-1} 
+
+\end{knitrout}
+}
+
+
 \section{Bayesian}
 
 \frame{
 \frametitle{Bayesian Statistics}
-\framesubtitle{Estimating $\beta$}
+\framesubtitle{Estimating model parameters}
 
-{\Large When the likelihood {\bf can} be solved analytically (Simple problem)}
+{\large\bf When the likelihood \textit{can} be solved analytically}
 
-Example using conjugate prior distribution (explain what this is in this section)
+\vspace{0.2cm}
+
+{\bf Example}
+
+\vspace{0.1cm}
+
+Assuming that the sugar maple follows a binomial distribution where
+
+\begin{itemize}[leftmargin=2cm]
+  \item[Data:] $y$
+  \item[Model ($\theta$):] $\beta x$
+\end{itemize}
+then the \textcolor{blue}{likelihood} is
+\begin{align*}
+  P(y|\theta)&=\binom{1}{y}\theta^y\left(1-\theta\right)^{1-y}\\
+  &\propto\theta^y\left(1-\theta\right)^{1-y}\\
+  &\propto\left(\beta x\right)^y\left(1-\beta x\right)^{1-y}\\
+\end{align*}
+
 
 }
 
