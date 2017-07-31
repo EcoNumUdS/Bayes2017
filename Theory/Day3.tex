@@ -329,24 +329,26 @@ with
 
 {\large\bf When the likelihood \textit{can} be solved analytically}
 
-\vspace{0.2cm}
+Start from Dominique's day 2 work.
 
-{\bf Example}
+%\vspace{0.2cm}
 
-\vspace{0.1cm}
+%{\bf Example}
 
-Assuming that the sugar maple follows a binomial distribution where
+%\vspace{0.1cm}
 
-\begin{itemize}[leftmargin=2cm]
-  \item[Data:] $y$
-  \item[Model ($\theta$):] $\beta x$
-\end{itemize}
-then the \textcolor{blue}{likelihood} is
-\begin{align*}
-  P(y|\theta)&=\binom{1}{y}\theta^y\left(1-\theta\right)^{1-y}\\
-  &\propto\theta^y\left(1-\theta\right)^{1-y}\\
-  &\propto\left(\beta x\right)^y\left(1-\beta x\right)^{1-y}\\
-\end{align*}
+%Assuming that the sugar maple follows a binomial distribution where
+
+%\begin{itemize}[leftmargin=2cm]
+%  \item[Data:] $y$
+%  \item[Model ($\theta$):] $\beta x$
+%\end{itemize}
+%then the \textcolor{blue}{likelihood} is
+%\begin{align*}
+%  P(y|\theta)&=\binom{1}{y}\theta^y\left(1-\theta\right)^{1-y}\\
+%  &\propto\theta^y\left(1-\theta\right)^{1-y}\\
+%  &\propto\left(\beta x\right)^y\left(1-\beta x\right)^{1-y}\\
+%\end{align*}
 
 
 }
@@ -370,15 +372,38 @@ Mention that MCMC {\bf can} be used for simple problems but it is generally time
 \section{MCMC}
 
 \frame{
-\frametitle{The general concepts underlying Markov Chain Monte Carlo (MCMC)}
+\frametitle{Properties Markov Chain Monte Carlo (MCMC)}
 
-Link with simulated annealing
+{\large\bf Similarity with simulated annealing}
+\begin{itemize}
+  \item New parameter values are chosen sequentially but randomly
+  \item There are many ways to choose and accept new parameter values
+\end{itemize}
+
+\vspace{0.2cm}
+
+{\large\bf Difference with simulated annealing}
+\begin{itemize}
+  \item The main goal of MCMC is to sample the \textcolor{orange}{posterior} distribution
+  \item No ``temperature'' is defined
+  \item It is impossible to get stuck in a loop while iterating
+\end{itemize}
+
+\vspace{0.2cm}
+
+{\large\bf Assumptions of MCMC}
+
+\begin{itemize}
+  \item All potential parameter combinations can be reached from all other parameter combination
+  \item After enough iterations the chain will converges to a stationary distribution
+\end{itemize}
 }
 
 \section{Metropolis-Hasting}
 
 \frame{
 \frametitle{The Metropolis-Hasting Algorithm}
+\framesubtitle{Theory}
 Present a detailled example of the algorithm
 }
 
