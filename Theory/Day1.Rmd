@@ -1,6 +1,6 @@
 ---
 title: "Few notes on probability theory"
-subtitle: "flip the coin and compute the likelihood (am: 1h20 + 1h20 / pm 2h + 15min)"
+subtitle: "flip the coin and compute the likelihood"
 author: Kevin Cazelles
 institute: University of Guelph
 date: August 14, 2017
@@ -15,12 +15,15 @@ output:
 ---
 
 
-# Part 1 (AM-1 1h20)
-
-Probability theory from scratch
 
 
-# Few notes about History (15 min - 7 slides)
+# PART 1
+
+\LARGE{Probability theory from scratch}
+
+  - \large{Let's recall/learn some basic concepts}
+
+<!-- (am: 1h20 + 1h20 / pm 2h + 15min) -->
 
 ```{r set, echo = FALSE}
 myblue <- "#7eb6d6"
@@ -30,36 +33,139 @@ mygrey <- "grey35"
 mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las = 1, cex.main=2, cex.axis=1.4, cex.lab=1.4, bty="l")
 ```
 
-- Few ideas on the underlying philosophy
 
-- Le Chevalier De Méré, Pascal and Fermat: *the problem of points*
 
-- Laplace *Théorie Analytique des Probabilités in 1812*
+# Few notes about History
+
+- Chevalier De Méré, Pascal and Fermat: *the problem of points*
+  - prediction based on data / envision outcomes
+
+# Few notes about History
+
+- Laplace *Théorie Analytique des Probabilités in 1812* and
 
 - Reverend Bayes *An Essay Towards Solving a Problem in the Doctrine of Chances*
-
-- Kolmogorov / Shannon
-
-- Importance of probabilities in Ecology
-    - A few important ecology papers that use tricky proba results
-    - First I have in mind in Allesina and Tang Science 2012
+I go back to that latter
 
 
+# Few notes about History
 
-# Basic concepts (10min - 4 slides)
+- Kolmogorov / Shannon / update information theory
+- Mathematization
 
-- Few basic concepts:
-    1. Probability space $\left(\Omega, \mathcal{F}, P\right)$
-    2. Trial, Outcome, sample, Events
+
+# Why probability are important
+
+- Statistics
+- Stochastic process
+- Heisenberg / Einstein  
+
+- Do we need tricky probability in Ecology?
+  - Allesina and Tang Science 2012 based on the distribution of Eigen values
+  - Coalescent
+
+
+
+
+# Probability space (1/3)
+
+\begin{large}
+$\left(\Omega, \mathcal{F}, P\right)$
+\end{large}
+
+
+1. $\Omega$: Sample space set of all possible outcomes  
+
+\begin{itemize}
+     \item<4-6> "Head" "Tail"
+ \end{itemize}  
+
+\pause
+
+2. $\mathcal{F}$: set of events *i.e.* 0 or more outcomes
+
+\begin{itemize}
+     \item<5-6> $\emptyset$, "Head", "Tail", "Head or Tail" ($\Omega$)
+ \end{itemize}   
+
+\pause
+
+3. $P$: assign a probability / map events occurrence into [0,1]
+
+\begin{itemize}
+     \item<6-6> \alert<6>{$P(\emptyset)=0$};  $P("Head") = p$;  $P("Tail") = 1-p$; \alert<6>{$P(\Omega) = 1$}
+ \end{itemize}  
+
+
+
+# Probability space (2/3)
+
+\begin{large}
+Occurrence of species 1 and 2 on an island
+\end{large}
+
+ 1. $\Omega$ :  "00", "01", "10", "11"
+
+\pause
+
+ 2. $\mathcal{F}$: $\emptyset$, "01", "at least of species", $\Omega$, etc.
+
+\pause
+
+ 3. $P$: assign probability to "00", "01", "10", "11"
+
+
+
+
+# Probability space (3/3)
+
+  \begin{large}
+  Occurrence of species 1 and species 2 on an island
+  \end{large}
+
+   1. $\Omega$
+
+   \begin{itemize}
+        \item<2-4> {"00", "01", "10", "11"}
+    \end{itemize}  
+
+   2. $\mathcal{F}$
+
+   \begin{itemize}
+        \item<3-4> $\emptyset$, $\Omega$, $\Omega$
+    \end{itemize}   
+
+   3. $P$: assign P("00") P("01") P("10") P("11")
+
+
+<!-- Understanding the ddifference bewteen Omega and F is ++ -->
+<!-- The set of question F allows is huge and we need to combine outcomes properly -->
+
+<!-- # Flipping a coin
+
+Species 1 present on site A
+
+\pause
+1. $\Omega$: Sample space set of all possible outcomes  
+\pause
+2. $\mathcal{F}$: set of events i.e. 0 or more out come
+\pause
+3. $P$: assign a probability map events occurrence into $\[0,1\]$ -->
+
+
+
+
+# Combining events
 
 - Determining the probability of events:
-    4. Cardinal, Combinatorics
+    4. Cardinal, Combinatorics $Card()$
     5. $\bigcap$ $\bigcup$
 
 
 # Practice 1 (15 min - 3 slides)
 
 \begin{exampleblock}{Basic Combinatorics}
+
     - flip the coin and roll the dice
 
     - I'll try to make it fun, *e.g.* how to simulate a dice using a coin?
@@ -104,7 +210,16 @@ mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las 
 
 
 
-# Part 2 (AM-2)
+
+
+
+
+
+
+
+
+
+# PART 2
 
 Be independent or not to be independent, that is the question.
 
