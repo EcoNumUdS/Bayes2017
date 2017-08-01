@@ -2,15 +2,21 @@ Bonjour à tous,
 
 C’est avec grand plaisir que nous vous communiquons les détails concernant l’école d’été en statistiques bayésiennes.
 
+Page web : 
+
+Tous les détails de l'école d'été seront transmis via la page web suivante (https://theoreticalecosystemecology.github.io/BayesSummer/)
+
+Il est donc important de visiter cette page souvent d'ici le début de l'école d'été. À noter que tous les fichiers et articles mentionné dans ce message sont tous disponible sur la page web de l'école d'été. 
+
 Transport et Hébergement :
 
 L’école d’été se déroulera à Orford Musique au 3165, chemin du Parc Orford (Québec, J1X 7A2) du 14 au 18 août 2017.
 
-Si vous désirez vous rendre sur le lieu par autobus, la compagnie Limocar (https://limocar.ca/) offre des services à destination de Magog. Steve Vissault assurera la navette entre Magog et Orford Musique. Assurer vous donc de nous  contacter (ecole.biologie@usherbrooke.ca) à l'avance avec votre horaire et lieu d'arriver pour être certain qu'il puisse vous rencontrer à la bonne place et au bon moment.
+Si vous désirez vous rendre sur le lieu par autobus, la compagnie Limocar (https://limocar.ca) offre des services à destination de Magog. Si vous utilisez ce mode de transport, assurer vous donc de nous  contacter (ecole.biologie@usherbrooke.ca) à l'avance avec votre horaire et lieu d'arriver pour être certain qu'on puisse vous rencontrer à la bonne place et au bon moment.
 
 Lors de votre séjour à Orford Musique, la literie ainsi que des serviettes de bains vous seront fournies. Il faudra par contre apporter le gel douche et le shampoing.
 
-Des détails supplémentaires à propos d'Orford Musique sont disponibles dans le fichier PDF : Informations générales - Orford Musique.pdf.
+Des détails supplémentaires à propos d'Orford Musique sont disponibles sur la page web du cours.
 
 Arrivé sur le lieu :
 
@@ -27,12 +33,20 @@ Matériels de cours à apporter :
 
 Lecture :
 
-Quelques articles doivent avoir été lus avant le début de l'école d'été. En voici la liste:
+Avant le début de l'école d'été, les étudiants doivent avoir lue les cinq articles suivant:
+
+Choy, S. L., R. O’Leary, et K. Mengersen. 2009. Elicitation by design in ecology: using expert opinion to inform priors for Bayesian statistical models. Ecology 90:265–277.
+
+Cressie, N., C. A. Calder, J. S. Clark, J. M. V. Hoef, et C. K. Wikle. 2009. Accounting for uncertainty in ecological analysis: the strengths and limitations of hierarchical statistical modeling. Ecological Applications 19:553–570. 
+
+Dorazio, R. M. 2016. Bayesian data analysis in population ecology: motivations, methods, and benefits. Population Ecology 58:31–44. 
+
+Ellison, A. M. 1996. An introduction to Bayesian inference for ecological research and environmental decision-making. Ecological Applications 6:1036–1046. 
+
+Ludwig, D. 1996. Uncertainty and the assessment of extinction probabilities. Ecological Applications 6:1067–1076. 
 
 
-Ces articles sont attachés à ce message.
-
-Activités externes:
+Activités extracurriculaires :
 
 Le site d’Orford Musique est exceptionnel et placé directement au pied du Parc National du Mont Orford. Il vous sera donc possible de faire de la randonnée et de la course à pied sur ces sentiers à l'extérieur des période de cours.
 
@@ -45,6 +59,12 @@ Nous aurons aussi la possibilité de prendre un verre (avec ou sans alcool) auto
 Hi everyone,
 
 We are very eager to have for the upcomming summer school in Bayesian statistics for eologists. Here a few more details about the course that will be necessary for you regarding various aspects of the course.
+
+Webpage: 
+
+All details related to the summer school are available through the summer school webpage (https://theoreticalecosystemecology.github.io/BayesSummer/)
+
+As such, it is important to visit this webpage regularly until the summer school begins. Note that all files and papers mentioned in this message are available on the summer school webpage. 
 
 Transportation and housing:
 
