@@ -4,7 +4,9 @@
 
 ## Transport et Hébergement
 
-L’école d’été se déroulera à Orford Musique au 3165, chemin du Parc Orford (Québec, J1X 7A2) du 14 au 18 août 2017.
+L’école d’été se déroulera à Orford Musique au 3165, chemin du Parc Orford ([Google Maps](https://www.google.ca/maps/place/3165+Chemin+du+Parc,+Orford,+QC+J1X+7A2/@45.3104269,-72.3047752,10.9z/data=!4m5!3m4!1s0x4cb636b8e3a3e881:0xaf3ad0b9593e3674!8m2!3d45.3234421!4d-72.1820622)) du 14 au 18 août 2017.
+
+https://www.google.ca/maps/place/3165+Chemin+du+Parc,+Orford,+QC+J1X+7A2/@45.3104269,-72.3047752,10.9z/data=!4m5!3m4!1s0x4cb636b8e3a3e881:0xaf3ad0b9593e3674!8m2!3d45.3234421!4d-72.1820622
 
 Si vous désirez vous rendre sur le lieu par autobus, la compagnie Limocar ([https://limocar.ca/](https://limocar.ca)) offre des services à destination de Magog. Si vous utilisez ce mode de transport, assurer vous donc de nous  contacter (ecole.biologie@usherbrooke.ca) à l'avance avec votre horaire et lieu d'arriver pour être certain qu'on puisse vous rencontrer à la bonne place et au bon moment.
 
@@ -52,9 +54,9 @@ Nous aurons aussi la possibilité de prendre un verre (avec ou sans alcool) auto
 
 ## Transportation and housing
 
-The summer school will be held at Orford Musique located at 3165, chemin du Parc Orford (Québec, J1X 7A2), from August 14 to 18 2017.
+The summer school will be held at Orford Musique located at 3165, chemin du Parc Orford ([Google Maps](https://www.google.ca/maps/place/3165+Chemin+du+Parc,+Orford,+QC+J1X+7A2/@45.3104269,-72.3047752,10.9z/data=!4m5!3m4!1s0x4cb636b8e3a3e881:0xaf3ad0b9593e3674!8m2!3d45.3234421!4d-72.1820622)), from August 14 to 18 2017.
 
-If you need to get to Orford Musique by bus, Limocar (https://limocar.ca/) offers rides to Magog. If you are using this mean of transportation, make sure to contact us (ecole.biologie@usherbrooke.ca) in advance with your scheduled arrival to make sure he can meet you at the right place and time.
+If you need to get to Orford Musique by bus, Limocar ([https://limocar.ca/](https://limocar.ca)) offers rides to Magog. If you are using this mean of transportation, make sure to contact us (ecole.biologie@usherbrooke.ca) in advance with your scheduled arrival to make sure he can meet you at the right place and time.
 
 During your time at Orford Musique, beddings and towels will be provided. However, you will need to bring **shower soap** and **shampoo**.
 
