@@ -74,7 +74,7 @@ You can arrive on site Sunday August 13. Please contact us (ecole.biologie@usher
 - Data (if you have any)
 - Pen, pencils and paper
 
-Reading material :
+## Reading material
 
 Before the beginning of the summer school, students are required to read the following five papers:
 
