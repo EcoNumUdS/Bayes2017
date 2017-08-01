@@ -6,8 +6,6 @@
 
 L’école d’été se déroulera à Orford Musique au 3165, chemin du Parc Orford ([Google Maps](https://www.google.ca/maps/place/3165+Chemin+du+Parc,+Orford,+QC+J1X+7A2/@45.3104269,-72.3047752,10.9z/data=!4m5!3m4!1s0x4cb636b8e3a3e881:0xaf3ad0b9593e3674!8m2!3d45.3234421!4d-72.1820622)) du 14 au 18 août 2017.
 
-https://www.google.ca/maps/place/3165+Chemin+du+Parc,+Orford,+QC+J1X+7A2/@45.3104269,-72.3047752,10.9z/data=!4m5!3m4!1s0x4cb636b8e3a3e881:0xaf3ad0b9593e3674!8m2!3d45.3234421!4d-72.1820622
-
 Si vous désirez vous rendre sur le lieu par autobus, la compagnie Limocar ([https://limocar.ca/](https://limocar.ca)) offre des services à destination de Magog. Si vous utilisez ce mode de transport, assurer vous donc de nous  contacter (ecole.biologie@usherbrooke.ca) à l'avance avec votre horaire et lieu d'arriver pour être certain qu'on puisse vous rencontrer à la bonne place et au bon moment.
 
 Lors de votre séjour à Orford Musique, la literie ainsi que des serviettes de bains vous seront fournies. Il faudra par contre apporter votre **gel douche** et votre **shampoing**.
