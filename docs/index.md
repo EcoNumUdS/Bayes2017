@@ -6,7 +6,7 @@
 
 L’école d’été se déroulera à Orford Musique au 3165, chemin du Parc Orford (Québec, J1X 7A2) du 14 au 18 août 2017.
 
-Si vous désirez vous rendre sur le lieu par autobus, la compagnie Limocar (https://limocar.ca/) offre des services à destination de Magog. Si vous utilisez ce mode de transport, assurer vous donc de nous  contacter (ecole.biologie@usherbrooke.ca) à l'avance avec votre horaire et lieu d'arriver pour être certain qu'on puisse vous rencontrer à la bonne place et au bon moment.
+Si vous désirez vous rendre sur le lieu par autobus, la compagnie Limocar ([https://limocar.ca/]) offre des services à destination de Magog. Si vous utilisez ce mode de transport, assurer vous donc de nous  contacter (ecole.biologie@usherbrooke.ca) à l'avance avec votre horaire et lieu d'arriver pour être certain qu'on puisse vous rencontrer à la bonne place et au bon moment.
 
 Lors de votre séjour à Orford Musique, la literie ainsi que des serviettes de bains vous seront fournies. Il faudra par contre apporter votre **gel douche** et votre **shampoing**.
 
@@ -16,7 +16,7 @@ Un plan du site d'Orford Musique se trouve [ici](Plan_Orford_Musique.pdf).
 
 ## Arrivé sur le lieu
 
-Vous pouvez arriver sur le site le dimanche 13 août. S'il-vous-plaît,  communiquer avec nous (```ecole.biologie@usherbrooke.ca```) si vous désirez bénéficier de la nuit du 13 août. Il n’y aura aucun frais mais pour des questions de logistique nous souhaiterions en être avisé.
+Vous pouvez arriver sur le site le dimanche 13 août. S'il-vous-plaît,  communiquer avec nous (ecole.biologie@usherbrooke.ca) si vous désirez bénéficier de la nuit du 13 août. Il n’y aura aucun frais mais pour des questions de logistique nous souhaiterions en être avisé.
 
 ## La programmation de la semaine se trouve [ici (seulement en anglais)](schedule_detailed.pdf).
 
@@ -32,7 +32,7 @@ Avant le début de l'école d'été, les étudiants doivent avoir lue les cinq a
 
 Choy, S. L., R. O’Leary, et K. Mengersen. 2009. Elicitation by design in ecology: using expert opinion to inform priors for Bayesian statistical models. Ecology 90:265–277. ([PDF](Choy_et_al_2009-Ecology.pdf))
 
-Cressie, N., C. A. Calder, J. S. Clark, J. M. V. Hoef, et C. K. Wikle. 2009. Accounting for uncertainty in ecological analysis: the strengths and limitations of hierarchical statistical modeling. Ecological Applications 19:553–570. ([PDF](Cressie_et_al_2009-Ecological_Applications.pdf))
+Cressie, N., C. A. Calder, J. S. Clark, J. M. V. Hoef, et C. K. Wikle. 2009. Accounting for uncertainty in ecological analysis: the strengths and limitations of hierarchical statistical modeling. Ecological Applications 19:553–570. ([PDF](Cressie_et_al-2009-Ecological_Applications.pdf))
 
 Dorazio, R. M. 2016. Bayesian data analysis in population ecology: motivations, methods, and benefits. Population Ecology 58:31–44. ([PDF](Dorazio_2016-Population_Ecology.pdf))
 
@@ -80,7 +80,7 @@ Before the beginning of the summer school, students are required to read the fol
 
 Choy, S. L., R. O’Leary, and K. Mengersen. 2009. Elicitation by design in ecology: using expert opinion to inform priors for Bayesian statistical models. Ecology 90:265–277. ([PDF](Choy_et_al_2009-Ecology.pdf))
 
-Cressie, N., C. A. Calder, J. S. Clark, J. M. V. Hoef, and C. K. Wikle. 2009. Accounting for uncertainty in ecological analysis: the strengths and limitations of hierarchical statistical modeling. Ecological Applications 19:553–570. ([PDF](Cressie_et_al_2009-Ecological_Applications.pdf))
+Cressie, N., C. A. Calder, J. S. Clark, J. M. V. Hoef, and C. K. Wikle. 2009. Accounting for uncertainty in ecological analysis: the strengths and limitations of hierarchical statistical modeling. Ecological Applications 19:553–570. ([PDF](Cressie_et_al-2009-Ecological_Applications.pdf))
 
 Dorazio, R. M. 2016. Bayesian data analysis in population ecology: motivations, methods, and benefits. Population Ecology 58:31–44. ([PDF](Dorazio_2016-Population_Ecology.pdf))
 
