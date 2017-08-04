@@ -84,7 +84,7 @@ Mont Sutton
 \end{column}
 \begin{column}{0.5\textwidth}
 \vspace{-0.5cm}
-<<acerSacc,dev='pdf',fig.width = 5,fig.height = 8,echo=FALSE,eval=FALSE>>=
+<<acerSacc,dev='pdf',fig.width = 5,fig.height = 8,echo=FALSE,eval=TRUE>>=
 setwd("~/Documents/Recherche/Dataset/Inventaires herbacés/")
 library(reshape2)
 ### Read Sutton data
@@ -250,7 +250,7 @@ with
 \end{columns}
 
 \vspace{0.2cm}
-<<uninfoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=2, eval=FALSE>>=
+<<uninfoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=2, eval=TRUE>>=
 par(mar=c(0.5,5,0.5,0.5))
 couleur<-rainbow(5)
 curve(dnorm, -100, 100, n = 10000, col = couleur[1], xaxt = "n",
@@ -318,7 +318,7 @@ with
 \end{columns}
 
 \vspace{0.2cm}
-<<infoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=1.5,eval=FALSE>>=
+<<infoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=1.5,eval=TRUE>>=
 par(mar=c(2,5,0.5,0.5))
 curve(dunif(x,min = -2, max = 0), n=1000, -2.5, 0.5, xlab = "",
       ylab = "Density", las = 1, cex.lab=1.5, lwd = 3)
@@ -404,7 +404,7 @@ Mention that MCMC {\bf can} be used for simple problems but it is generally time
 \end{itemize}
 }
 
-\section{Metropolis-Hasting}
+\section{MH}
 
 \frame{
 \frametitle{The Metropolis-Hasting Algorithm}
@@ -506,11 +506,11 @@ This is known as the \textbf{Metropolis algorithm}
 
 \vspace{0.2cm}
 
-\hspace{0.5cm}\texttt{sample theta\_cand from j(theta|theta[t-1])}
+\hspace{0.5cm}\texttt{sample theta\_c from j(theta\_c|theta[t-1])}
   
 \vspace{0.2cm}
 
-\hspace{0.5cm}\texttt{set r\_cand = r(theta\_cand, theta[t-1])}
+\hspace{0.5cm}\texttt{set r\_cand = r(theta\_c, theta[t-1])}
   
 \vspace{0.2cm}
 
@@ -518,11 +518,11 @@ This is known as the \textbf{Metropolis algorithm}
   
 \vspace{0.2cm}
 
-\hspace{0.5cm}\texttt{IF U < r}
+\hspace{0.5cm}\texttt{IF U < r\_cand}
 
 \vspace{0.2cm}
 
-\hspace{1cm}\texttt{theta[t] = theta\_cand}
+\hspace{1cm}\texttt{theta[t] = theta\_c}
 
 \vspace{0.2cm}
 
@@ -567,7 +567,7 @@ It is implemented in the \texttt{raftery.diag} function of the \texttt{coda} R p
 \frametitle{Good Practices}
 \framesubtitle{Trace plot}
 
-<<trace,dev='tikz',fig.width = 8,fig.height = 5,echo=FALSE,eval=FALSE>>=
+<<trace,dev='tikz',fig.width = 8,fig.height = 5,echo=FALSE,eval=TRUE>>=
 par(mfrow=c(3,1),mar=c(2,2,3,0.5),oma=c(5,5,0,0))
 
 perfect <- rnorm(5000,mean=3)
@@ -597,7 +597,7 @@ Thinning is essentially {\bf subsampling}
 
 \vspace{-0.5cm}
 
-<<thining1,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<thining1,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
 plot(auto, type = "l", xlab = "Steps",  ylab = "$\\theta$", 
@@ -608,7 +608,7 @@ If we ran the same MCMC as above but instead for 50000 steps and we save the $\t
 
 \vspace{-0.2cm}
 
-<<thining2,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<thining2,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
 autoLong <- as.vector(arima.sim(n=50000,list(ar=c(0.95)),mean=0.1))
@@ -629,7 +629,7 @@ Burn-in is throwing away some iterations at the beginning of the MCMC run
 
 \vspace{-0.5cm}
 
-<<burnin1,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<burnin1,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
 plot(burn, type = "l", xlab = "Steps",  ylab = "$\\theta$", 
@@ -642,7 +642,7 @@ After burn-in, we obtain
 
 \vspace{-0.2cm}
 
-<<burnin2,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<burnin2,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
 burnin<-burn
@@ -655,41 +655,12 @@ plot(burnin, type = "l", xlab = "Steps",
 
 }
 
-\section{Exercice 1}
 
 \frame{
 \frametitle{Exercice}
 \framesubtitle{Write your own Metropolis-Hasting Algorithm}
 
-{\Large\bf 
-\begin{itemize}[leftmargin=1.75cm]
-  \item[Part 1] Find the mean of the following series of values using the Metropolis-Hasting algorithm
-\end{itemize}
-}
 
-\vspace{0.5cm}
-
-\large
-
-\begin{center}
-  {\huge\texttt{2 7 9 4 3 1 3 6 1 1}}
-\end{center}
-
-\vspace{0.5cm}
-
-The following R code was used to generate these values
-
-<<MHex1,eval=FALSE>>=
-set.seed(12)
-
-rpois(10,5)
-@
-
-{\Large\bf 
-\begin{itemize}[leftmargin=1.75cm]
-  \item[Part 2] Draw a trace plot to study the result of your Metropolis-Hasting algorithm
-\end{itemize}
-}
 }
 
 \section{Convergence}
@@ -700,7 +671,7 @@ rpois(10,5)
 \large
 Rerun the estimation procedure multiple time with different starting values
 
-<<multChain,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<multChain,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 auto2 <- as.vector(arima.sim(n=5000,list(ar=c(0.92)),mean=0.5))
 
 par(mar=c(5,5,3,0.5))
@@ -717,10 +688,10 @@ lines(auto2,col="orange",lty=2)
 \framesubtitle{Density plot}
 \large
 
-<<densPlot,dev='tikz',fig.width = 8,fig.height = 5.5,echo=FALSE,eval=FALSE>>=
+<<densPlot,dev='tikz',fig.width = 8,fig.height = 5.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
-plot(density(auto), xlab = "$\\theta", col = "blue", lwd = 3,
+plot(density(auto), xlab = "$\\theta$", col = "blue", lwd = 3,
      main = "", cex.axis = 1.2, cex.lab = 3, las = 1)
 @
 }
@@ -778,17 +749,17 @@ It is implemented in the \texttt{geweke.diag} function of the \texttt{coda} R pa
 
 it is a corrected ratio of the pooled variance of all chains with the within variance of each chain
 
-$$R_c=\sqrt{\frac{d+3}{d+1}\frac{V}{W}}$$
-
-where $d$ is the degree of freedom estimate of a $t$ distribution
+$$R=\sqrt{\frac{V}{W}}$$
 
 \vspace{0.2cm}
 
 {\bf Chains pooled variance}
-$$V=\frac{N-1}{N}W+\frac{M+1}{MN}B$$
+$$V=\frac{N-1}{N}W+\frac{1}{N}B$$
 where 
 $$B=\frac{N}{M-1}\sum_{m=1}^M(\bar\theta_m-\bar\theta)^2,$$
 $N$ is the length of each chain (it is assumed to be the same)
+
+$M$ is the number of chains
 
 $\bar\theta_m$ is the mean chain $m$,
 
@@ -798,99 +769,135 @@ $\bar\theta$ is the mean of all chains.
 
 {\bf Within chain variance}
 $$W=\frac{1}{M}\sum_{m=1}^M\sigma^2$$
-where $M$ is the number of chains
 
-\vspace{0.2cm}
+\vspace{-0.1cm}
 
 It is implemented in the \texttt{gelman.diag} function of the \texttt{coda} R package.
 }
 
-\end{document}
+\section{MH (more)}
 
 \frame{
-\frametitle{How to get an interpretable estimation from an MCMC?}
+\frametitle{Adaptive Metropolis-Hasting Algorithm}
 
-{\Large\bf To make a good estimation, it is important to}
+\large
 
-\begin{itemize}
-  \item Have use enough steps (a long enought chain)
-  \item Remove some of the first steps (burning)
-  \item Take care of the autocorrelation related to consecutive steps (thinning)
-  \item Run the algorithm multiple times (have multiple chain)
-\end{itemize}
-}
+We adapt the standard deviation of the normal distribution during burn-in 
 
-\end{document}
-
-\section{Diagnostics}
-
-\frame{
-\frametitle{Convergence Diagnostics}
-
-{\Large\bf The importance of convergence}
-
-\vspace{0.2cm}
-
-To obtain good quality model estimations, it is essential for the MCMC to converge properly.
+{\Large $$\frac{1}{\sqrt{2\pi\sigma^2A}}e^{-\frac{(x-\mu)^2}{2\sigma^2A}}$$}
 
 \vspace{0.1cm}
 
-But what does this mean exactly\dots
-
-\vspace{0.2cm}
-
-{\Large\bf Evaluating convergence}
-
-\vspace{0.2cm}
-
-{\large\bf Visually}
-
-\begin{itemize}
-  \item Trace plot
-  \item Density plot
-\end{itemize}
-
-{\large\bf Using diagnostic statistics}
-
-\begin{itemize}
-  \item Gelman and Rubin's convergence diagnostics
-  \item Geweke's convergence diagnostics
-  \item Heidelberger and Welch's convergence diagnostics
-  \item Raftery and Lewis's convergence diagnostics
-\end{itemize}
-
-\vspace{0.2cm}
+where $A$ is a tuning parameter
 
 }
+
+\frame{
+\frametitle{Adaptive Metropolis-Hasting Algorithm}
+\bf
+{\large Adaptative Algorithm in \texttt{pseudocode}}
+
+\vspace{0.1cm}
+
+\textcolor{orange}{\texttt{set A = 1}}
+
+\texttt{for t in 1 to N}
+
+\hspace{0.5cm}\texttt{sample theta\_c from j(theta\_c|theta[t-1]\textcolor{orange}{, A})}
+  
+\hspace{0.5cm}\texttt{set r\_cand = r(theta\_c, theta[t-1])}
+  
+\hspace{0.5cm}\texttt{sample U from uniform(0, 1)}
+
+\hspace{0.5cm}\texttt{IF U < r\_cand}
+
+\hspace{1cm}\texttt{theta[t] = theta\_c}
+
+\textcolor{orange}{\hspace{1cm}\texttt{IF burning}}
+
+\textcolor{orange}{\hspace{1.5cm}\texttt{A = A * 1.01}}
+
+\hspace{0.5cm}\texttt{ELSE}
+
+\hspace{1cm}\texttt{theta[t] = theta[t-1]}
+
+\textcolor{orange}{\hspace{1cm}\texttt{IF burning}}
+
+\textcolor{orange}{\hspace{1.5cm}\texttt{A = A / 1.01}}
+}
+
+\frame{
+\frametitle{Exercice}
+\framesubtitle{Build your own adaptive Metropolis-Hasting algorithm}
+
+}
+
+
+\frame{
+\frametitle{Single component adaptive Metropolis-Hasting algorithm}
+
+{\large Adaptative Algorithm in \texttt{pseudocode}}
+
+\footnotesize
+{\bf
+
+\vspace{0.2cm}
+
+\texttt{set A = \textcolor{orange}{repeat(1,nparam)}}
+
+\texttt{for t in 1 to N}
+
+\textcolor{orange}{\hspace{0.5cm}\texttt{for i in 1 to nparam}}
+
+\hspace{1cm}\texttt{sample theta\_c\textcolor{orange}{[i]} from j(theta\_c\textcolor{orange}{[i]}|theta[\textcolor{orange}{i,}t-1], A[i])}
+  
+\hspace{1cm}\texttt{set r\_cand = r(theta\_c, theta[t-1])}
+  
+\hspace{1cm}\texttt{sample U from uniform(0, 1)}
+
+\hspace{1cm}\texttt{IF U < r\_cand}
+
+\hspace{1.5cm}\texttt{theta[t] = theta\_c}
+
+\hspace{1.5cm}\texttt{IF burning}
+
+\hspace{2cm}\texttt{A\textcolor{orange}{[i]} = A\textcolor{orange}{[i]} * 1.01}
+
+\hspace{1cm}\texttt{ELSE}
+
+\hspace{1.5cm}\texttt{theta[t] = theta[t-1]}
+
+\hspace{1.5cm}\texttt{IF burning}
+
+\hspace{2cm}\texttt{A\textcolor{orange}{[i]} = A\textcolor{orange}{[i]} / 1.01}
+}
+
+\vspace{0.2cm}
+
+\begin{itemize}
+  \item The SCAM is designed for models with multiple parameters
+  \item {\bf \texttt{theta\_cand}} is a vector, not a single value
+  \item {\bf \texttt{theta}} is a matrix, not a vector
+\end{itemize}
+}
+
+\frame{
+\frametitle{Exercice}
+\framesubtitle{Build your own single component adaptive Metropolis-Hasting algorithm}
+
+}
+
+\frame{
+\frametitle{Gibbs Sampling}
+\framesubtitle{}
+
+}
+
+
+
 
 \end{document}
 
-
-\subsection{Adaptive Metropolis}
-
-\frame{
-\frametitle{The Adaptive Metropolis Algorithm}
-Show what needs to be added to make MA adaptative
-
-show how this helps with the example
-
-}
-
-\subsection{SCAM}
-
-\frame{
-\frametitle{The Single Component Adaptive Metropolis Algorithm}
-Show what needs to be added to make MA a SCAM
-
-show how this helps with the example
-}
-
-\frame{
-\frametitle{The Single Component Adaptive Metropolis Algorithm with Rotation}
-Show what needs to be added to make MA a SCAM
-
-show how this helps with the example
-}
 
 \frame{
 \frametitle{Gibbs Sampling}
@@ -901,77 +908,68 @@ Show an example of how this works
 This is particularly useful for hierarchical models
 }
 
-\frame{
-\frametitle{Metropolis-Hastings }
-Exercice: Build your own for a one parameter model
-}
-
-\frame{
-\frametitle{Metropolis-Hastings \& Gibbs sampler}
-Exercice: Build your own for a two parameter model
-}
-
-\section{Diagnostics}
-\subsection{Visual}
-
-\frame{
-\frametitle{Trace plot}
-
-}
-
-\frame{
-\frametitle{Density plot}
-
-}
-
-\frame{
-\frametitle{Trace plot}
-Exercice: Build your own and compare it to the one of \texttt{coda}
-
-}
-
-\subsection{Statistics}
-
-\frame{
-\frametitle{Gelman and Rubin's convergence diagnostics}
-
-}
-
-\frame{
-\frametitle{Geweke's convergence diagnostics}
-
-}
-
-\frame{
-\frametitle{Heidelberger and Welch's convergence diagnostics}
-
-}
-
-\frame{
-\frametitle{Raftery and Lewis's convergence diagnostics}
-
-}
-
-\section{Good Practices}
-
-\frame{
-\frametitle{Number of runs}
-
-}
-\frame{
-\frametitle{Number of iterations}
-
-}
-
-\frame{
-\frametitle{Burning}
-
-}
-
-\frame{
-\frametitle{Thinning}
-
-}
-
 
 \end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\frame{
+\frametitle{Exercice}
+\framesubtitle{Write your own Metropolis-Hasting Algorithm}
+
+{\Large\bf 
+\begin{itemize}[leftmargin=1.75cm]
+  \item[Part 1] Find the mean of the following series of values using the Metropolis-Hasting algorithm
+\end{itemize}
+}
+
+\vspace{0.5cm}
+
+\large
+
+\begin{center}
+  {\huge\texttt{2 7 9 4 3 1 3 6 1 1}}
+\end{center}
+
+\vspace{0.5cm}
+
+The following R code was used to generate these values
+
+<<MHex1,eval=TRUE>>=
+set.seed(12)
+
+rpois(10,5)
+@
+
+{\Large\bf 
+\begin{itemize}[leftmargin=1.75cm]
+  \item[Part 2] Draw a trace plot to study the result of your Metropolis-Hasting algorithm
+\end{itemize}
+}
+}
+
+
+\frame{
+\frametitle{The Single Component Adaptive Metropolis Algorithm with Rotation}
+Show what needs to be added to make MA a SCAM
+
+show how this helps with the example
+}
