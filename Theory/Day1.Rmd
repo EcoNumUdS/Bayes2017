@@ -11,21 +11,23 @@ output:
     highlight: tango
     includes:
       in_header: header.tex
-# Rscript -e 'rmarkdown::render("probTheo.Rmd", "all")'
+# Rscript -e 'rmarkdown::render("Day1.Rmd", "all")'
 ---
 
 
 
 
-# PART 1
+\LARGE{Probability Theory From Scratch}
 
-\LARGE{Probability theory from scratch}
+----
 
-  - \large{Let's recall/learn some basic concepts}
+# Few notes about History
+
 
 <!-- (am: 1h20 + 1h20 / pm 2h + 15min) -->
 
-```{r set, echo = FALSE}
+```{r setup, echo = FALSE}
+library(graphicsutils)
 myblue <- "#7eb6d6"
 myred <- "#e080a3"
 mygreen <- "#d4e09b"
@@ -44,14 +46,13 @@ mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las 
 
 - Laplace *Théorie Analytique des Probabilités in 1812* and
 
-- Reverend Bayes *An Essay Towards Solving a Problem in the Doctrine of Chances*
-I go back to that latter
+- Reverend Bayes *An Essay Towards Solving a Problem in the Doctrine of Chances* posthum I go back to that latter
 
 
 # Few notes about History
 
-- Kolmogorov / Shannon / update information theory
-- Mathematization
+- Kolmogorov / Shannon / update information theory / Mathematization
+
 
 
 # Why probability are important
@@ -101,19 +102,34 @@ $\left(\Omega, \mathcal{F}, P\right)$
 # Probability space (2/3)
 
 \begin{large}
-Occurrence of species 1 and 2 on an island
+Occurrence of species 1 on an island
 \end{large}
 
- 1. $\Omega$ :  "00", "01", "10", "11"
+
+1. $\Omega$: Sample space set of all possible outcomes  
+
+\begin{itemize}
+     \item<4-6>  {"Present", "Absence"} ({"0", "1"})
+ \end{itemize}  
 
 \pause
 
- 2. $\mathcal{F}$: $\emptyset$, "01", "at least of species", $\Omega$, etc.
+2. $\mathcal{F}$: set of events *i.e.* 0 or more outcomes
+
+\begin{itemize}
+     \item<5-6> $\emptyset$, "0", "1", "1 or 0" ($\Omega$)
+ \end{itemize}   
 
 \pause
 
- 3. $P$: assign probability to "00", "01", "10", "11"
+3. $P$: assign a probability / map events occurrence into [0,1]
 
+\begin{itemize}
+     \item<6-6> \alert<6>{$P(\emptyset)=0$};  $P("1") = p$;  $P("0") = 1-p$; \alert<6>{$P(\Omega) = 1$}
+ \end{itemize}  
+
+ <!-- Understanding the difference between Omega and F is ++ -->
+ <!-- The set of question F allows is huge and we need to combine outcomes properly -->
 
 
 
@@ -132,57 +148,322 @@ Occurrence of species 1 and 2 on an island
    2. $\mathcal{F}$
 
    \begin{itemize}
-        \item<3-4> $\emptyset$, $\Omega$, $\Omega$
+        \item<3-4> $\emptyset$, $\Omega$, "01", "at least one species"
     \end{itemize}   
 
-   3. $P$: assign P("00") P("01") P("10") P("11")
+   3. $P$: assigns probabilities to events
 
 
-<!-- Understanding the ddifference bewteen Omega and F is ++ -->
-<!-- The set of question F allows is huge and we need to combine outcomes properly -->
-
-<!-- # Flipping a coin
-
-Species 1 present on site A
-
-\pause
-1. $\Omega$: Sample space set of all possible outcomes  
-\pause
-2. $\mathcal{F}$: set of events i.e. 0 or more out come
-\pause
-3. $P$: assign a probability map events occurrence into $\[0,1\]$ -->
-
+<!-- On a envie de dire qu'on multiplie les proba... mais il faut penser que... Question how to combine events -->
 
 
 
 # Combining events
 
-- Determining the probability of events:
-    4. Cardinal, Combinatorics $Card()$
-    5. $\bigcap$ $\bigcup$
+- Let's "A" and "B" denotes two distinct events:
+
+    - $\overline{A}$: "complement of A"
+    \pause
+    - $A \bigcup B$: "A or B"
+    \pause
+    - $A \bigcap B$: "A and B"
 
 
-# Practice 1 (15 min - 3 slides)
+# Combining events
 
-\begin{exampleblock}{Basic Combinatorics}
+```{r omega, echo = FALSE, fig.width=6, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), fill=myblue)
+text(.9,.1, label=expression(Omega), cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
 
-    - flip the coin and roll the dice
+\LARGE $P(\Omega) = 1$
 
-    - I'll try to make it fun, *e.g.* how to simulate a dice using a coin?
+
+# Combining events
+
+```{r emptySet, echo = FALSE, fig.width=6, fig.height=4.5}
+##---
+par(xaxs="i", yaxs="i")
+plot0(c(0,1))
+text(.9,.1, label=expression(bar(Omega)), cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
+
+\LARGE $P(\overline{\Omega}) = P(\emptyset) = 1 - P(\Omega) = 0$
+
+
+
+# Combining events
+
+```{r eventA, echo = FALSE, fig.width=6, fig.height=4.5}
+rc1 <- c(.2,.4,.6,.8)
+rc2 <-  c(.4,.2,.8,.6)
+##---
+par(xaxs="i", yaxs="i")
+plot0(c(0,1))
+rect(rc1[1], rc1[2], rc1[3], rc1[4], col = myblue, border=NA)
+text(mean(rc1[c(1,3)]), mean(rc1[c(2,4)]), label="A", cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
+
+\LARGE $P(A)$
+
+
+# Combining events
+
+```{r complement, echo = FALSE, fig.width=6, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), fill=myblue)
+rect(rc1[1], rc1[2], rc1[3], rc1[4], col = "white", border=NA)
+box2(1:4, col=mygrey)
+text(.9,.1, label=expression(bar(A)), cex=2.6, col=mygrey)
+```
+
+\LARGE $P(\overline{A}) = 1 - P(A)$
+
+
+# Combining events (5/10)
+
+
+```{r eventB, echo = FALSE, fig.width=6, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1))
+rect(rc2[1], rc2[2], rc2[3], rc2[4], col = myblue, border=NA)
+text(mean(rc2[c(1,3)]), mean(rc2[c(2,4)]), label="B", cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
+
+\LARGE $P(B)$
+
+
+# Combining events
+
+```{r interAB, echo = FALSE}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1))
+rect(rc1[1], rc1[2], rc1[3], rc1[4], col = NA, border=mygrey, lwd=.4)
+rect(rc2[1], rc2[2], rc2[3], rc2[4], col = NA, border=mygrey, lwd=.4)
+rect(rc2[1], rc1[2], rc1[3], rc2[4], col = myblue, border=NA)
+text(.5*(rc2[1]+rc1[3]) , .5*(rc1[2]+rc2[4]), label= expression(A~intersect(B)), cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
+
+\LARGE $P(A \bigcap B)$
+
+
+<!-- we assume this is known we'll come back latter on that -->
+
+
+# Combining events
+
+
+```{r eventAB, echo = FALSE, fig.width=6, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1))
+rect(rc1[1], rc1[2], rc1[3], rc1[4], col = myblue, border=NA)
+rect(rc2[1], rc2[2], rc2[3], rc2[4], col = myblue, border=NA)
+text(mean(rc2[c(1,3)])-.1, mean(rc2[c(2,4)])+.1, label= expression(A~union(B)), cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
+
+\LARGE $P(A \bigcup B) = P(A) + P(B) - P(A \bigcap B)$
+
+
+# Combining events
+
+```{r complementAB, echo = FALSE}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), fill=myblue)
+rect(rc1[1], rc1[2], rc1[3], rc1[4], col = "white", border=NA)
+rect(rc2[1], rc2[2], rc2[3], rc2[4], col = "white", border=NA)
+text(.85, .1, label= expression(bar(A~union(B))), cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
+
+\LARGE $P(\overline{A \bigcup B}) = 1 - P(A \bigcup B)$
+
+
+
+
+# Combining events - disjoint events
+
+```{r disjoint, echo = FALSE}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), fill=myblue)
+rect(rc1[1]-.1, rc1[2], rc1[3]-.1, rc1[4], col = "white", border=mygrey)
+rect(rc2[1]+.1, rc2[2], rc2[3]+.1, rc2[4], col = "white", border=mygrey)
+text(.85, .1, label= expression(bar(A~union(B))), cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
+
+\LARGE $P(\overline{A \bigcap B}) = 0$
+
+
+
+
+# Combining events - partition
+
+\large
+
+Consider an event B and a set of events: $A_i$ where i $\in$ \{1,...,n\} ($n$ a natural number) such as:
+
+\pause
+
+1. $\forall$ \{i, j\} \\ $i \neq j$, $P(A_i \bigcap A_j) = 0$  (pairwise disjoint)
+
+\pause
+
+2. $\bigcap_i^n A_i = B$ $\Rightarrow$ $\sum_i^n P(A_i) = P(B)$
+
+
+then, the set $A_i$ is a partition of B.
+
+
+# Combining events - partition
+
+```{r partition, echo = FALSE, fig.width=6, fig.height=4.5}
+layout(matrix(c(1,1,2,3,4,4,3,5,5),3,3))
+par(xaxs="i", yaxs="i", mar=c(0,0,0,0))
+for (i in 1:5){
+  plot0(c(-1,1), c(-1,1), fill=darken(myblue, 12*(i-1)+1))
+  text(0,0, paste0("A",i), cex=2.8, col="white")
+}
+```
+
+# Combining events - partition
+
+\large
+
+$A_i$ where $i \in \{1, 2, 3, 4, 5\}$ is a partition of $\Omega$
+
+$$\sum_i^5 P(A_i) = 1$$
+
+
+
+# Occurrence of species 1 and species 2 on an island
+
+\large
+
+- Events: \{"00", "01", "10", "11"\}
+
+\pause
+
+- $P("00" \bigcap "01") = 0$
+
+\pause
+
+- $"00" \bigcup "01" \bigcup "10" \bigcup "11" = \Omega$
+
+\pause
+
+- p_{00} + p_{01} + p_{10} + p_{11} = 1
+
+
+"00", "01", "10", "11" are **singleton sets** (a.k.a unit sets).
+\{"00", "01", "10", "11"\} a partition of singleton sets.
+
+\pause
+
+This actually describes a **probability distribution** of a random variable
+**X** describing the community on a island.
+
+
+
+# Let's practice 1 (15 min)
+
+\begin{exampleblock}{PRACTICE 1}
+  \begin{itemize}
+      \item<1-5> $P(\overline{A} \bigcap B) = f(P(A), P(B), P(A \bigcap  B))$
+      \item<2-5> $P(A \bigcup B \bigcup C)$
+      \item<3-5> Hunter and the duck 1 bullet
+      \item<4-5> Hunter and the duck 2 bullets / 2 ducks
+      \item<5-5> How to simulate a dice using a coin?
+  \end{itemize}    
 \end{exampleblock}
+
+
+
+# Let's practice 1
+
+```{r interAcomplB, echo = FALSE}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1))
+rect(rc2[1], rc2[2], rc2[3], rc2[4], col = myblue, border=NA, lwd=.4)
+rect(rc1[1], rc1[2], rc1[3], rc1[4], col = "white", border = mygrey, lwd=.4)
+rect(rc2[1], rc2[2], rc2[3], rc2[4], col = NA, border=mygrey, lwd=.4)
+
+text(.5*(rc2[1]+rc2[3]), .5*(rc2[2]+rc2[4])-.1, label= expression(bar(A)~intersect(B)), cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
+
+\LARGE $P(\overline{A \bigcup B}) = ?$
+
+
+# Let's practice 1
+
+
+# More complexe
+
+ - SOL1
+ - See the [Inclusion–exclusion principle]() article on wikipedia ( formule du crible de Poincaré)
 
 
 # Random variables (20 min - 6 slides)
 
-  1. random variables $X$, P($X$)
-  2. discrete vs continuous
-  3. distributions pdf/cdf (ex: pdf next slides)
+   1. Coin and hunter is the
+   2. Distributin
+
+# Independence
+
+- difference between duck and .
+- This is crucial for bayesian
+- releasing independance assumption
+
+
+
+
+
+# Let's practice (10 min)
+
+  - The hunter and the duck shooting: 2 tries, 4tris, n tries describe
+
+
+  - The hunter and the duck shooting $p$ success, let's descibred porbaility of n failures before on success
+    - 1 try
+    - 2 tries
+    - n tries
+  - porbability distribution
+
+
+
+# Finite set or a countably infinite set
+
+    - constaints on the disctirubution
+    - $\sum P(X_i) = 1$
+
+
+
+# Time on arrival / presence of a species on a give point
+
+  - all event are 0.
+  - in half of the area we wanna say .5...
+
+
+# Coutinuous set
+
+    3. distributions pdf/cdf (ex: pdf next slides)
+
+
+# Exemple time upon at a party
+  <!--I used random names David / William / Amaël -->
 
 
 # Example of a probability density function (pdf)
 
-<!-- probability distribution function -->
-<!-- a probability mass function -->
+    <!-- probability distribution function -->
+    <!-- a probability mass function -->
 
   ```{r distrib, echo=FALSE}
   seqx <- seq(-7,7,0.1)
@@ -191,11 +472,10 @@ Species 1 present on site A
   ```
 
 
-# Practice 2 (15 min - 3 slides)
+# Other distribution (exponential / lognormal)
 
-  \begin{exampleblock}{Random variables}
-      - same kind of exercises as did previously but using the new formalism
-  \end{exampleblock}
+ - Constraints on the function f
+ - regularity porperties, continuous except on a countable number of point exponentiel is not continous in 0.
 
 
 
@@ -203,11 +483,13 @@ Species 1 present on site A
 
 - Definitions
 - Basic examples
-<!-- - Shannon Entropy -->
+
 - König-Huygens theorem (it may be useful, I'll see if I keep it)
 
 
+# Let's practice
 
+-
 
 
 
@@ -226,22 +508,23 @@ Be independent or not to be independent, that is the question.
 
 # Independence (15 min - 4 slides)
 
+- Go back to the hunter and duck paradigm
 - Definition
-- This needs to be understood I'll therefore exemplify!
+- This needs to be understood I'll therefore exemplify! make tree?
 
 
 # Bayes theorem (15 min - 4 slides)
 
 - What the reverend said: the original question he asked!
 - Theorem (the one we learn)
-- Implications
+- Implications: inverser les causes et les conésequence
 
 
 # Practice 3 (50 min - 3 slides)
 
 \begin{exampleblock}{Let's recap}
-    - 1 to 3 examples that would use *almost* everything mentioned so far!
-    - I may use a classical example of conditional probability.
+    - classical test / prevalence exercise (15 min)
+    - duck and the hunter (20 min)
 \end{exampleblock}
 
 
@@ -249,29 +532,31 @@ Be independent or not to be independent, that is the question.
 
 
 
-# Part 3 (PM-1 2h)
+<!-- \section{proba & Stats} -->
 
-In part 3, I will:
 
-1. Take some time to detail solutions of practice 3   
-2. explain the link between probability theory and statistics     
-3. based on this link, I'll propose exercises to calculate what students
-know very well: p-values and/or a CI!
-4. The idea is to lead student towards the idea of likelihood that will be detailed by Dom.
+# Part 3
 
-# Practice 3 - answers (15 min - 3 slides)
+\Large{Probability theory and statistics }
 
-# Probability and Stats (15 min - 6 slides)
-  - I'll detail a couple of general ideas about probability and statistics link.
-  I can't say too much, I want them to "discover" the concepts. To do so, I'll
-  build 2 exercices.
+
+# Let's go back to the last practice
+
+
+# Probability theory and statistics  
+
+- Information theory
+- Using data to predict
+- Frequentists way / Bayesian way
+- Estimator / Tests / Bias...
 
 
 
 # Practice 4 (1h20 - 6 slides)
 
-1. I'll use a simple example: say we flip 100 times
-  a given coin and record Heads and Tails, what can we learn form this data
+1. the hunter and the duck
+
+1. Hunter and duck again and again
   about the coin? Is is biased? How to proceed.
     - what is the probability of obtaining such results if the $p$ (obtaining T)
     is 0? 1? 0.5? is 0.1?
@@ -279,9 +564,13 @@ know very well: p-values and/or a CI!
     - find a way to get a and b such as $P(p\in[a,b])=.95$
     - Let's introduce a second coin and a new set of data, are the two coins similar?
 
+
+    - information update (20 min)
+
 2. Same kind of exercise with a normal distribution.
 
 3. Find a way to find the best parameter values?
+
 
 
 # Let's take a step back (4 slides - 10 min)
@@ -289,13 +578,6 @@ know very well: p-values and/or a CI!
 - I'll take some time to explain what they actually did.
 
 
-
-
-
-# Part 4 (PM-2 15 min)
-
-Examples of usage of conditional probabilities.
-TIB and co-occurrence
 
 
 
