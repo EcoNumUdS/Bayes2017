@@ -540,10 +540,10 @@ Let's say he had $n$ try:
 
 - presence of a species on a give point
 
-- all event are 0.
+- all event have a probabililty of 0.
 - in half of the area we wanna say .5...
 
-# Coutinuous set
+# Infinite set
 
     3. distributions pdf/cdf (ex: pdf next slides)
 
@@ -571,17 +571,18 @@ plot(seqx, dnorm(seqx), type="l", col=myblue, lwd=4, main = "dnorm")
 
 - Probability mass, Probability mass function, p.m.f., Discrete probability distribution function
 
+- Cumulated $P(X \leq x)$
+
 
 
 # Other distribution (exponential / lognormal)
 
  - Constraints on the function f
- - regularity porperties, continuous except on a countable number of point exponentiel is not continous in 0.
+ - regularity properties, continuous except on a countable number of point exponentiel is not continous in 0.
 
 
 
 # PAUSE
-
 
 PAUSE \large{PAUSE} \Large{PAUSE} \LARGE{PAUSE} \huge{PAUSE} \Huge{PAUSE}
 
@@ -589,34 +590,76 @@ PAUSE \large{PAUSE} \Large{PAUSE} \LARGE{PAUSE} \huge{PAUSE} \Huge{PAUSE}
 
 
 
+
+
+
+
+
+
+
+
+
+
 # PART 2
 
-# Expectation / Variance / Moments / Quantiles (10 min - 4 slides)
-
-$E(X) = \int $
-- Basic examples
+\huge{The Bayes theorem}
 
 
-# Let's practice
+# Expectation / Variance
 
--
+\large
+
+Notations: $X$, $x$
+
+$$E(X) = \int xf(x)dx$$
+
+\pause
+
+$$V(X) = \int (x-E(x))^2f(x)dx$$
 
 
-Be independent or not to be independent, that is the question.
+
+# Moments
+
+\large
+
+$$E(X^n) = \int x^nf(x)dx$$
+
+Moment-generating function (MGF) alternative speciation of the distribution.
 
 
-# Independence (15 min - 4 slides)
+
+# Quantile
+
+\large
+
+<!-- $$\alpha \\ P(X \leq x) = alpha$$ -->
+
+
+- media   
+- 1st third quartile  
+- 5 / 95 percentile   
+- box plot  
+
+
+
+
+# Let's practice 3
+
+
+
+
+# Independence act 2
 
 - Go back to the hunter and duck paradigm (tree)
 - Definition
-- This needs to be understood I'll therefore exemplify! make tree?
 
 
 # Bayes theorem (15 min - 4 slides)
 
 - What the reverend said: the original question he asked!
 - Theorem (the one we learn)
-- Implications: inverser les causes et les conésequence
+- Implications: cause consequence swap
 
 
 # Practice 3 (50 min - 3 slides)
