@@ -379,7 +379,7 @@ This actually describes a **probability distribution** of a random variable
       \item<2-5> $P(A \bigcup B \bigcup C)$
       \item<3-5> Hunter and the duck 1 bullet
       \item<4-5> Hunter and the duck 2 bullets / 2 ducks
-      \item<5-5> How to simulate a dice using a coin?
+      \item<5-5> *Bonus* How to simulate a dice using a coin?
   \end{itemize}    
 \end{exampleblock}
 
