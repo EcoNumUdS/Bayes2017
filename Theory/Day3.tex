@@ -134,11 +134,7 @@ Mont Sutton
 \end{column}
 \begin{column}{0.5\textwidth}
 \vspace{-0.5cm}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/acerSacc-1} 
 
-\end{knitrout}
 \end{column}
 \end{columns}
 }
@@ -269,11 +265,7 @@ with
 \end{columns}
 
 \vspace{0.2cm}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/uninfoPrior-1} 
 
-\end{knitrout}
 
 }
 
@@ -316,11 +308,7 @@ with
 \end{columns}
 
 \vspace{0.2cm}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/infoPrior-1} 
 
-\end{knitrout}
 }
 
 
@@ -565,11 +553,7 @@ It is implemented in the \texttt{raftery.diag} function of the \texttt{coda} R p
 \frametitle{Good Practices}
 \framesubtitle{Trace plot}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/trace-1} 
 
-\end{knitrout}
 }
 
 \frame{
@@ -582,21 +566,13 @@ Thinning is essentially {\bf subsampling}
 
 \vspace{-0.5cm}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/thining1-1} 
 
-\end{knitrout}
 
 If we ran the same MCMC as above but instead for 50000 steps and we save the $\theta$ at every 10 steps, we obtain
 
 \vspace{-0.2cm}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/thining2-1} 
 
-\end{knitrout}
 
 }
 
@@ -610,21 +586,13 @@ Burn-in is throwing away some iterations at the beginning of the MCMC run
 
 \vspace{-0.5cm}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/burnin1-1} 
 
-\end{knitrout}
 
 After burn-in, we obtain
 
 \vspace{-0.2cm}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/burnin2-1} 
 
-\end{knitrout}
 
 }
 
@@ -644,11 +612,7 @@ After burn-in, we obtain
 \large
 Rerun the estimation procedure multiple time with different starting values
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/multChain-1} 
 
-\end{knitrout}
 }
 
 
@@ -657,11 +621,7 @@ Rerun the estimation procedure multiple time with different starting values
 \framesubtitle{Density plot}
 \large
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/densPlot-1} 
 
-\end{knitrout}
 }
 
 \frame{
@@ -855,14 +815,122 @@ where $A$ is a tuning parameter
 
 }
 
+\section{Gibbs}
+
 \frame{
 \frametitle{Gibbs Sampling}
-\framesubtitle{Build your own single component adaptive Metropolis-Hasting algorithm}
+\framesubtitle{Properties}
+
+\large
+
+\begin{itemize}
+  \item A specific case of the single component Metropolis-Hasting algorithm
+  
+  \vspace{0.5cm}
+  
+  \item It is designed to sample from a posterior with multiple parameters
+  
+  $$p(\theta_1, \theta_2, \dots, \theta_p|y,\mathbf{X})$$
+  
+  \vspace{0.25cm}
+  
+  \item For each step, the Gibb sampler cycles through the $p$ parameters of $\theta$ where a sample is taken conditional on all other $p-1$ parameters
+
+  $$f(\theta_i|y,\mathbf{X}, \theta_1, \dots, \theta_i, \dots, \theta_p)$$
+  
+\end{itemize}
 
 }
 
 
+\frame{
+\frametitle{Gibbs Sampling}
+\framesubtitle{Properties}
 
+{\Large\bf Defining the (additional) important parts}
+
+\begin{itemize}
+  \item {\large Input data}
+
+  \vspace{0.2cm}
+
+  \hspace{0.2cm} This includes both the dependent and the independent variables
+
+  \vspace{0.2cm}
+  
+  \item {\large Define the joint posterior distributoin}
+  
+  $$f(\text{Model},\text{Data})$$
+  
+  \item {\large Define the model (and thus the number of parameters) in the posterior}
+  
+  \vspace{0.25cm}
+  
+  \item {\large Define the conditional sampler for each parameter in terms of the joint posterior distribution $f(\hspace{0.1cm})$}
+  
+  $$C_i(\text{Model}_{t-1},\text{Data})$$
+  
+\end{itemize}
+
+}
+
+\frame{
+\frametitle{Gibbs Sampling}
+\framesubtitle{Properties}
+
+\bf 
+{\large Gibbs sampler \texttt{pseudocode} (in its simplest form)}
+
+\vspace{0.2cm}
+
+\texttt{for t in 1 to N}
+
+\vspace{0.2cm}
+
+\hspace{0.5cm}\texttt{for i in 1 to nparam}
+
+\vspace{0.2cm}
+
+\hspace{1cm}\texttt{draw theta[i,t] from C[i](theta[-i,t-1], y, X)}
+
+}
+
+
+\frame{
+\frametitle{Exercice}
+\framesubtitle{Write your own Gibbs sampler}
+
+{\Large\bf Find the mean of the following series of values using the Metropolis-Hasting algorithm }
+
+\vspace{0.5cm}
+
+\large
+
+\begin{center}
+  {\huge\texttt{2 7 9 4 3 1 3 6 1 1}}
+\end{center}
+
+\vspace{0.25cm}
+
+{\bf Prior specification}
+\begin{itemize}
+  \item Choose your own\dots wisely
+\end{itemize}
+
+\vspace{0.25cm}
+
+{\bf The following R code was used to generate these values}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{set.seed}\hlstd{(}\hlnum{12}\hlstd{)}
+
+\hlkwd{rpois}\hlstd{(}\hlnum{10}\hlstd{,}\hlnum{5}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
+}
 
 \end{document}
 
@@ -899,47 +967,14 @@ This is particularly useful for hierarchical models
 
 
 
-\frame{
-\frametitle{Exercice}
-\framesubtitle{Write your own Metropolis-Hasting Algorithm}
 
-{\Large\bf 
-\begin{itemize}[leftmargin=1.75cm]
-  \item[Part 1] Find the mean of the following series of values using the Metropolis-Hasting algorithm
-\end{itemize}
-}
 
-\vspace{0.5cm}
 
-\large
 
-\begin{center}
-  {\huge\texttt{2 7 9 4 3 1 3 6 1 1}}
-\end{center}
 
-\vspace{0.5cm}
 
-The following R code was used to generate these values
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
-\begin{alltt}
-\hlkwd{set.seed}\hlstd{(}\hlnum{12}\hlstd{)}
 
-\hlkwd{rpois}\hlstd{(}\hlnum{10}\hlstd{,}\hlnum{5}\hlstd{)}
-\end{alltt}
-\begin{verbatim}
-##  [1] 2 7 9 4 3 1 3 6 1 1
-\end{verbatim}
-\end{kframe}
-\end{knitrout}
-
-{\Large\bf 
-\begin{itemize}[leftmargin=1.75cm]
-  \item[Part 2] Draw a trace plot to study the result of your Metropolis-Hasting algorithm
-\end{itemize}
-}
-}
 
 
 \frame{
