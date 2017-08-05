@@ -365,8 +365,7 @@ $$\sum_i^5 P(A_i) = 1$$
 
 \pause
 
-This actually describes a **probability distribution** of a random variable
-**X** describing the community on a island.
+This actually describes a **probability distribution**.
 
 
 
@@ -452,66 +451,97 @@ box2(1:4, col=mygrey)
 
 # Random variables
 
-Remember:
-
-This actually describes a **probability distribution** of a random variable
-**X** describing the community on a island.
-
-
 - Flipping the coin / Occurrence of 1 species on a island / shooting a duck
 could actually be model similarly
 
 \pause
 
-- X = "sucess" ; $P(X) = p$ ; $\{X;\overline{X}\} = \Omega$
+- Let's say: $X = 1$ ("sucess");  $\overline{X} = 0$ (""failure); $P(X) = p$ ; $\{X;\overline{X}\} = \Omega$; $P(\overline{X}) = 1-p$
 
 \pause
 
-- Doing so = defi
+- Doing so = defining a random variable and assigning a probability distribution.
+
+
+# Random variables and probabiity distribution
+
+  Formaly:
+
+  $X: X \Omega \rightarrow H$
+
+
+- A function that assigns probability under certain constraits
+
+
+
+# Independence - Intuition
+
+Back to the duck hunter paradigm :
+
+- 1 bullet ok,
+- 2 bullets what should we do
+    - two different duck (do a tree)
+    - using the same bullet duck ()
+
+<!-- Faire des arbres avec R deuxième cas it's like we do not repeat the same think... so we don't know what we do-->
+<!-- l'operation mathematique puor faire cette combinaison de branch c'est multiplié -->
+
+
+# Independence - Definition
+
+\large
+
+To events are independent if and only if:
+
+- $P(A \bigcap B) = P(A)P(B)$
+
+\pause
+three remarks:
+  - this is an assumption often implicit (notably in statistics)  
+
+  \pause
+
+  - 2 events that may not seem independent in the common sens may be independent
+  independent    
+
+  \pause
+
+  - $P(A \bigcup B) = P(A) + P(B) - P(A)P(B)$
+
+
+# Let's practice 2 (10 min)
+
+The duck hunter as success rate of $p$ and he is gonna shoot independent ducks!
+Let's say he had $n$ try:
+
+  - what's the probability he failed the $n-1$ first shoots and succeed the last one    
+  - what's the probability he got exactly $p$ ducks (starts with n=3).
+
+
+# Solution 2
+
+
+
+# Countably infinite set
+
+- discrete values, example binomial
+
+- the number of unsuccessful attempts
 
 
 
 
+<!-- dire quel function est la probab de dictroution -->
 
 
-   1. Coin and hunter is the
-   2. Distribution
+# Infinite set
 
-# Independence
+- Time upon arrival
 
-- difference between duck and .
-- This is crucial for bayesian
-- releasing independance assumption
+- presence of a species on a give point
 
-
-
-
-
-# Let's practice (10 min)
-
-  - The hunter and the duck shooting: 2 tries, 4tris, n tries describe
-
-
-  - The hunter and the duck shooting $p$ success, let's descibred porbaility of n failures before on success
-    - 1 try
-    - 2 tries
-    - n tries
-  - porbability distribution
-
-
-
-# Finite set or a countably infinite set
-
-    - constaints on the disctirubution
-    - $\sum P(X_i) = 1$
-
-
-
-# Time on arrival / presence of a species on a give point
-
-  - all event are 0.
-  - in half of the area we wanna say .5...
-
+- all event are 0.
+- in half of the area we wanna say .5...
 
 # Coutinuous set
 
@@ -524,14 +554,23 @@ could actually be model similarly
 
 # Example of a probability density function (pdf)
 
-    <!-- probability distribution function -->
-    <!-- a probability mass function -->
+<!-- probability distribution function -->
+<!-- a probability mass function -->
+<!-- add also discrete probab example -->
 
-  ```{r distrib, echo=FALSE}
-  seqx <- seq(-7,7,0.1)
-  par(mypar)
-  plot(seqx, dnorm(seqx), type="l", col=myblue, lwd=4)
-  ```
+```{r distrib, echo=FALSE}
+seqx <- seq(-7,7,0.1)
+par(mypar)
+plot(seqx, dnorm(seqx), type="l", col=myblue, lwd=4, main = "dnorm")
+```
+
+
+# Probability distribution
+
+- Probability mass, Probability mass function, p.m.f., Discrete probability distribution function
+
+- Probability mass, Probability mass function, p.m.f., Discrete probability distribution function
+
 
 
 # Other distribution (exponential / lognormal)
@@ -541,30 +580,10 @@ could actually be model similarly
 
 
 
-# Expectation / Variance / Moments / Quantiles (10 min - 4 slides)
-
-- Definitions
-- Basic examples
-
-- König-Huygens theorem (it may be useful, I'll see if I keep it)
+# PAUSE
 
 
-# Let's practice
-
--
-
-
-
-
-
-
-
-
-
-
-
-
-
+PAUSE \large{PAUSE} \Large{PAUSE} \LARGE{PAUSE} \huge{PAUSE} \Huge{PAUSE}
 
 
 
@@ -572,12 +591,23 @@ could actually be model similarly
 
 # PART 2
 
+# Expectation / Variance / Moments / Quantiles (10 min - 4 slides)
+
+$E(X) = \int $
+- Basic examples
+
+
+# Let's practice
+
+-
+
+
 Be independent or not to be independent, that is the question.
 
 
 # Independence (15 min - 4 slides)
 
-- Go back to the hunter and duck paradigm
+- Go back to the hunter and duck paradigm (tree)
 - Definition
 - This needs to be understood I'll therefore exemplify! make tree?
 
