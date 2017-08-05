@@ -16,7 +16,6 @@ output:
 
 
 
-
 \LARGE{Probability Theory From Scratch}
 
 ----
