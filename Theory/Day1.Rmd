@@ -92,7 +92,7 @@ $\left(\Omega, \mathcal{F}, P\right)$
 
 \begin{itemize}
      \item<4-6> "Head" "Tail"
- \end{itemize}  
+\end{itemize}  
 
 \pause
 
@@ -100,7 +100,7 @@ $\left(\Omega, \mathcal{F}, P\right)$
 
 \begin{itemize}
      \item<5-6> $\emptyset$, "Head", "Tail", "Head or Tail" ($\Omega$)
- \end{itemize}   
+\end{itemize}   
 
 \pause
 
@@ -529,13 +529,14 @@ under certain constraints:
 # Independence - Intuition
 
 ```{r tree1, echo = FALSE, fig.width=7, fig.height=4.5}
+cexx <- 1.6
 par(xaxs="i", yaxs="i")
 plot0(c(0,1), c(0,1.1))
 arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
 arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
 ## --
-text(c(.4), c(.75), labels = expression(X), pos = 4, cex=2, col=mygrey)
-text(c(.4), c(.25), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+text(c(.4), c(.75), labels = expression(X), pos = 4, cex=cexx, col=mygrey)
+text(c(.4), c(.25), labels = expression(bar(X)), pos = 4, cex=cexx, col=mygrey)
 ## --
 text(c(.25), c(.68), labels = "p", cex=1.4, col=myblue)
 text(c(.25), c(.32), labels = "1-p", cex=1.4, col=myblue)
@@ -552,8 +553,13 @@ plot0(c(0,1), c(0,1.1))
 arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
 arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
 ## --
-text(c(.4, .7, .7), c(.75, .9, .4), labels = expression(X), pos = 4, cex=2, col=mygrey)
-text(c(.4, .7, .7), c(.25, .6, .1), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+text(.4, .75, labels = expression(X[1]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .9, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .4, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+#
+text(.4, .25, labels = expression(bar(X[1])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .6, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .1, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
 ## --
 text(c(.25, .55, .55), c(.68, .88, .42), labels = "p", cex=1.4, col=myblue)
 text(c(.25, .55, .55), c(.32, .1, .6), labels = "1-p", cex=1.4, col=myblue)
@@ -575,8 +581,13 @@ plot0(c(0,1), c(0,1.1))
 arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
 arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
 ## --
-text(c(.4, .7, .7), c(.75, .9, .4), labels = expression(X), pos = 4, cex=2, col=mygrey)
-text(c(.4, .7, .7), c(.25, .6, .1), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+text(.4, .75, labels = expression(X[1]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .9, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .4, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+#
+text(.4, .25, labels = expression(bar(X[1])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .6, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .1, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
 ## --
 text(c(.25, .55, .55), c(.68, .88, .42), labels = "p", cex=1.4, col=myblue)
 text(c(.25, .55, .55), c(.32, .1, .6), labels = "1-p", cex=1.4, col=myblue)
@@ -598,8 +609,13 @@ plot0(c(0,1), c(0,1.1))
 arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
 arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
 ## --
-text(c(.4, .7, .7), c(.75, .9, .4), labels = expression(X), pos = 4, cex=2, col=mygrey)
-text(c(.4, .7, .7), c(.25, .6, .1), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+text(.4, .75, labels = expression(X[1]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .9, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .4, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+#
+text(.4, .25, labels = expression(bar(X[1])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .6, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .1, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
 ## --
 text(c(.25), c(.68), labels = "p", cex=1.4, col=myblue)
 text(c(.25), c(.32), labels = "1-p", cex=1.4, col=myblue)
@@ -621,8 +637,13 @@ plot0(c(0,1), c(0,1.1))
 arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
 arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
 ## --
-text(c(.4, .7, .7), c(.75, .9, .4), labels = expression(X), pos = 4, cex=2, col=mygrey)
-text(c(.4, .7, .7), c(.25, .6, .1), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+text(.4, .75, labels = expression(X[1]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .9, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .4, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+#
+text(.4, .25, labels = expression(bar(X[1])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .6, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .1, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
 ## --
 text(c(.25, .55, .55), c(.68, .88, .42), labels = c("p", 0, 0), cex=1.4, col=myblue)
 text(c(.25, .55, .55), c(.32, .1, .6), labels = c("1-p", 1, 1), cex=1.4, col=myblue)
@@ -711,79 +732,21 @@ The duck hunter as success rate of $p$ and he is gonna shoot $n$ independent duc
 $$\sum_i^{+ \infty} P(X_i)$$
 
 
-# Finite set - binomial
+# Finite support set - binomial
 
 
-# Countably infinite - negative binomial
+# Countably infinite support set - negative binomial
 
 
-# Countably infinite - negative binomial
+# Countably infinite support set - negative binomial
 
 
 <!-- dire quel function est la probab de dictroution -->
 
 
-# Infinite set
-
-# Infinite set
-
-
-- Time upon arrival
-
-- presence of a species on a give point
-
-- all events have a probabililty of 0.
-- in half of the area we wanna say .5...
-
-# Infinite set
-
-    3. distributions pdf/cdf (ex: pdf next slides)
-
-
-# Probability distribution - act 2
-
-  - Probability mass, Probability mass function, p.m.f., Discrete probability distribution function
-
-  - Probability mass, Probability mass function, p.m.f., Discrete probability distribution function
-
-  - Cumulated $P(X \leq x)$
-
-
-
-# Example time upon at a party
-  <!--I used random names David / William / Amaël -->
-
-
-# Infinite set
-
-<!-- probability distribution function -->
-<!-- a probability mass function -->
-<!-- add also discrete proba example -->
-
-```{r distrib, echo=FALSE}
-seqx <- seq(-7,7,0.1)
-par(mypar)
-plot(seqx, dnorm(seqx), type="l", col=myblue, lwd=4, main = "dnorm")
-```
-
-
-
-<!-- Cumulative distribution function -->
-
-
-# Other distribution (exponential / lognormal)
-
- - Constraints on the function f
- - regularity properties, continuous except on a countable number of point exponentiel is not continuous in 0.
-
-
-
 # PAUSE
 
 PAUSE \large{PAUSE} \Large{PAUSE} \LARGE{PAUSE} \huge{PAUSE} \Huge{PAUSE}
-
-
-
 
 
 
@@ -803,98 +766,407 @@ PAUSE \large{PAUSE} \Large{PAUSE} \LARGE{PAUSE} \huge{PAUSE} \Huge{PAUSE}
 
 \LARGE
 
+Infinite sets
+
 Moments
 
 The Bayes theorem
 
 
-# Expectation / Variance
 
-\large
+# Infinite set - where is the duck?
 
-Notations: $X$, $x$
+
+```{r whereis, echo = FALSE, fig.width=6, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0()
+circle(0, 0, col=myblue, border=NA)
+```
+
+
+# Infinite sets - where's the duck?
+
+
+```{r whereisb, echo = FALSE, fig.width=7, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0()
+circle(0, 0, col=myblue, border=NA)
+rd <- runif(1)*.99
+agl <- 2*pi*runif(1)
+points(rd*cos(agl), rd*sin(agl), bg=mygrey, pch=21)
+```
+
+
+# Infinite sets - where's the duck?
+
+
+```{r whereisc, echo = FALSE, fig.width=7, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0()
+circle(0, 0, col=myblue, border=NA)
+rd <- runif(20)*.99
+agl <- 2*pi*runif(20)
+points(rd*cos(agl), rd*sin(agl), bg=mygrey, pch=21)
+```
+
+
+
+
+# Infinite set - where's the duck?
+
+
+```{r whereisd, echo = FALSE, fig.width=7, fig.height=3}
+par(xaxs="i", yaxs="i")
+plot0()
+abline(h=0, lwd=4, col = myblue)
+points(-1+2*runif(20), rep(0,20), bg=mygrey, pch=21)
+```
+
+\vspace{.75cm}
+
+Let $X$ be the random values x-coordinate.
+
+  - values: $x$ \\ x $\in$ [0,1]
+  \pause
+
+  - $P(X=x) = ?$
+  \pause
+
+  - $P(X=0) = 0$
+  \pause
+
+  - $P(X \in [a,b])$ makes sense!
+  \pause
+
+  - $P(X \in [0,1]) = 1$
+  \pause
+
+  - $P(X \in [0,.5]) = 0.5$
+
+
+
+
+# Infinite set - probability density function (p.d.f)
+
+
+$f$ is a p.d.f iif:
+
+  - $f$ is defined...
+    - on [a,b]  (a may be -$\infty$ / b may be +$\infty$)
+    - positive  
+    - regular
+
+  \pause
+
+  - integral:
+
+  $$\int_a^bf(x)dx = 1$$
+
+
+
+# Infinite set - where's the duck?
+
+```{r density1, echo = FALSE, fig.width=7, fig.height=4}
+par(xaxs="i", yaxs="i")
+par(mypar)
+plot0(c(-.5,1.5), c(-.2,1.2))
+abline(h=0,v=0)
+abline(v=1, lty=2)
+lines(c(0,1), c(1,1), col=myblue, lwd=3)
+text(c(0,0),c(-.1,1), pos=2, labels=c("0","1"), cex=1.4)
+text(c(1),c(-.1), pos=4, labels=c("1"), cex=1.4)
+```
+
+$$\forall~x \in [0,1] ~~ f(x) = 1$$
+
+# Infinite set - where's the duck?
+
+```{r density2, echo = FALSE, fig.width=7, fig.height=4}
+par(xaxs="i", yaxs="i")
+par(mypar)
+plot0(c(-.5,1.5), c(-.2,1.2))
+rect(0,0,1,1, col = lighten(myblue, 60), border=NA)
+abline(h=0,v=0)
+abline(v=1, lty=2)
+lines(c(0,1), c(1,1), col=myblue, lwd=3)
+text(c(0,0),c(-.1,1), pos=2, labels=c("0","1"), cex=1.4)
+text(c(1),c(-.1), pos=4, labels=c("1"), cex=1.4)
+```
+
+$$\int_0^1f(x)dx = 1$$
+
+
+
+# Infinite set - where's the duck?
+
+```{r density3, echo = FALSE, fig.width=7, fig.height=4}
+par(xaxs="i", yaxs="i")
+par(mypar)
+plot0(c(-.5,1.5), c(-.2,1.2))
+rect(0,0,.5,1, col = lighten(myblue, 60), border=NA)
+abline(h=0,v=0)
+abline(v=1, lty=2)
+lines(c(0,1), c(1,1), col=myblue, lwd=3)
+text(c(0,0),c(-.1,1), pos=2, labels=c("0","1"), cex=1.4)
+text(c(1),c(-.1), pos=4, labels=c("1"), cex=1.4)
+```
+
+$$\int_0^{.5}f(x)dx = .5$$
+
+
+# Probability distribution - act 2
+
+Probability distribution function:
+
+\pause
+
+  - **probability mass function, p.m.f.**: random variables with a discrete support set (add countable infinite)
+\pause
+
+  - **density mass function, p.m.f.**: random variables with a discrete support set
+
+
+# Probability distribution - act 2
+
+
+As of now:
+
+  - $f(x)$  
+  - $\int f(x)$
+
+**Cumulative distribution function**
+
+$$F(x) = P(X<x) = \int_{-\infty}^x$$
+
+
+
+# Infinite support set - normal distribution
+
+
+```{r distrib, echo=FALSE}
+seqx <- seq(-7,7,0.1)
+par(mypar)
+plot(seqx, dnorm(seqx), type="l", col=myblue, lwd=4, main = "dnorm")
+```
+
+<!-- add the Cumulative funtioj -->
+
+
+
+# Infinite support set - lognormal distribution
+
+
+# Infinite support set - exponential distribution
+
+
+<!-- we've already learn the uniform -->
+
+
+# Practice 3
+
+- You organize a party and invite three people
+  - regular behavior
+  - often late
+  - always late
+
+
+How to model the time upon arrival?
+
+
+
+<!-- Cumulative distribution function -->
+
+
+# Other distribution (exponential / lognormal)
+
+ - Constraints on the function f
+ - regularity properties, continuous except on a countable number of point exponentiel is not continuous in 0.
+
+
+
+
+# Expectation and more
+
+
+**Expectation**:
 
 $$E(X) = \int xf(x)dx$$
 
 \pause
 
+
+**Variance**:
+
 $$V(X) = \int (x-E(x))^2f(x)dx$$
 
+\pause
 
-
-# Moments
-
-\large
+**Moment**:
 
 $$E(X^n) = \int x^nf(x)dx$$
+
+\pause
 
 Moment-generating function (MGF) alternative speciation of the distribution.
 
 
 
-# Quantile
+# Quantiles
 
 \large
 
-$$\alpha ~ | ~ P(X \leq x) = \alpha$$
+Quantile $\alpha$:
+
+$$x_{\alpha} ~~ P(X \leq x_{\alpha}) = \alpha$$
 
 
-- media   
-- 1st third quartile  
-- 5 / 95 percentile   
+
+Examples:
+  - median    
+  - 1st and 3rd quartile    
+  - 5 / 95 percentile     
 
 
-# Quantile
+# Quantiles
 
 ```{r boxplot, echo=FALSE, fig.width=7, fig.height=5.5}
 val <- rnorm(1001)
 par(mypar)
 par(xaxs="i", yaxs="i")
-plot0(c(0.6, 1.8), c(-4,4))
+plot0(c(0.6, 2), c(-4,4))
 boxplot(val, add=T, outline=F)
 abline(h=quantile(val, c(.25,.5,.75)), lty=2, lwd=c(1,1.5,1), col = c(mygreen, 1, mygreen))
 text(1.4, quantile(val, .25)-0.25, labels = c("1st quartile"), pos=4, col = mygreen)
 text(1.4, quantile(val, .75)+0.25, labels = c("3rd quartile"), pos=4, col = mygreen)
 ```
 
+# Example Expectation / variance
 
-# Example Expectation / Variance
+- binomial    
+- binomial negative   
+
+- normal    
+- exponential   
 
 
-# Let's practice 3
+# Example Expectation / variance
 
-\begin{exampleblock}{Practice 4}
-    - $p$ success a bullet is 3$ (including the )
-    - A duck of the same quality is 60$
-    - for which value of $p$ the duck hunter should better stay home?
-\end{exampleblock}
+![Normal distributon on Wikipedia](Image/normalwiki1.png){width=80%}
+
+
+
+
+
+# Let's practice 4
+
+The duck hunter: the frightening question!
+
+- the duck hunter has a $p$ success
+- a bullet is 3$  
+- a duck of the same quality is 60$
+- Find the value $p_{sh}$ for which the duck hunter should better stay home?
+
 
 
 
 # Independence act 2
 
-- Go back to the hunter and duck paradigm (tree for the same duck)
+
+```{r tree4, echo = FALSE, fig.width=7, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), c(0,1.1))
+arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
+arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
+## --
+text(.4, .75, labels = expression(X[1]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .9, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .4, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+#
+text(.4, .25, labels = expression(bar(X[1])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .6, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .1, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
+## --
+text(.25, 1.04, "SHOOT 1", col=mygreen)
+text(.55, 1.04, "SHOOT 2", col=mygreen)
+## --
+text(rep(.78, 4), c(.9,.6,.4,.1), labels = "?", cex=1.4, col=myblue, pos=4)
+y2 <- c(.9, .6, .4, .1)
+for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
+## --
+```
 
 
 # Independence act 2
 
-Let's A and B be two events:
+Let's A and B be two events, the conditional probability $P(A|B)$ is defined as
+follow:
 
 $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
 
-$$P(A \bigcap B) = P(A|B)P(B)$$
+\pause
 
-Independence :
+consequently:
+
+$$P(A \cap B) = P(A|B)P(B)$$
+
+
+# Independence act 2
+
+
+Independence:
 
 $$P(A|B) = P(A)$$
 
 $$P(A|\overline{B}) = P(A)$$
 
+\pause
+
 $$P(A \cap B) = P(A|B)P(B)$$
+
+
+
+
+# Independence act 2
+
+
+```{r tree5, echo = FALSE, fig.width=7, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), c(0,1.1))
+arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
+arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
+## --
+text(.4, .75, labels = expression(X[1]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .9, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+text(.7, .4, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
+#
+text(.4, .25, labels = expression(bar(X[1])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .6, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .1, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
+## --
+## --
+text(.25, .68, labels = expression(P(X[1])), cex=1.1, col=myblue)
+text(.55, .88, labels = expression(paste(P(X[1] , " | ", X[2]))), cex=1.1, col=myblue)
+text(.55, .42, labels = expression(paste(P(X[1] , " | ", bar(X[2])))), cex=1.1, col=myblue)
+#
+text(.25, .32, labels = expression(P(bar(X[1]))), cex=1.1, col=myblue)
+text(.55, .1, labels = expression(paste(P(bar(X[1]), " | ", X[2]))), cex=1.1, col=myblue)
+text(.55, .6, labels = expression(paste(P(bar(X[1]), " | ", bar(X[2])))), cex=1.1, col=myblue)
+## --
+# text(.25, 1.04, "SHOOT 1", col=mygreen)
+# text(.55, 1.04, "SHOOT 2", col=mygreen)
+## --
+text(rep(.78, 4), c(.9,.6,.4,.1), labels = "?", cex=1.4, col=myblue, pos=4)
+y2 <- c(.9, .6, .4, .1)
+for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
+## --
+```
 
 
 # Bayes theorem
 
+\pause
+
+\large
 
 $$P(A \cap B) = P(B \cap A)$$
 
@@ -920,24 +1192,22 @@ $$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
 
 # Bayes theorem
 
-Set of $C_i$ is a partition of B.
+\large
 
-$$P(A|B) = \frac{P(B|A)P(A)}{\sum P(C_i)}$$
+Set of $B_i$ is a partition of B,
 
+$$P(A|B) = \frac{P(B|A)P(A)}{\sum P(B_i)}$$
 
-
-
-# Practice 4 (40 min - 3 slides)
-
+$$f(A|B) = \frac{f(B|A)f(A)}{\int f(b)db}$$
 
 
-\begin{exampleblock}{Practice 4}
-\begin{itemize}
-    \item<1-2> classical examples (20 min)
-    \item<2-2> the duck hunter is back (20 min)
-\end{itemize}    
-\end{exampleblock}
 
+# Practice 4 (30 min)
+
+- prevalence $\alpha$ (0.001)
+- test to detect the disease error type 1 $\beta$ (.05)
+- You take the test, it's positive, are you sick?
+- Same question if the test is negative
 
 
 # LUNCH
@@ -964,54 +1234,61 @@ $$P(A|B) = \frac{P(B|A)P(A)}{\sum P(C_i)}$$
 
 
 
-# Part 3
-
-\Large{Probability theory and statistics }
-
-
-# Let's go back to the last practice
-
-
-# Probability theory and statistics  
-
-- Information theory
-- Using data to predict
-- Frequentists way / Bayesian way
-- Estimator / Tests / Bias...
-
-
-
-# Practice 4 (1h20 - 6 slides)
-
-1. the hunter and the duck agin again again
-
-1. Hunter and duck again and again
-  about the coin? Is is biased? How to proceed.
-    - what is the probability of obtaining such results if the $p$ (obtaining T)
-    is 0? 1? 0.5? is 0.1?
-    - compute $P(p\in[.4,.6])$
-    - find a way to get a and b such as $P(p\in[a,b])=.95$
-    - Let's introduce a second coin and a new set of data, are the two coins similar?
-
-
-
-
-2. Same kind of exercise with a normal distribution.
-
-3. Find a way to find the best parameter values?
-
-- information update (20 min)
-
-
-# Let's take a step back
-
-
-
-# Project time
 
 
 ----
 
-\begin{alertblock}{AlertBlock}
-  Pass auf!
-\end{alertblock}
+\huge{PART 3}
+
+Let's practice more
+
+
+# Practice 5 (30 min)
+
+the duck hunter is back (30 min)
+
+- the precision decrease with distance $f(d) = exp(-2*d)$
+
+- the distance distribution account for :
+  - duck escape
+  - the self is a lognormal (takes)
+
+- he brought 10 bullets, what's the probability he will have a nice diner tonight
+
+
+# the duck hunter... the truth about him
+
+- table of success and failure with and without distance...
+- update info !
+
+
+
+
+# Let's take a step back (10 min)
+
+What do we do when we do statistics (simple case)
+
+- observations
+
+  $x_1$, $x_2$, ..., $x_n$
+
+- Realisation of a random variable $X$ distribution is $f(\theta)$
+
+- and we try to say something about $\theta$ given $x_i$
+
+- **Inference**
+
+- To do so we build **estimators** this could be tricky
+
+- Normal ...
+
+- Variance if we used the variace... we should use 1/n+1 (you can demonstrate this)
+
+- Then we try to assess the goodness of our estimation : IC / tests
+
+- Likelihood ... Bayesian misture and update information.. but there are links 
+
+
+----
+
+\HUGE{To be continued}
