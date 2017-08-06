@@ -1,6 +1,6 @@
 ---
-title: "Few notes on probability theory"
-subtitle: "flip the coin and compute the likelihood"
+title: "Day 1 - A few notes on the probability theory"
+subtitle: "Flip a coin and compute the likelihood"
 author: Kevin Cazelles
 institute: University of Guelph
 date: August 14, 2017
@@ -12,17 +12,20 @@ output:
     includes:
       in_header: header.tex
 # Rscript -e 'rmarkdown::render("Day1.Rmd", "all")'
+# (am: 1h20 + 1h20 / pm 2h + 15min)
 ---
 
 
 
-\LARGE{Probability Theory From Scratch}
+\huge{PART 1}
+
+\LARGE
+
+Probability theory from scratch
 
 
-# Few notes about History
+# History
 
-
-<!-- (am: 1h20 + 1h20 / pm 2h + 15min) -->
 
 ```{r setup, echo = FALSE}
 library(graphicsutils)
@@ -35,7 +38,7 @@ mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las 
 
 
 
-# Few notes about History
+# A few short and biased notes on History
 
 - Chevalier De Méré, Pascal and Fermat: *the problem of points*
   - prediction based on data / envision outcomes
@@ -44,34 +47,46 @@ mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las 
 
 - Laplace *Théorie Analytique des Probabilités in 1812* and
 
-- Reverend Bayes *An Essay Towards Solving a Problem in the Doctrine of Chances* posthum I go back to that latter
+- Reverend Bayes *An Essay Towards Solving a Problem in the Doctrine of Chances* 	(published posthumously)
 
 
 # Few notes about History
 
-- Kolmogorov / Shannon / update information theory / Mathematization
+- Kolmogorov / Mathematization
+
+- Shannon / Tukey / Update information theory
 
 
+# Examples
 
-# Why probability are important
-
-- Statistics
-- Stochastic process
 - Heisenberg / Einstein  
 
-- Do we need tricky probability in Ecology?
-  - Allesina and Tang Science 2012 based on the distribution of Eigen values
-  - Coalescent
+\pause
+
+- A population as a distribution of traits (population genetics)
+
+\pause
+
+- Allesina and Tang, **Stability criteria for complex ecosystems.**, *Nature* (2012),
+based on Tao, Vu & Krishnapur, **Random matrices: Universality of ESDs and the circular law.**, *The Annals of Probability* (2010).
+
+\pause
+
+- Short talk this pm!
 
 
 
 
 # Probability space (1/3)
 
+\pause
+
 \begin{large}
 $\left(\Omega, \mathcal{F}, P\right)$
 \end{large}
 
+
+\pause
 
 1. $\Omega$: Sample space set of all possible outcomes  
 
@@ -133,9 +148,9 @@ Occurrence of species 1 on an island
 
 # Probability space (3/3)
 
-  \begin{large}
+\begin{large}
   Occurrence of species 1 and species 2 on an island
-  \end{large}
+\end{large}
 
    1. $\Omega$
 
@@ -222,7 +237,7 @@ text(.9,.1, label=expression(bar(A)), cex=2.6, col=mygrey)
 \LARGE $P(\overline{A}) = 1 - P(A)$
 
 
-# Combining events (5/10)
+# Combining events
 
 
 ```{r eventB, echo = FALSE, fig.width=6, fig.height=4.5}
@@ -356,15 +371,27 @@ $$\sum_i^5 P(A_i) = 1$$
 
 \pause
 
-- p_{00} + p_{01} + p_{10} + p_{11} = 1
+- $p_{00}$ + $p_{01}$ + $p_{10}$ + $p_{11}$ = 1
 
 
-"00", "01", "10", "11" are **singleton sets** (a.k.a unit sets).
-\{"00", "01", "10", "11"\} a partition of singleton sets.
+# Occurrence of species 1 and species 2 on an island
+
+
+
+- "00", "01", "10", "11" are **singleton sets** (a.k.a unit sets).
 
 \pause
 
-This actually describes a **probability distribution**.
+- \{"00", "01", "10", "11"\} a partition of singleton sets.
+
+\pause
+
+-  $p_{00}$, $p_{01}$, $p_{10}$, $p_{11}$
+
+\pause
+
+Describes a **probability distribution**.
+
 
 
 
@@ -375,7 +402,7 @@ This actually describes a **probability distribution**.
       \item<1-5> $P(\overline{A} \bigcap B) = f(P(A), P(B), P(A \bigcap  B))$
       \item<2-5> $P(A \bigcup B \bigcup C)$
       \item<3-5> the duck hunter 1 bullet
-      \item<4-5> the duck hunter 2 bullets / 1 or 2 ducks
+      \item<4-5> the duck hunter 2 bullets / 2 ducks - 1 duck
       \item<5-5> bonus: how to simulate a dice using a coin?
   \end{itemize}    
 \end{exampleblock}
@@ -427,13 +454,15 @@ box2(1:4, col=mygrey)
 
 - Duck hunter with one bullet, one duck: describe what happens.
 
-- Duck hunter with two bullets, one duck: describe what happens.
-
 - Duck hunter with two bullets, two ducks: describe what happens.
 
+- Duck hunter with two bullets, one duck: describe what happens.
 
 
-# Solution 1 - $P(\overline{A \bigcup B})$
+# Solution 1
+
+
+<!-- # Solution 1 - $P(\overline{A \bigcup B})$
 
 
 # Solution 1 - $P(A \bigcup B \bigcup C)$
@@ -441,7 +470,7 @@ box2(1:4, col=mygrey)
  - See the [Inclusion–exclusion principle](https://en.wikipedia.org/wiki/Inclusion–exclusion_principle) article on wikipedia (formule du crible de Poincaré).
 
 
-# Solution 1 - the duck hunter
+# Solution 1 - the duck hunter -->
 
 
 
@@ -450,40 +479,165 @@ box2(1:4, col=mygrey)
 
 # Random variables
 
-- Flipping the coin / Occurrence of 1 species on a island / shooting a duck
-could actually be model similarly
+- Flipping a coin / occurrence of 1 species on an island / shooting a duck $\rightarrow$ we applied similar probabilistic approach.  
 
 \pause
 
-- Let's say: $X = 1$ ("sucess");  $\overline{X} = 0$ (""failure); $P(X) = p$ ; $\{X;\overline{X}\} = \Omega$; $P(\overline{X}) = 1-p$
+- *Success*: "Head", "Presence", "one dead duck" $\rightarrow$ **1**
 
 \pause
 
-- Doing so = defining a random variable and assigning a probability distribution.
+- *Failure*: "Tails", "Absence", "no dinner tonight" $\rightarrow$ **0**
+
+\pause
+
+- Now let $X$ denote a variable such as:
+  - $X=1$ success: $P(X) = p$ ;
+  - $X=1$ failure:  $P(\overline{X}) = 1- p$
+
+\pause
+
+- Define a random variable + assign a probability distribution.
 
 
 # Random variables and probability distribution
 
-  Formaly:
+Formally:
 
-  $X: X \Omega \rightarrow H$
+- A **random variable** $X: \Omega \rightarrow M$ where M is a measurable
+space (natural number, real number, ...)
 
+\pause
 
-- A function that assigns probability under certain constraits
+- A **probability distribution** $f$ is a function that assigns probability
+under certain constraints:
+
+\pause
+
+  - $f$ specifies $P$ for the partition of $\Omega$ made of singletons  
+  \pause
+
+\pause
+
+  - $f$ defines $p_{00}$, $p_{01}$, $p_{10}$, $p_{11}$ such as $\sum p_i = 1$
+
+<!-- choices we made -->
+
 
 
 
 # Independence - Intuition
 
-Back to the duck hunter paradigm :
+```{r tree1, echo = FALSE, fig.width=7, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), c(0,1.1))
+arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
+arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
+## --
+text(c(.4), c(.75), labels = expression(X), pos = 4, cex=2, col=mygrey)
+text(c(.4), c(.25), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+## --
+text(c(.25), c(.68), labels = "p", cex=1.4, col=myblue)
+text(c(.25), c(.32), labels = "1-p", cex=1.4, col=myblue)
+## --
+text(.25, 1.04, "SHOOT 1", col=mygreen)
+```
 
-- 1 bullet ok,
-- 2 bullets what should we do
-    - two different duck (do a tree)
-    - using the same bullet duck ()
 
-<!-- Faire des arbres avec R deuxième cas it's like we do not repeat the same think... so we don't know what we do-->
-<!-- l'operation mathematique puor faire cette combinaison de branch c'est multiplié -->
+# Independence - Intuition
+
+```{r tree2, echo = FALSE, fig.width=7, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), c(0,1.1))
+arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
+arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
+## --
+text(c(.4, .7, .7), c(.75, .9, .4), labels = expression(X), pos = 4, cex=2, col=mygrey)
+text(c(.4, .7, .7), c(.25, .6, .1), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+## --
+text(c(.25, .55, .55), c(.68, .88, .42), labels = "p", cex=1.4, col=myblue)
+text(c(.25, .55, .55), c(.32, .1, .6), labels = "1-p", cex=1.4, col=myblue)
+## --
+text(.25, 1.04, "SHOOT 1", col=mygreen)
+text(.55, 1.04, "SHOOT 2", col=mygreen)
+## --
+y2 <- c(.9, .6, .4, .1)
+for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
+## --
+```
+
+
+# Independence - Intuition
+
+```{r tree2b, echo = FALSE, fig.width=7, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), c(0,1.1))
+arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
+arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
+## --
+text(c(.4, .7, .7), c(.75, .9, .4), labels = expression(X), pos = 4, cex=2, col=mygrey)
+text(c(.4, .7, .7), c(.25, .6, .1), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+## --
+text(c(.25, .55, .55), c(.68, .88, .42), labels = "p", cex=1.4, col=myblue)
+text(c(.25, .55, .55), c(.32, .1, .6), labels = "1-p", cex=1.4, col=myblue)
+## --
+text(.25, 1.04, "SHOOT 1", col=mygreen)
+text(.55, 1.04, "SHOOT 2", col=mygreen)
+## --
+text(rep(.78, 4), c(.9,.6,.4,.1), labels = c("pp", "p(1-p)", "(1-p)p", "(1-p)(1-p)"), cex=1.4, col=myblue, pos=4)
+y2 <- c(.9, .6, .4, .1)
+for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
+## --
+```
+
+# Independence - Intuition
+
+```{r tree3, echo = FALSE, fig.width=7, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), c(0,1.1))
+arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
+arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
+## --
+text(c(.4, .7, .7), c(.75, .9, .4), labels = expression(X), pos = 4, cex=2, col=mygrey)
+text(c(.4, .7, .7), c(.25, .6, .1), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+## --
+text(c(.25), c(.68), labels = "p", cex=1.4, col=myblue)
+text(c(.25), c(.32), labels = "1-p", cex=1.4, col=myblue)
+## --
+text(.25, 1.04, "SHOOT 1", col=mygreen)
+text(.55, 1.04, "SHOOT 2", col=mygreen)
+## --
+# text(rep(.78, 4), c(.9,.6,.4,.1), labels = "?", cex=1.4, col=myblue, pos=4)
+y2 <- c(.9, .6, .4, .1)
+for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
+## --
+```
+
+# Independence - Intuition
+
+```{r tree3b, echo = FALSE, fig.width=7, fig.height=4.5}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1), c(0,1.1))
+arrows(.15, .5, .4, .75, col=mygrey, lwd = 2)
+arrows(.15, .5, .4, .25, col=mygrey, lwd = 2)
+## --
+text(c(.4, .7, .7), c(.75, .9, .4), labels = expression(X), pos = 4, cex=2, col=mygrey)
+text(c(.4, .7, .7), c(.25, .6, .1), labels = expression(bar(X)), pos = 4, cex=2, col=mygrey)
+## --
+text(c(.25, .55, .55), c(.68, .88, .42), labels = c("p", 0, 0), cex=1.4, col=myblue)
+text(c(.25, .55, .55), c(.32, .1, .6), labels = c("1-p", 1, 1), cex=1.4, col=myblue)
+## --
+text(.25, 1.04, "SHOOT 1", col=mygreen)
+text(.55, 1.04, "SHOOT 2", col=mygreen)
+## --
+text(rep(.78, 4), c(.9,.6,.4,.1), labels = "?", cex=1.4, col=myblue, pos=4)
+y2 <- c(.9, .6, .4, .1)
+for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
+## --
+```
+
+<!-- it depends on what happens before -->
+
 
 
 # Independence - Definition
@@ -495,39 +649,75 @@ To events are independent if and only if:
 - $P(A \cap B) = P(A)P(B)$
 
 \pause
-three remarks:
-  - this is an assumption often implicit (notably in statistics)  
+Remarks:
+
+  1. this is an assumption often implicit (notably in statistics)  
 
   \pause
 
-  - 2 events that may not seem independent in the common sens may be independent
+  2. events that may not seem independent in the common sens may be independent
   independent    
 
   \pause
 
-  - $P(A \bigcup B) = P(A) + P(B) - P(A)P(B)$
+  3. $P(A \bigcup B) = P(A) + P(B) - P(A)P(B)$
 
 
 # Let's practice 2 (10 min)
 
-The duck hunter as success rate of $p$ and he is gonna shoot independent ducks!
-Let's say he had $n$ try:
+The duck hunter as success rate of $p$ and he is gonna shoot $n$ independent ducks!
 
-  - what's the probability he failed the $n-1$ first shoots and succeed the last one    
-  - what's the probability he got exactly $p$ ducks (starts with n=3).
+\pause
+
+  1. what's the probability he failed the $n-1$ first shoots and succeed the last one   
+
+  \pause
+
+  2. what's the probability he shooted exactly $p$ ducks (starts with n=3).
 
 
 # Solution 2
 
 
 
-# Countably infinite set
-
-- discrete values, example binomial
-
-- the number of unsuccessful attempts
+# Finite and countably infinite sets
 
 
+1. Finite set: X = \{ 1, 2, ..., n \}
+
+\pause
+
+  - binomial distribution
+
+  - hypergeometric distribution
+
+
+\pause
+
+2. Countably infinite set X =  \{ 1, 2, 3, ..., +$\infty$ \}
+
+\pause
+
+  - negative binomial   
+
+  - poisson
+
+\pause
+
+\vspace{-.5cm}
+
+\LARGE
+
+$$\sum_i^{+ \infty} P(X_i)$$
+
+
+# Finite set - binomial
+
+
+# Countably infinite - negative binomial
+
+
+# Countably infinite - negative binomial
 
 
 <!-- dire quel function est la probab de dictroution -->
@@ -535,11 +725,14 @@ Let's say he had $n$ try:
 
 # Infinite set
 
+# Infinite set
+
+
 - Time upon arrival
 
 - presence of a species on a give point
 
-- all event have a probabililty of 0.
+- all events have a probabililty of 0.
 - in half of the area we wanna say .5...
 
 # Infinite set
@@ -547,15 +740,25 @@ Let's say he had $n$ try:
     3. distributions pdf/cdf (ex: pdf next slides)
 
 
+# Probability distribution - act 2
+
+  - Probability mass, Probability mass function, p.m.f., Discrete probability distribution function
+
+  - Probability mass, Probability mass function, p.m.f., Discrete probability distribution function
+
+  - Cumulated $P(X \leq x)$
+
+
+
 # Example time upon at a party
   <!--I used random names David / William / Amaël -->
 
 
-# Example of a probability density function (pdf)
+# Infinite set
 
 <!-- probability distribution function -->
 <!-- a probability mass function -->
-<!-- add also discrete probab example -->
+<!-- add also discrete proba example -->
 
 ```{r distrib, echo=FALSE}
 seqx <- seq(-7,7,0.1)
@@ -564,20 +767,14 @@ plot(seqx, dnorm(seqx), type="l", col=myblue, lwd=4, main = "dnorm")
 ```
 
 
-# Probability distribution
 
-- Probability mass, Probability mass function, p.m.f., Discrete probability distribution function
-
-- Probability mass, Probability mass function, p.m.f., Discrete probability distribution function
-
-- Cumulated $P(X \leq x)$
-
+<!-- Cumulative distribution function -->
 
 
 # Other distribution (exponential / lognormal)
 
  - Constraints on the function f
- - regularity properties, continuous except on a countable number of point exponentiel is not continous in 0.
+ - regularity properties, continuous except on a countable number of point exponentiel is not continuous in 0.
 
 
 
@@ -600,10 +797,15 @@ PAUSE \large{PAUSE} \Large{PAUSE} \LARGE{PAUSE} \huge{PAUSE} \Huge{PAUSE}
 
 
 
+----
 
-# PART 2
+\huge{PART 2}
 
-\huge{The Bayes theorem}
+\LARGE
+
+Moments
+
+The Bayes theorem
 
 
 # Expectation / Variance
