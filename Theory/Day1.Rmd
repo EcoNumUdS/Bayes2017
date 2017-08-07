@@ -555,7 +555,8 @@ box2(1:4, col=mygrey)
 
 # Random variables
 
-- Flipping a coin / occurrence of 1 species on an island / shooting a duck $\rightarrow$ we applied similar probabilistic approach.  
+- Flipping a coin / occurrence of 1 species on an island / shooting a duck
+\pause $\rightarrow$ we applied similar probabilistic approach.  
 
 \pause
 
@@ -576,26 +577,28 @@ box2(1:4, col=mygrey)
 - Define a random variable + assign a probability distribution.
 
 
-# Random variables and probability distribution
 
-Formally:
+# Random variables and probability distribution
 
 - A **random variable** $X: \Omega \rightarrow M$ where M is a measurable
 space (natural number, real number, ...)
 
 \pause
 
-- A **probability distribution** $f$ is a function that assigns probability
+- A **probability distribution** \alert{$f$} is a function that assigns probability
 under certain constraints:
-
 \pause
 
-  - $f$ specifies $P$ for the partition of $\Omega$ made of singletons  
-  \pause
-
+  1. $f$ specifies $P$ for the partition of $\Omega$ made of singletons  
 \pause
 
-  - $f$ defines $p_{00}$, $p_{01}$, $p_{10}$, $p_{11}$ such as $\sum p_i = 1$
+  2. $f$ defines $p_{0}$, $p_{1}$, $p_{2}$, $p_{3}$ such as $\sum p_i = 1$
+\pause
+
+    - Coin $P("Head") = P(1) = p$; $P("Tail") = P(0) = 1-p$
+\pause
+
+    - Dice $P(1)=P(2)=...=P(6)=1/6$
 
 <!-- choices we made -->
 
@@ -621,7 +624,7 @@ text(.25, 1.04, "SHOOT 1", col=mygreen)
 ```
 
 
-# Independence - Intuition
+# Independence - Intuition - 2 ducks
 
 ```{r tree2, echo = FALSE, fig.width=7, fig.height=4.5}
 par(xaxs="i", yaxs="i")
@@ -649,7 +652,7 @@ for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
 ```
 
 
-# Independence - Intuition
+# Independence - Intuition - 2 ducks
 
 ```{r tree2b, echo = FALSE, fig.width=7, fig.height=4.5}
 par(xaxs="i", yaxs="i")
@@ -677,7 +680,7 @@ for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
 ## --
 ```
 
-# Independence - Intuition
+# Independence - Intuition - 1 duck
 
 ```{r tree3, echo = FALSE, fig.width=7, fig.height=4.5}
 par(xaxs="i", yaxs="i")
@@ -705,7 +708,8 @@ for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
 ## --
 ```
 
-# Independence - Intuition
+
+# Independence - Intuition - 1 duck
 
 ```{r tree3b, echo = FALSE, fig.width=7, fig.height=4.5}
 par(xaxs="i", yaxs="i")
@@ -752,60 +756,60 @@ Remarks:
 
   \pause
 
-  2. events that may not seem independent in the common sens may be independent
-  independent    
+  2. events that may not seem independent (intuitively) may be independent according to the definition   
 
   \pause
 
-  3. $P(A \bigcup B) = P(A) + P(B) - P(A)P(B)$
+  3. A and B independent then $P(A \cup B) = P(A) + P(B) - P(A)P(B)$
 
 
-# Let's practice 2 (10 min)
 
-The duck hunter as success rate of $p$ and he is gonna shoot $n$ independent ducks!
+# Let's practice 2 (15 min)
+
+
+Elmer, the duck hunter, shoots $n$ independent ducks with a success rate of $p$
 
 \pause
 
-  1. what's the probability he failed the $n-1$ first shoots and succeed the last one   
+  1. Find the probability he misses his $n-1$ first shoots and succeeds in the last attempt.
 
   \pause
 
-  2. what's the probability he shooted exactly $p$ ducks (starts with n=3).
+  2. Find the probability he kills exactly $k$ ducks. \pause Starts with n=3.
+
+  \pause
+
+  3. Determine the probability distribution associated with the number of failure before the first kill.
+
 
 
 # Solution 2
 
 
 
-# Finite and countably infinite sets
+
+# Finite and countably infinite support sets
 
 
-1. Finite set: X = \{ 1, 2, ..., n \}
-
-\pause
-
-  - binomial distribution
-
-  - hypergeometric distribution
-
+1. Finite set: X = \{1, 2, ..., n\}
 
 \pause
 
-2. Countably infinite set X =  \{ 1, 2, 3, ..., +$\infty$ \}
+  - Rolling n dices   
+  - presence of n species on an island  
 
 \pause
 
-  - negative binomial   
+2. Countably infinite set X =  \{1, 2, 3, ..., +$\infty$\}
 
-  - poisson
+  - number of species on a given island   
+  - number of failure before the first success  
 
 \pause
-
-\vspace{-.5cm}
 
 \LARGE
 
-$$\sum_i^{+ \infty} P(X_i)$$
+$$\sum_i^{+ \infty} P(X_i) = 1$$
 
 
 # Binomial distribution *dbinom*
@@ -813,42 +817,100 @@ $$\sum_i^{+ \infty} P(X_i)$$
 
 ```{r binom, echo = FALSE, fig.width=7, fig.height=4}
 par(mypar)
-plot(c(0.5,10.5), c(0,.6), xlab="Values (x)", ylab="Probability", type="n")
+par(lend=2)
+plot(c(-0.5,10.5), c(0,.5), xlab="Values (x)", ylab="Probability", type="n")
 points(0:10, dbinom(0:10, 10, .5), col=mygrey, type="h", lwd=3)
-points(0:10+.12, dbinom(0:10, 10, .25), col=myblue, type="h", lwd=3)
-points(0:10-.12, dbinom(0:10, 10, .75), col=mygreen, type="h", lwd=3)
-legend("top", legend = c("p=.25", "p=.5", "p=.75"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.4)
+legend("top", legend = c("p=.25", "p=.5", "p=.75"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.3)
 ```
 
 \large
 
 $$P(X = k) = \binom{n}{k} p^k(1-p)^{n-k}$$
 
+
+# Binomial distribution *dbinom*
+
+
+```{r binom2, echo = FALSE, fig.width=7, fig.height=4}
+par(mypar)
+par(lend=2)
+plot(c(-0.5,10.5), c(0,.5), xlab="Values (x)", ylab="Probability", type="n")
+points(0:10, dbinom(0:10, 10, .5), col=mygrey, type="h", lwd=3)
+points(0:10+.12, dbinom(0:10, 10, .25), col=myblue, type="h", lwd=3)
+legend("top", legend = c("p=.25", "p=.5", "p=.75"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.3)
+```
+
+\large
+
+$$P(X = k) = \binom{n}{k} p^k(1-p)^{n-k}$$
+
+
+
+# Binomial distribution *dbinom*
+
+
+```{r binom3, echo = FALSE, fig.width=7, fig.height=4}
+par(mypar)
+par(lend=2)
+plot(c(-0.5,10.5), c(0,.5), xlab="Values (x)", ylab="Probability", type="n")
+points(0:10, dbinom(0:10, 10, .5), col=mygrey, type="h", lwd=3)
+points(0:10+.12, dbinom(0:10, 10, .25), col=myblue, type="h", lwd=3)
+points(0:10-.12, dbinom(0:10, 10, .75), col=mygreen, type="h", lwd=3)
+legend("top", legend = c("p=.25", "p=.5", "p=.75"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.3)
+```
+
+\large
+
+$$P(X = k) = \binom{n}{k} p^k(1-p)^{n-k}$$
+
+
+# Uniform distribution
+
+
+```{r unifd, echo = FALSE, fig.width=7, fig.height=4}
+par(mypar)
+par(lend=2)
+plot(c(0.5,10.5), c(0,.6), xlab="Values (x)", ylab="Probability", type="n")
+points(1:2, rep(.5, 2), col=mygreen, type="h", lwd=3)
+points(1:6+.1, rep(1/6, 6), col=mygrey, type="h", lwd=3)
+points(1:10-.1, rep(.1, 10), col=myblue, type="h", lwd=3)
+legend("top", legend = c("n=2", "n=5", "n=10"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.3)
+```
+
+\large
+
+$$P(X = k) = \frac{1}{n}$$
+
+
+
 # Negative binomial distribution *dnbinom*
 
 
 ```{r negbinom, echo = FALSE, fig.width=7, fig.height=4}
 par(mypar)
-plot(c(0.5,10.5), c(0,.6), xlab="Values (x)", ylab="Probability", type="n")
-points(0:10, dbinom(0:10, 10, .5), col=mygrey, type="h", lwd=3)
-points(0:10+.12, dbinom(0:10, 10, .25), col=myblue, type="h", lwd=3)
-points(0:10-.12, dbinom(0:10, 10, .75), col=mygreen, type="h", lwd=3)
-legend("top", legend = c("p=.25", "p=.5", "p=.75"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.4)
+par(lend=2)
+plot(c(-0.4,25.5), c(0,.6), xlab="Values (x)", ylab="Probability", type="n")
+points(0:25, dnbinom(0:25, 1, .25), col=mygrey, type="h", lwd=3)
+points(0:25+.18, dnbinom(0:25, 1, .1), col=mygreen, type="h", lwd=3)
+points(0:25-.18, dnbinom(0:25, 1, .5), col=myblue, type="h", lwd=3)
+legend("top", legend = c("p=.1", "p=.25", "p=.5"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.3)
 ```
 
 \large
 
 $$P(X = k) = p(1-p)^{k-1}$$
 
+
 # Poisson distribution *dpois*
 
 ```{r poisson, echo = FALSE, fig.width=7, fig.height=4}
 par(mypar)
-plot(c(0.5,20.5), c(0,.6), xlab="Values (x)", ylab="Probability", type="n")
-points(0:20, dpois(0:20, 1), col=myblue, type="h", lwd=3)
-points(0:20+.12, dpois(0:20, 5), col=mygrey, type="h", lwd=3)
-points(0:20-.12, dpois(0:20, 10), col=mygreen, type="h", lwd=3)
-legend("top", legend = c("p=5", "p=10", "p=20"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.4)
+par(lend=2)
+plot(c(-0.5,25.5), c(0,.5), xlab="Values (x)", ylab="Probability", type="n")
+points(0:25, dpois(0:25, 1), col=mygreen, type="h", lwd=3)
+points(0:25+.18, dpois(0:25, 5), col=mygrey, type="h", lwd=3)
+points(0:25-.18, dpois(0:25, 10), col=myblue, type="h", lwd=3)
+legend("top", legend = c("p=1", "p=5", "p=10"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.3)
 ```
 
 \large
@@ -962,7 +1024,7 @@ Let $X$ be the random values x-coordinate.
 # Infinite set - probability density function (p.d.f)
 
 
-$f$ is a p.d.f iif:
+\alert{$f$} is a **p.d.f** iif:
 
   - $f$ is defined...
     - on [a,b]  (a may be -$\infty$ / b may be +$\infty$)
