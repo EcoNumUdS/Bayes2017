@@ -44,8 +44,78 @@
 
 \frame{
 \frametitle{What is a hierarchical model?}
-\begin{itemize}
-\end{itemize}
+\framesubtitle{How important is elevation in defining sugar maple distribution on mont Sutton?}
+
+
+\begin{columns}[T]
+\begin{column}{0.6\textwidth}
+
+  {\large\bf Global Model}
+  
+  \vspace{-0.2cm}
+
+  {\large $$P(y=1) = \beta x + \epsilon$$}
+  {\large\bf Seperate model}
+  
+  \vspace{-0.2cm}
+  
+  {\large $$\textcolor{orange}{P(y=1) = \beta_1 x + \epsilon_1}$$}
+  {\large $$\textcolor{green!75!blue}{P(y=1) = \beta_2 x + \epsilon_2}$$}
+  {\large $$\textcolor{red!8!green!57!Blue}{P(y=1) = \beta_3 x + \epsilon_3}$$}
+
+  \vspace{-0.8cm}
+
+ where
+ \begin{itemize}
+  \item[$y$] is the distribution of sugar maple
+  \item[$x$] is elevation
+  \textcolor{red}{\large\item[$\beta$] is the importance of elevation}
+  \item[$\epsilon$] is the model residuals
+ \end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+\vspace{-0.5cm}
+<<acerSacc,dev='pdf',fig.width = 5,fig.height = 8,echo=FALSE,eval=TRUE>>=
+setwd("~/Documents/Recherche/Dataset/Inventaires herbacés/")
+library(reshape2)
+### Read Sutton data
+suttonLong <- read.csv("sut_herbacee_2015.csv", header=TRUE, 
+                   sep = ";")
+
+### Format the data
+suttonMelt <- melt(suttonLong[ ,c(1:2, 5:6)],
+                   id.vars = c("BORX", "BORY", "ESPECE"))
+
+suttonAll <- dcast(suttonMelt, BORX * BORY ~ ESPECE, 
+                   fun.aggregate = length)
+                   
+### Extract species, elevation and coordinates
+sutton <- suttonAll[,-c(1:2,75)]
+trer <- as.matrix(sutton$TRER) ### THIS IS 
+xy <- suttonAll[,1:2]
+elev<-as.matrix(xy[,2])
+
+ ### THIS IS NOT THE SUGAR MAPLE
+ ### THIS IS NOT THE SUGAR MAPLE
+ ### THIS IS NOT THE SUGAR MAPLE
+ ### THIS IS NOT THE SUGAR MAPLE
+ ### THIS IS NOT THE SUGAR MAPLE
+ ### THIS IS NOT THE SUGAR MAPLE
+
+### Draw map
+par(mar=c(0,0,0,0),oma=c(3,3,3,0))
+plot(xy,type="n",asp=1,axes=FALSE,xlab="",ylab="",las=1)
+mtext("200 m",side = 1,outer=TRUE, cex = 1.75)
+mtext("1000 m",side = 2,outer=TRUE, cex = 1.75,line=-7)
+mtext("Sugar maple",side = 3,outer=TRUE, cex = 2)
+rect(-15,-15,195,329,border="orange",col="orange")
+rect(-15,329,195,670,border="deepskyblue",col="deepskyblue")
+rect(-15,670,195,995,border="deeppink",col="deeppink")
+points(xy[which(trer==1),],pch=15,cex=1.25)
+points(xy[which(trer==0),],pch=15,cex=1.25,col="white")
+@
+\end{column}
+\end{columns}
 }
 
 \frame{
