@@ -57,7 +57,6 @@ mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las 
 - Shannon / Tukey / Update information theory
 
 
-
 # Examples
 
 
@@ -73,6 +72,8 @@ based on Tao, Vu & Krishnapur, **Random matrices: Universality of ESDs and the c
 - Expending the classical TIB: short talk this pm!
 
 
+
+<!-- 20 min  -->
 
 
 # Probability space
@@ -304,8 +305,24 @@ text(.85, .1, label= expression(bar(A~union(B))), cex=2.6, col=mygrey)
 box2(1:4, col=mygrey)
 ```
 
-\LARGE $P(\overline{A \bigcup B}) = 1 - P(A \bigcup B)$
+\LARGE $P(\overline{A \cup B}) = 1 - P(A \cup B)$
 
+
+
+# Combining events
+
+```{r interAcomplB, echo = FALSE}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1))
+rect(rc2[1], rc2[2], rc2[3], rc2[4], col = myblue, border=NA, lwd=.4)
+rect(rc1[1], rc1[2], rc1[3], rc1[4], col = "white", border = mygrey, lwd=.4)
+rect(rc2[1], rc2[2], rc2[3], rc2[4], col = NA, border=mygrey, lwd=.4)
+
+text(.5*(rc2[1]+rc2[3]), .5*(rc2[2]+rc2[4])-.1, label= expression(bar(A)~intersect(B)), cex=2.6, col=mygrey)
+box2(1:4, col=mygrey)
+```
+
+\LARGE $P(\overline{A} \cap B) = P(B) - P(A \cap B)$
 
 
 
@@ -321,7 +338,8 @@ text(mean(rc2[c(1,3)])+.1, mean(rc2[c(2,4)]), label="B", cex=2.6, col=mygrey)
 box2(1:4, col=mygrey)
 ```
 
-\LARGE $P(A \bigcap B) = 0$
+\LARGE $P(A \cap B) = 0$
+
 
 
 
@@ -477,34 +495,18 @@ Describes a **probability distribution**
 
 
 
+
 # Let's practice 1 (15 min)
 
 \begin{exampleblock}{PRACTICE 1}
   \begin{itemize}
-      \item<1-5> $P(\overline{A} \cap B) = f(P(A), P(B), P(A \cap B))$
-      \item<2-5> $P(A \cup B \cup C)$
-      \item<3-5> the duck hunter 1 bullet
-      \item<4-5> the duck hunter 2 bullets / 2 ducks - 1 duck
-      \item<5-5> bonus: how to simulate a dice with a coin?
+      \item<1-4> $P(A \cup B \cup C)$
+      \item<2-4> the duck hunter 1 bullet
+      \item<3-4> the duck hunter 2 bullets / 2 ducks - 1 duck
+      \item<4-4> bonus: how to simulate a dice with a coin?
   \end{itemize}    
 \end{exampleblock}
 
-
-
-# Let's practice 1 - $P(\overline{A \bigcup B})$
-
-```{r interAcomplB, echo = FALSE}
-par(xaxs="i", yaxs="i")
-plot0(c(0,1))
-rect(rc2[1], rc2[2], rc2[3], rc2[4], col = myblue, border=NA, lwd=.4)
-rect(rc1[1], rc1[2], rc1[3], rc1[4], col = "white", border = mygrey, lwd=.4)
-rect(rc2[1], rc2[2], rc2[3], rc2[4], col = NA, border=mygrey, lwd=.4)
-
-text(.5*(rc2[1]+rc2[3]), .5*(rc2[2]+rc2[4])-.1, label= expression(bar(A)~intersect(B)), cex=2.6, col=mygrey)
-box2(1:4, col=mygrey)
-```
-
-\LARGE $P(\overline{A \bigcup B}) = ?$
 
 
 # Let's practice 1 - $P(A \bigcup B \bigcup C)$
@@ -767,7 +769,7 @@ Remarks:
 # Let's practice 2 (15 min)
 
 
-Elmer, the duck hunter, shoots $n$ independent ducks with a success rate of $p$
+Elmer shoots $n$ independent ducks with a success rate of $p$
 
 \pause
 
@@ -836,7 +838,7 @@ par(mypar)
 par(lend=2)
 plot(c(-0.5,10.5), c(0,.5), xlab="Values (x)", ylab="Probability", type="n")
 points(0:10, dbinom(0:10, 10, .5), col=mygrey, type="h", lwd=3)
-points(0:10+.12, dbinom(0:10, 10, .25), col=myblue, type="h", lwd=3)
+points(0:10+.12, dbinom(0:10, 10, .25), col=mygreen, type="h", lwd=3)
 legend("top", legend = c("p=.25", "p=.5", "p=.75"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.3)
 ```
 
@@ -854,8 +856,8 @@ par(mypar)
 par(lend=2)
 plot(c(-0.5,10.5), c(0,.5), xlab="Values (x)", ylab="Probability", type="n")
 points(0:10, dbinom(0:10, 10, .5), col=mygrey, type="h", lwd=3)
-points(0:10+.12, dbinom(0:10, 10, .25), col=myblue, type="h", lwd=3)
-points(0:10-.12, dbinom(0:10, 10, .75), col=mygreen, type="h", lwd=3)
+points(0:10+.12, dbinom(0:10, 10, .25), col=mygreen, type="h", lwd=3)
+points(0:10-.12, dbinom(0:10, 10, .75), col=myblue, type="h", lwd=3)
 legend("top", legend = c("p=.25", "p=.5", "p=.75"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.3)
 ```
 
@@ -906,10 +908,10 @@ $$P(X = k) = p(1-p)^{k-1}$$
 ```{r poisson, echo = FALSE, fig.width=7, fig.height=4}
 par(mypar)
 par(lend=2)
-plot(c(-0.5,25.5), c(0,.5), xlab="Values (x)", ylab="Probability", type="n")
-points(0:25, dpois(0:25, 1), col=mygreen, type="h", lwd=3)
-points(0:25+.18, dpois(0:25, 5), col=mygrey, type="h", lwd=3)
-points(0:25-.18, dpois(0:25, 10), col=myblue, type="h", lwd=3)
+plot(c(-0.5,20.5), c(0,.5), xlab="Values (x)", ylab="Probability", type="n")
+points(0:20, dpois(0:20, 1), col=mygreen, type="h", lwd=3)
+points(0:20+.18, dpois(0:20, 5), col=mygrey, type="h", lwd=3)
+points(0:20-.18, dpois(0:20, 10), col=myblue, type="h", lwd=3)
 legend("top", legend = c("p=1", "p=5", "p=10"), col = c(mygreen, mygrey, myblue) , lwd = 3, bty="n", ncol = 3, cex=1.3)
 ```
 
@@ -959,10 +961,10 @@ circle(0, 0, col=myblue, border=NA)
 ```
 
 
-# Infinite sets - where's the duck?
+# Infinite set - where's the duck?
 
 
-```{r whereisb, echo = FALSE, fig.width=7, fig.height=4.5}
+```{r whereisb, echo = FALSE, fig.width=6, fig.height=4.5}
 par(xaxs="i", yaxs="i")
 plot0()
 circle(0, 0, col=myblue, border=NA)
@@ -972,10 +974,10 @@ points(rd*cos(agl), rd*sin(agl), bg=mygrey, pch=21)
 ```
 
 
-# Infinite sets - where's the duck?
+# Infinite set - where's the duck?
 
 
-```{r whereisc, echo = FALSE, fig.width=7, fig.height=4.5}
+```{r whereisc, echo = FALSE, fig.width=6, fig.height=4.5}
 par(xaxs="i", yaxs="i")
 plot0()
 circle(0, 0, col=myblue, border=NA)
@@ -999,9 +1001,10 @@ points(-1+2*runif(20), rep(0,20), bg=mygrey, pch=21)
 
 \vspace{.75cm}
 
-Let $X$ be the random values x-coordinate.
+Let $X$ be the random values x-coordinate
+\pause
 
-  - values: $x$ \\ x $\in$ [0,1]
+  - values: x $\in$ [0,1]
   \pause
 
   - $P(X=x) = ?$
@@ -1023,17 +1026,20 @@ Let $X$ be the random values x-coordinate.
 
 # Infinite set - probability density function (p.d.f)
 
+\large
 
 \alert{$f$} is a **p.d.f** iif:
 
-  - $f$ is defined...
-    - on [a,b]  (a may be -$\infty$ / b may be +$\infty$)
-    - positive  
-    - regular
+1. defined on [a,b]  (a may be -$\infty$ / b may be +$\infty$)
+\pause
 
-  \pause
+2. positive
+\pause
 
-  - integral:
+3. regular
+\pause
+
+4. and:
 
   $$\int_a^bf(x)dx = 1$$
 
@@ -1052,7 +1058,9 @@ text(c(0,0),c(-.1,1), pos=2, labels=c("0","1"), cex=1.4)
 text(c(1),c(-.1), pos=4, labels=c("1"), cex=1.4)
 ```
 
-$$\forall~x \in [0,1] ~~ f(x) = 1$$
+\large
+
+$$\forall~x \in [0,1] ~~ f(x) = 1 ~~~ (\mathcal{U}_{[0,1]})$$
 
 # Infinite set - where's the duck?
 
@@ -1067,6 +1075,8 @@ lines(c(0,1), c(1,1), col=myblue, lwd=3)
 text(c(0,0),c(-.1,1), pos=2, labels=c("0","1"), cex=1.4)
 text(c(1),c(-.1), pos=4, labels=c("1"), cex=1.4)
 ```
+
+\large
 
 $$\int_0^1f(x)dx = 1$$
 
@@ -1086,7 +1096,10 @@ text(c(0,0),c(-.1,1), pos=2, labels=c("0","1"), cex=1.4)
 text(c(1),c(-.1), pos=4, labels=c("1"), cex=1.4)
 ```
 
+\large
+
 $$\int_0^{.5}f(x)dx = .5$$
+
 
 
 # Probability distribution - act 2
@@ -1095,81 +1108,144 @@ Probability distribution function:
 
 \pause
 
-  - **probability mass function, p.m.f.**: random variables with a discrete support set (add countable infinite)
+  - **probability mass function, p.m.f.**: random variables with a discrete support set (or countable infinite)
 \pause
 
-  - **density mass function, p.m.f.**: random variables with a discrete support set
+  - **probability density function, p.d.f.**: random variables with a infinite support set
+
 
 
 # Probability distribution - act 2
 
 
-As of now:
+- $f(x)$  (pmf or pdf)  
+- $\int f(x)$
 
-  - $f(x)$  
-  - $\int f(x)$
+\pause
 
-Everthing holds true:
+Conditional probability:
 
-  - conditional p
-  - $x_1 \cap x_2$: $f(x_1)f(x_2)$
+- $f(x|y)$
+- f(x) = $f(x|y)f(y)$
+- f(x) = $f(x|y)P(y)$
 
-
-**Cumulative distribution function**
-
-$$F(x) = P(X<x) = \int_{-\infty}^x$$
+- $f(x_1)f(x_2)$
 
 
+# Cumulative distribution function
+
+\LARGE
+
+$$F(y) = P(X<y) = \int_{-\infty}^yf(x)dx$$
 
 
-# Normal distribution *dnorm*
 
 
-```{r normal, echo=FALSE}
+# Normal distribution - p.d.f. *dnorm*
+
+
+```{r normal, echo=FALSE, fig.width=7, fig.height=4.5}
 seqx <- seq(-7,7,0.1)
 par(mypar)
-plot(seqx, dnorm(seqx), type="l", col=myblue, lwd=4, main = "dnorm")
-lines(seqx, dnorm(seqx, 2), col=mygrey, lwd=4, main = "dnorm")
-lines(seqx, dnorm(seqx, 1, 2), col=mygreen, lwd=4, main = "dnorm")
+plot(seqx, dnorm(seqx), type="l", col=myblue, lwd=3)
+lines(seqx, dnorm(seqx, 1, 2), col=mygreen, lwd=3)
+legend("topleft", legend = c(expression(mu==0 ~~ sigma==1), expression(mu==1 ~~ sigma==2)), col=c(myblue, mygreen), lwd=3, bty="n")
 ```
 
-<!-- add the Cumulative funtioj -->
+$$f(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}$$
 
 
 
-# Lognormal distribution *dlnorm*
+# Lognormal distribution - c.d.f. *pnorm*
+
+```{r normalcum, echo=FALSE, fig.width=7, fig.height=4.5}
+seqx <- seq(-7,7,0.1)
+par(mypar)
+plot(seqx, pnorm(seqx), type="l", col=myblue, lwd=3)
+lines(seqx, pnorm(seqx, 1, 2), col=mygreen, lwd=3)
+legend("topleft", legend = c(expression(mu==0 ~~ sigma==1), expression(mu==1 ~~ sigma==2)), col=c(myblue, mygreen), lwd=3, bty="n")
+```
 
 
-# Exponential distribution *dexp*
+# Lognormal distribution - p.d.f. *dlnorm*
 
+
+```{r lognormal, echo=FALSE, fig.width=7, fig.height=4.5}
+seqx <- seq(0, 8, 0.01)
+par(mypar)
+plot(seqx, dlnorm(seqx), type="l", col=myblue, lwd=3)
+lines(seqx, dlnorm(seqx, 1, 2), col=mygreen, lwd=3)
+legend("topright", legend = c(expression(mu==0 ~~ sigma==1), expression(mu==1 ~~ sigma==2)), col=c(myblue, mygreen), lwd=3, bty="n")
+```
+
+\large
+
+$$f(x) = \frac{1}{x\sigma\sqrt{2\pi}}e^{\frac{-1}{2}\left(\frac{ln(x)-\mu}{\sigma}\right)^2}$$
+
+
+# Lognormal distribution - c.d.f. *plnorm*
+
+```{r lognormalcum, echo=FALSE, fig.width=7, fig.height=4.5}
+seqx <- seq(0, 8, 0.01)
+par(mypar)
+plot(seqx, plnorm(seqx), type="l", col=myblue, lwd=3)
+lines(seqx, plnorm(seqx, 1, 2), col=mygreen, lwd=3)
+legend("topleft", legend = c(expression(mu==0 ~~ sigma==1), expression(mu==1 ~~ sigma==2)), col=c(myblue, mygreen), lwd=3, bty="n")
+```
+
+
+
+# Exponential distribution - p.d.f. *dexp*
+
+```{r expo, echo=FALSE, fig.width=7, fig.height=4.5}
+seqx <- seq(0, 8, 0.01)
+par(mypar)
+plot(seqx, dexp(seqx, 1), type="l", col=myblue, lwd=3)
+lines(seqx, dexp(seqx, .5), col=mygreen, lwd=3)
+legend("topright", legend = c(expression(lambda==1), expression(lambda==.5)), col=c(myblue, mygreen), lwd=3, bty="n")
+```
+
+\large
+
+$$f(x) = \lambda e^{-\lambda x}$$
 
 <!-- we've already learn the uniform -->
+
+# Exponential distribution - c.d.f. *pexp*
+
+```{r expocum, echo=FALSE, fig.width=7, fig.height=4.5}
+seqx <- seq(0, 8, 0.01)
+par(mypar)
+plot(seqx, pexp(seqx, 1), type="l", col=myblue, lwd=3)
+lines(seqx, pexp(seqx, .5), col=mygreen, lwd=3)
+legend("topleft", legend = c(expression(lambda==1), expression(lambda==.1)), col=c(myblue, mygreen), lwd=3, bty="n")
+```
+
 
 
 # Practice 3
 
 - You've set up a meeting with three colleagues:
+
+\pause
+
   1. regular behavior
   2. often late and we never never really know when he'll show up
-  3. right on time if the starting time were 1 hour eralier...
+  3. right on time if the starting time were 1 hour earlier...
+
+\pause
 
 - How to model the time upon arrival?
+
+\pause
+
 - When will you start the meeting?
-- Bonus: $X_1 \rightarrow \mathcal{N}(0,1)$ and $X_2 \rightarrow \mathcal{N}(0,1)$
-
-
-<!-- Cumulative distribution function -->
-
-
-# Other distribution (exponential / lognormal)
-
- - Constraints on the function f
- - regularity properties, continuous except on a countable number of point exponentiel is not continuous in 0.
 
 
 
 
-# Expectation and more
+
+# Expectation and moments
 
 
 **Expectation** (*a.k.a* expected value, mean):
@@ -1203,7 +1279,7 @@ Quantile $\alpha$:
 
 $$x_{\alpha} ~~ P(X \leq x_{\alpha}) = \alpha$$
 
-
+\pause
 
 Examples:
   - median    
@@ -1238,27 +1314,36 @@ $$E(g(X)) = \int g(x)f(x)dx$$
 $$Z = X^2 ~~ E(Z) = \int x^2f(x)dx$$
 
 
-\pause
-
-
-$$Z = -ln(X) ~~ E(Z) = \int -ln(x)f(x)dx$$
-
-
 
 
 # Expectation / variance
 
-- binomial:   
+- Binomial: $X:\mathcal{B}(n,p)$
 
-  Proof:
+\pause
+
+$$P(X = k) = \binom{n}{k} p^k(1-p)^{n-k}$$
+
+$$E(X)= \sum_k^n kP(X = k) = \sum_k^n k\binom{n}{k} p^k(1-p)^{n-k}$$
+
+<!-- $$E(X) = np\sum_k^n \binom{n-1}{k-1} p^{k-1}(1-p)^{n-1-(k-1)} = np$$ -->
+
+$$E(X) = np$$
+
+\pause
+
+$$V(X) = npq$$
 
 
 # Example Expectation / variance
 
-- binomial negative   
+- Poisson $\mathcal{P}(\lambda)$: $E(X) = \lambda$ $V(X) = \lambda$
 
-- normal    
-- exponential   
+- Binomial negative: $\mathcal{NB}(r,p)$: $E(X) = \frac{pr}{1-p}$ $V(X) = \frac{pr}{(1-p)^2} \lambda$
+
+- Normal $\mathcal{N}(\mu, \sigma)$: $E(X) = \mu$ $V(X) = \sigma$   
+
+- Exponential $\mathcal{E}(\lambda)$: $E(X) = \lambda$, $V(X) = \lambda^2$
 
 
 # Example Expectation / variance
@@ -1310,8 +1395,7 @@ for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
 
 # Independence act 2
 
-Let's A and B be two events, the conditional probability $P(A|B)$ is defined as
-follow:
+Let's A and B be two events, the conditional probability $P(A|B)$ is defined as:
 
 $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
 
@@ -1399,27 +1483,51 @@ $$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
 
 $$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
 
-- Implications: cause/consequence swap
+- Implications: cause/consequence
 
 
 # Bayes theorem
 
-\large
+\pause
 
-Set of $B_i$ is a partition of B,
+$C_i$ ($i \in {1,...,n}$) is a partition of $\Omega$, let's use the law of total probability
 
-$$P(A|B) = \frac{P(B|A)P(A)}{\sum P(B_i)}$$
+\pause
 
-$$f(A|B) = \frac{f(B|A)f(A)}{\int f(b)db}$$
+$$P(A|B) = \frac{P(B|A)P(A)}{\sum P(B \cap C_i)}$$
+
+\pause
+
+$$P(A|B) = \frac{P(B|A)P(A)}{\sum P(B|C_i)P(C_i)}$$
+
+\pause
+
+$$f(A|B) = \frac{f(B|A)f(A)}{\int f(b|c)f(c)dc}$$
 
 
 
 # Practice 4 (30 min)
 
-- prevalence $\alpha$ (0.001)
-- test to detect the disease error type 1 $\beta$ (.05)
-- You take the test, it's positive, are you sick?
-- Same question if the test is negative
+
+Are you infected?
+
+- Disease prevalence $\alpha$ (0.005)
+\pause
+
+- test to determine whether or not you are infected
+    - error type I $\beta$ (.025)
+    - error type II $\delta$ (.05)
+
+\pause
+
+- You take the test, it is positive, are you sick?
+\pause
+
+
+- You take the test, it is negative, are you sick?
+\pause
+
+- bonus: build a function.
 
 
 # LUNCH
@@ -1455,58 +1563,83 @@ $$f(A|B) = \frac{f(B|A)f(A)}{\int f(b)db}$$
 Let's practice more
 
 
-# Practice 5 (30 min)
-
-the duck hunter is back (30 min)
+# Practice 5 - Elmer is back (20 min)
 
 - the precision decrease with distance $f(d) = exp(-2*d)$
 
-- the distance distribution account for :
-  - duck escape
-  - the self is a lognormal (takes)
+- the distance distribution accounts for:
+    - ducks' escape
+    - the distance Elmer takes his chances
 
-- he brought 10 bullets, what's the probability he will have a nice diner tonight
-
-
-# the duck hunter... the truth about him
-
-- table of success and failure with and without distance...
-- update info !
+- Elmer brought 10 bullets, what's the probability he will have a nice diner tonight?
 
 
+# Practice 6 - Elmer... the truth (30 min)
+
+- table of success and failure with / without distance...
+- update info
 
 
-# Let's take a step back (10 min)
 
-What do we do when we do statistics (simple case)
 
-- observations
+<!-- (10 min) -->
 
-  $x_1$, $x_2$, ..., $x_n$
+# Let's step back
 
-- Realisation of a random variable $X$ distribution is $f(\theta)$
+What do we do when we do statistics (simple case):
 
-- and we try to say something about $\theta$ given $x_i$
+\pause
 
-- **Inference**
+- **observations**: $x_1$, $x_2$, ..., $x_n$
+
+\pause
+
+- Hypothesis: outcomes of **random variables independent and identically distributed (i.i.d.)** $X_i$
+
+\pause
+
+- The **distribution** is given by **$\theta$** (*i.e.* $\mathcal{N}(\theta)$ where $\theta=(\mu, \sigma)$)
+
+\pause
+
+- We try to find out $\theta$ 's value(s) given $x_i$ : **inference**
+
 
 # Let's take a step back
 
-- To do so we build **estimators** this could be tricky
+- To do so, we build **estimators**
 
-- Normal ...
+\pause
 
-- Variance if we used the variace... we should use 1/n+1 (you can demonstrate this)
+- Normal: $\theta=(\mu, \sigma)$
+
+- $\mu$ =  
+
+- $\sigma$ =
+
 
 - Then we try to assess the goodness of our estimation : IC / tests
 
-- Likelihood ... Bayesian misture and update information.. but there are links
 
 
-# Why normal ...
+# Why normal, why?
 
 Theorem central limit..
+
 and the resultat from Tao is king pf Theo Centrel limit for matric spectrum
+
+
+Poincaré:
+
+> ""
+
+
+# Let's take a step back
+
+- Likelihood
+
+- Bayesian mixture of information and getting distribution of !
+
 
 ----
 
