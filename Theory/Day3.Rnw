@@ -84,32 +84,12 @@ Mont Sutton
 \end{column}
 \begin{column}{0.5\textwidth}
 \vspace{-0.5cm}
-<<acerSacc,dev='pdf',fig.width = 5,fig.height = 8,echo=FALSE,eval=FALSE>>=
-setwd("~/Documents/Recherche/Dataset/Inventaires herbacés/")
-library(reshape2)
-### Read Sutton data
-suttonLong <- read.csv("sut_herbacee_2015.csv", header=TRUE, 
-                   sep = ";")
-
-### Format the data
-suttonMelt <- melt(suttonLong[ ,c(1:2, 5:6)],
-                   id.vars = c("BORX", "BORY", "ESPECE"))
-
-suttonAll <- dcast(suttonMelt, BORX * BORY ~ ESPECE, 
-                   fun.aggregate = length)
-                   
+<<acerSacc,dev='pdf',fig.width = 5,fig.height = 8,echo=FALSE,eval=TRUE>>=
 ### Extract species, elevation and coordinates
-sutton <- suttonAll[,-c(1:2,75)]
-trer <- as.matrix(sutton$TRER) ### THIS IS 
-xy <- suttonAll[,1:2]
+sutton <- read.csv("sutton.csv",sep=";")
+acsa <- as.matrix(ifelse(sutton$acsa>0,1,0))
+xy <- sutton[,1:2]
 elev<-as.matrix(xy[,2])
-
- ### THIS IS NOT THE SUGAR MAPLE
- ### THIS IS NOT THE SUGAR MAPLE
- ### THIS IS NOT THE SUGAR MAPLE
- ### THIS IS NOT THE SUGAR MAPLE
- ### THIS IS NOT THE SUGAR MAPLE
- ### THIS IS NOT THE SUGAR MAPLE
 
 ### Draw map
 par(mar=c(0,0,0,0),oma=c(3,3,3,0))
@@ -117,8 +97,8 @@ plot(xy,type="n",asp=1,axes=FALSE,xlab="",ylab="",las=1)
 mtext("200 m",side = 1,outer=TRUE, cex = 1.75)
 mtext("1000 m",side = 2,outer=TRUE, cex = 1.75,line=-7)
 mtext("Sugar maple",side = 3,outer=TRUE, cex = 2)
-points(xy[which(trer==1),],pch=15,cex=1.25)
-points(xy[which(trer==0),],pch=0,cex=1.25)
+points(xy[which(acsa==1),],pch=15,cex=1.25)
+points(xy[which(acsa==0),],pch=0,cex=1.25)
 @
 \end{column}
 \end{columns}
@@ -250,7 +230,7 @@ with
 \end{columns}
 
 \vspace{0.2cm}
-<<uninfoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=2, eval=FALSE>>=
+<<uninfoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=2, eval=TRUE>>=
 par(mar=c(0.5,5,0.5,0.5))
 couleur<-rainbow(5)
 curve(dnorm, -100, 100, n = 10000, col = couleur[1], xaxt = "n",
@@ -318,7 +298,7 @@ with
 \end{columns}
 
 \vspace{0.2cm}
-<<infoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=1.5,eval=FALSE>>=
+<<infoPrior, echo=FALSE, dev = "tikz",fig.width=5,fig.height=1.5,eval=TRUE>>=
 par(mar=c(2,5,0.5,0.5))
 curve(dunif(x,min = -2, max = 0), n=1000, -2.5, 0.5, xlab = "",
       ylab = "Density", las = 1, cex.lab=1.5, lwd = 3)
@@ -567,7 +547,7 @@ It is implemented in the \texttt{raftery.diag} function of the \texttt{coda} R p
 \frametitle{Good Practices}
 \framesubtitle{Trace plot}
 
-<<trace,dev='tikz',fig.width = 8,fig.height = 5,echo=FALSE,eval=FALSE>>=
+<<trace,dev='tikz',fig.width = 8,fig.height = 5,echo=FALSE,eval=TRUE>>=
 par(mfrow=c(3,1),mar=c(2,2,3,0.5),oma=c(5,5,0,0))
 
 perfect <- rnorm(5000,mean=3)
@@ -597,7 +577,7 @@ Thinning is essentially {\bf subsampling}
 
 \vspace{-0.5cm}
 
-<<thining1,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<thining1,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
 plot(auto, type = "l", xlab = "Steps",  ylab = "$\\theta$", 
@@ -608,7 +588,7 @@ If we ran the same MCMC as above but instead for 50000 steps and we save the $\t
 
 \vspace{-0.2cm}
 
-<<thining2,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<thining2,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
 autoLong <- as.vector(arima.sim(n=50000,list(ar=c(0.95)),mean=0.1))
@@ -629,7 +609,7 @@ Burn-in is throwing away some iterations at the beginning of the MCMC run
 
 \vspace{-0.5cm}
 
-<<burnin1,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<burnin1,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
 plot(burn, type = "l", xlab = "Steps",  ylab = "$\\theta$", 
@@ -642,7 +622,7 @@ After burn-in, we obtain
 
 \vspace{-0.2cm}
 
-<<burnin2,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<burnin2,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
 burnin<-burn
@@ -671,7 +651,7 @@ plot(burnin, type = "l", xlab = "Steps",
 \large
 Rerun the estimation procedure multiple time with different starting values
 
-<<multChain,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=FALSE>>=
+<<multChain,dev='tikz',fig.width = 8,fig.height = 2.5,echo=FALSE,eval=TRUE>>=
 auto2 <- as.vector(arima.sim(n=5000,list(ar=c(0.92)),mean=0.5))
 
 par(mar=c(5,5,3,0.5))
@@ -688,7 +668,7 @@ lines(auto2,col="orange",lty=2)
 \framesubtitle{Density plot}
 \large
 
-<<densPlot,dev='tikz',fig.width = 8,fig.height = 5.5,echo=FALSE,eval=FALSE>>=
+<<densPlot,dev='tikz',fig.width = 8,fig.height = 5.5,echo=FALSE,eval=TRUE>>=
 par(mar=c(5,5,3,0.5))
 
 plot(density(auto), xlab = "$\\theta$", col = "blue", lwd = 3,

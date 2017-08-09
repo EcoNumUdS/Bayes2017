@@ -134,7 +134,11 @@ Mont Sutton
 \end{column}
 \begin{column}{0.5\textwidth}
 \vspace{-0.5cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/acerSacc-1} 
 
+\end{knitrout}
 \end{column}
 \end{columns}
 }
@@ -265,7 +269,11 @@ with
 \end{columns}
 
 \vspace{0.2cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/uninfoPrior-1} 
 
+\end{knitrout}
 
 }
 
@@ -308,7 +316,11 @@ with
 \end{columns}
 
 \vspace{0.2cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/infoPrior-1} 
 
+\end{knitrout}
 }
 
 
@@ -553,7 +565,11 @@ It is implemented in the \texttt{raftery.diag} function of the \texttt{coda} R p
 \frametitle{Good Practices}
 \framesubtitle{Trace plot}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/trace-1} 
 
+\end{knitrout}
 }
 
 \frame{
@@ -566,13 +582,21 @@ Thinning is essentially {\bf subsampling}
 
 \vspace{-0.5cm}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/thining1-1} 
 
+\end{knitrout}
 
 If we ran the same MCMC as above but instead for 50000 steps and we save the $\theta$ at every 10 steps, we obtain
 
 \vspace{-0.2cm}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/thining2-1} 
 
+\end{knitrout}
 
 }
 
@@ -586,13 +610,21 @@ Burn-in is throwing away some iterations at the beginning of the MCMC run
 
 \vspace{-0.5cm}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/burnin1-1} 
 
+\end{knitrout}
 
 After burn-in, we obtain
 
 \vspace{-0.2cm}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/burnin2-1} 
 
+\end{knitrout}
 
 }
 
@@ -612,7 +644,11 @@ After burn-in, we obtain
 \large
 Rerun the estimation procedure multiple time with different starting values
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/multChain-1} 
 
+\end{knitrout}
 }
 
 
@@ -621,7 +657,11 @@ Rerun the estimation procedure multiple time with different starting values
 \framesubtitle{Density plot}
 \large
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/densPlot-1} 
 
+\end{knitrout}
 }
 
 \frame{
@@ -1003,43 +1043,4 @@ $$\log(P(\hat\sigma|\hat\mu,\mathbf{Y}))\propto \sum^n_{i=1}\log\left(\dfrac{1}{
 
 }
 
-
 \end{document}
-
-
-
-{\large Standard deviation ($\hat\sigma$)}
-$$\log(P(\hat\sigma|\hat\mu,\mathbf{Y}))\propto \sum^n_{i=1}\log\left(\dfrac{1}{\hat\sigma\sqrt{2\pi}}e^{-\frac{(Y_i-\hat\mu)^2}{2\hat\sigma^2}}\right)\times \log(\tau)(\alpha_0-1)-\beta_0\hat\tau$$
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\frame{
-\frametitle{The Single Component Adaptive Metropolis Algorithm with Rotation}
-Show what needs to be added to make MA a SCAM
-
-show how this helps with the example
-}
