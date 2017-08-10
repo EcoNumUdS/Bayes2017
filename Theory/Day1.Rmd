@@ -45,16 +45,11 @@ mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las 
 
 # A few notes on History
 
-- Laplace *Théorie Analytique des Probabilités in 1812* and
+- Laplace *Théorie Analytique des Probabilités in 1812*
 
 - Reverend Bayes *An Essay Towards Solving a Problem in the Doctrine of Chances* 	(published posthumously)
 
-
-# A few notes on History
-
-- Kolmogorov / Mathematization
-
-- Shannon / Tukey / Update information theory
+- Kolmogorov / Shannon / Fisher
 
 
 # Examples
@@ -530,17 +525,17 @@ box2(1:4, col=mygrey)
 \LARGE $P(A \bigcup B \bigcup C) = ?$
 
 
-# Let's practice 1 - the duck hunter
+# Let's practice 1 - Elmer, the duck hunter
 
 ![Daffy & Elmer](Image/duckHunter.png){width=50%}
 
 \vspace{-.5cm}
 
-- duck hunter, one bullet, one duck
+- Elmer, one bullet, one duck
 
-- duck hunter, two bullets, two ducks
+- Elmer, two bullets, two ducks
 
-- duck hunter, two bullets, one duck
+- Elmer, two bullets, one duck
 
 
 # Solution 1
@@ -558,7 +553,7 @@ box2(1:4, col=mygrey)
 # Random variables
 
 - Flipping a coin / occurrence of 1 species on an island / shooting a duck
-\pause $\rightarrow$ we applied similar probabilistic approach.  
+\pause $\rightarrow$ we apply similar probabilistic approach.  
 
 \pause
 
@@ -572,7 +567,7 @@ box2(1:4, col=mygrey)
 
 - Now let $X$ denote a variable such as:
   - $X=1$ success: $P(X) = p$ ;
-  - $X=1$ failure:  $P(\overline{X}) = 1- p$
+  - $X=0$ failure: $P(\overline{X}) = 1- p$
 
 \pause
 
@@ -769,19 +764,25 @@ Remarks:
 # Let's practice 2 (15 min)
 
 
-Elmer shoots $n$ independent ducks with a success rate of $p$
+Elmer shoots 3 independent ducks with a success rate of $p=0.4$
 
 \pause
 
-  1. Find the probability he misses his $n-1$ first shoots and succeeds in the last attempt.
+  1. Find the probability he misses the first 2 ducks and kills the last one.  
 
-  \pause
+\pause
 
-  2. Find the probability he kills exactly $k$ ducks. \pause Starts with n=3.
+  2. Find the probability he kills 2 ducks.
 
-  \pause
+\pause
 
-  3. Determine the probability distribution associated with the number of failure before the first kill.
+He now shoots $n$ independent ducks with a success rate of $p$
+
+  3. Find the probability he misses the $n-1$ first ducks and kills the last one  
+
+\pause
+
+  4. Find the probability he kills $k$ ducks.
 
 
 
@@ -799,6 +800,7 @@ Elmer shoots $n$ independent ducks with a success rate of $p$
 
   - Rolling n dices   
   - presence of n species on an island  
+  - killing $k/n$ ducks
 
 \pause
 
@@ -806,10 +808,11 @@ Elmer shoots $n$ independent ducks with a success rate of $p$
 
   - number of species on a given island   
   - number of failure before the first success  
+  - missing $n$ ducks before killing one
 
 \pause
 
-\LARGE
+\large
 
 $$\sum_i^{+ \infty} P(X_i) = 1$$
 
@@ -1239,7 +1242,33 @@ legend("topleft", legend = c(expression(lambda==1), expression(lambda==.1)), col
 
 \pause
 
-- When will you start the meeting?
+- Find the probability the meeting start on time?
+
+\pause
+
+- Find the probability the meeting start is delayed by at least half an hour?
+
+
+# Dealing with joint distributions
+
+<!-- previously fairly simple assuming Independence -->
+
+\pause
+
+Questions regarding $X \cap Y$ \pause "occurence of two species":
+
+  1. $P(X \cap Y)$ or $P(X,Y)$ \pause if independent $P(X)P(Y)$
+\pause
+
+  2. $P(X | Y)$ or $P(X | Y)$
+\pause
+
+  3. $f(x,y)$ \pause if independent $f(y)f(x)$
+\pause
+
+  4. $f(x | y)$, $f(y | x)$
+
+
 
 
 
@@ -1337,13 +1366,15 @@ $$V(X) = npq$$
 
 # Example Expectation / variance
 
-- Poisson $\mathcal{P}(\lambda)$: $E(X) = \lambda$ $V(X) = \lambda$
+- Poisson $\mathcal{P}(\lambda)$: $E(X) = \lambda$ ; $~~~V(X) = \lambda$
 
-- Binomial negative: $\mathcal{NB}(r,p)$: $E(X) = \frac{pr}{1-p}$ $V(X) = \frac{pr}{(1-p)^2} \lambda$
+- Binomial negative: $\mathcal{NB}(r,p)$: $E(X) = \frac{(1-p)r}{p}$; $~~~V(X) = \frac{(1-p)r}{(p)^2}$
 
-- Normal $\mathcal{N}(\mu, \sigma)$: $E(X) = \mu$ $V(X) = \sigma$   
+- Binomial negative: $\mathcal{NB}(1,p)$: $E(X) = \frac{(1-p)}{p}$; $~~~V(X) = \frac{(1-p)}{(p)^2}$
 
-- Exponential $\mathcal{E}(\lambda)$: $E(X) = \lambda$, $V(X) = \lambda^2$
+- Normal $\mathcal{N}(\mu, \sigma)$: $E(X) = \mu$; $~~~V(X) = \sigma^2$   
+
+- Exponential $\mathcal{E}(\lambda)$: $E(X) = \lambda$; $~~~V(X) = \lambda^2$
 
 
 # Example Expectation / variance
@@ -1356,14 +1387,23 @@ $$V(X) = npq$$
 
 # Let's practice 4
 
-The duck hunter: the frightening question!
+Elmer and the frightening question!
 
-- the duck hunter has a $p$ success
+\pause
+
+- Elmer's success rate is $p$   
+\pause
+
 - a bullet is 3$  
+\pause
+
 - a duck of the same quality is 60$
-- Find the value $p_{sh}$ for which the duck hunter should better stay home?
+\pause
+
+- Find $p_{sh}$ the success rate below which Elmer should better stay at home?
 
 
+# Solution 4  
 
 
 # Independence act 2
@@ -1506,28 +1546,28 @@ $$f(A|B) = \frac{f(B|A)f(A)}{\int f(b|c)f(c)dc}$$
 
 
 
-# Practice 4 (30 min)
+# Practice 5 (30 min)
 
 
 Are you infected?
 
-- Disease prevalence $\alpha$ (0.005)
+- Prevalence is $\pi$ (0.005)
 \pause
 
 - test to determine whether or not you are infected
-    - error type I $\beta$ (.025)
-    - error type II $\delta$ (.05)
+    - error type I is $\alpha=.025$
+    - error type II $\beta=.05$
 
 \pause
 
-- You take the test, it is positive, are you sick?
+- You take the test, it is positive, are you infected?
 \pause
 
 
-- You take the test, it is negative, are you sick?
+- You take the test, it is negative, are you infected?
 \pause
 
-- bonus: build a function.
+- bonus: build a function to answer the questions above for any parameters' value.
 
 
 # LUNCH
@@ -1563,22 +1603,36 @@ Are you infected?
 Let's practice more
 
 
-# Practice 5 - Elmer is back (20 min)
+# Practice 6 - Elmer is back (20 min)
 
-- the precision decrease with distance $f(d) = exp(-2*d)$
+- Elmer's precision decreases as distance increases
+\pause
 
-- the distance distribution accounts for:
-    - ducks' escape
-    - the distance Elmer takes his chances
+- Ducks escape when Elmer gets too close
 
-- Elmer brought 10 bullets, what's the probability he will have a nice diner tonight?
+1. Model $P(X=1 | D=d)$
+
+2. Find the effective rate of success $p$
+
+3. Elmer has 10 bullets, what's the probability he'll have a nice diner?
 
 
-# Practice 6 - Elmer... the truth (30 min)
 
-- table of success and failure with / without distance...
-- update info
+# Practice 7 - Elmer... the truth (30 min)
 
+- `val1.csv` or `val1.Rds` 1000 different shoots
+
+1. Create a function to compute the probability obtaining such results for any $p$.
+\pause
+
+2. Deduce the probability of having these results.
+\pause
+
+3. Create a function that computes $P(p|X)$ for any value of $p$.
+
+4. We have a new set of data `val2.csv` or `val2.Rds`, what should we do?
+
+4. 1-3 including the distance (see `val3.csv` or `val3.Rds`)
 
 
 
