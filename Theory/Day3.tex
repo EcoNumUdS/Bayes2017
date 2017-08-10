@@ -134,11 +134,7 @@ Mont Sutton
 \end{column}
 \begin{column}{0.5\textwidth}
 \vspace{-0.5cm}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/acerSacc-1} 
 
-\end{knitrout}
 \end{column}
 \end{columns}
 }
@@ -162,7 +158,7 @@ Want to find the best model parameter(s) for the data at hand
 
 \vspace{0.1cm}
 
-{\large They need data}
+{\large They need {\bf data}}
 
 \vspace{0.2cm}
 
@@ -195,12 +191,11 @@ Want to find how good the model parameter(s) are given some data
 
 \vspace{0.1cm}
 
-{\large They need data and prior information}
+{\large They need {\bf data} and {\bf prior} information}
 
 \vspace{0.2cm}
 
 {\large\bf Recall that}
-
 {\Large 
 	$$\underbrace{P(\text{Model}|\text{Data})}_{\textcolor{orange}{Posterior}}\propto \underbrace{P(\text{Data}|\text{Model})}_\text{\textcolor{blue}{Likelihood}}\underbrace{P(\text{Model})}_\text{\textcolor{green!50!black}{Prior}}$$
 }
@@ -213,7 +208,7 @@ Want to find how good the model parameter(s) are given some data
 
 {\Large Definition of prior probability}
 
-\vspace{0.1cm}
+\vspace{0.3cm}
 
 The {\bf prior probability} informes us about the probability of the model being true \textit{before} the current data is considered.
 
@@ -221,9 +216,9 @@ The {\bf prior probability} informes us about the probability of the model being
 
 {\Large Types of priors}
 
-\vspace{0.1cm}
+\vspace{0.3cm}
 
-{\bf\large Uninformative}
+{\bf\large ``Uninformative''}
 
 \vspace{0.1cm}
 
@@ -237,13 +232,21 @@ These priors are meant to bring very little information about the model
 
 These priors bring information about the model that is available
 
+\vspace{0.1cm}
+
+{\bf\large Conjugate}
+
+\vspace{0.1cm}
+
+These priors have the same functional form (mathematically speaking) as the likelihood
+
 }
 
 \frame{
 \frametitle{Bayesian Statistics}
 \framesubtitle{A few words about the prior}
 
-{\Large\bf Uninformative priors}
+{\Large\bf ``Uninformative priors''}
 
 \vspace{0.1cm}
 
@@ -269,11 +272,7 @@ with
 \end{columns}
 
 \vspace{0.2cm}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/uninfoPrior-1} 
 
-\end{knitrout}
 
 }
 
@@ -316,13 +315,56 @@ with
 \end{columns}
 
 \vspace{0.2cm}
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/infoPrior-1} 
 
-\end{knitrout}
 }
 
+
+\frame{
+\frametitle{Bayesian Statistics}
+\framesubtitle{A few words about the prior}
+
+\vspace{-0.2cm}
+
+{\Large\bf Conjugate priors}
+
+\vspace{0.2cm}
+
+These types of priors are convenient to use because 
+
+\begin{itemize}
+  \item They are computationally faster to use
+  \item They can be interepreted as additional data
+\end{itemize}
+
+\vspace{0.1cm}
+
+{\large\bf Why are they useful?}
+
+\vspace{0.1cm}
+
+There is no need to write the likelihood down when using them. All that needs to be done is to sample them to obtain a parameter estimation.
+
+\vspace{0.2cm}
+
+{\large\bf What does it mean to be of the same \textit{functional form}?}
+
+\vspace{0.1cm}
+
+It means that both distribution have th same mathematical structure. 
+
+\vspace{-0.1cm}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\center{\bf Binomial distribution}
+$$\theta^a(1-\theta)^b$$
+\end{column}
+\begin{column}{0.5\textwidth}
+\center{\bf Beta distribution}
+$$\theta^{\alpha-1}(1-\theta)^{\beta-1}$$
+\end{column}
+\end{columns}
+}
 
 \section{Bayesian}
 
@@ -331,6 +373,8 @@ with
 \framesubtitle{Estimating model parameters}
 
 {\large\bf When the likelihood \textit{can} be solved analytically}
+
+\textcolor{red}{Is it something worth doing or will it be covered in another day ???}
 
 Start from Dominique's day 2 work.
 
@@ -359,20 +403,45 @@ Start from Dominique's day 2 work.
 \frame{
 \frametitle{Bayesian Statistics}
 \framesubtitle{Estimating $\beta$}
+
+\textcolor{red}{Is it something worth doing or will it be covered in another day ???}
+
 Exercice (by hand?)
 }
 
-\frame{
-\frametitle{Bayesian Statistics}
-\framesubtitle{Estimating $\beta$}
-
-{\Large When the likelihood {\bf cannot} be solved analytically (Difficult problem)}
-
-Talk about MCMC
-Mention that MCMC {\bf can} be used for simple problems but it is generally time consumming so generally not the best way to go
-}
-
 \section{MCMC}
+
+\frame{
+\frametitle{Why are Markov Chain Monte Carlo (MCMC) useful?}
+
+\large 
+
+{\bf Typical reasons to favour MCMC}
+
+\vspace{0.2cm}
+
+\begin{itemize}
+  \item It is flexible
+  \item It can be applied to complex models such as models with multiple levels of hierarchy
+  \item It can be implemented from scratch (we will do it today !) 
+\end{itemize}
+
+{\bf In practice, there is no reason to write an MCMC when the likelihood \textit{can} be solved analytically}
+
+\vspace{0.3cm}
+
+{\Large Other alternatives}
+
+\vspace{0.1cm}
+
+\begin{itemize}
+  \item Hamiltonian (hybrid) Monte Carlo
+  \item Laplace approximation
+  \item Integrated nested Laplace approximation
+  \item \dots
+\end{itemize}
+
+}
 
 \frame{
 \frametitle{Properties Markov Chain Monte Carlo (MCMC)}
@@ -410,14 +479,14 @@ Mention that MCMC {\bf can} be used for simple problems but it is generally time
 \large
 {\bf Usefulness}
 \begin{itemize}
-  \item It is an MCMC well designed to approach univariate problems
+  \item It is well designed to approach univariate problems
   \item It is useful to sample Bayesian posterior distribution
 \end{itemize}
 
 {\bf Properties}
 \begin{itemize}
   \item Each iteration generates a sample from the target distribution
-  \item Samples are dependent on one another (they are autocorrelated)... So effective sample size is smaller than the chain length
+  \item Samples are dependent on one another (they are autocorrelated)... So, effective sample size is smaller than the chain length
 \end{itemize}
 }
 
@@ -435,7 +504,7 @@ Mention that MCMC {\bf can} be used for simple problems but it is generally time
 
   \vspace{0.2cm}
 
-  \hspace{0.2cm} It has to be large. For example, 5000 steps
+  \hspace{0.2cm} It has to be large.
 
   \vspace{0.2cm}
   
@@ -486,7 +555,7 @@ Mention that MCMC {\bf can} be used for simple problems but it is generally time
 
 \vspace{1cm}
 
-Note that for any \textit{symmetric} distribution, such as the uniform distribution, the acceptance probability becomes
+Note that for any \textit{symmetric} distribution, such as the uniform or normal distribution, the acceptance probability becomes
 $$r=\frac{f(\theta_{cand})}{f(\theta_{t-1})}$$
 This is known as the \textbf{Metropolis algorithm}
 }
@@ -508,7 +577,7 @@ This is known as the \textbf{Metropolis algorithm}
   
 \vspace{0.2cm}
 
-\hspace{0.5cm}\texttt{set r\_cand = r(theta\_c, theta[t-1])}
+\hspace{0.5cm}\texttt{set r\_c = r(theta\_c, theta[t-1])}
   
 \vspace{0.2cm}
 
@@ -516,7 +585,7 @@ This is known as the \textbf{Metropolis algorithm}
   
 \vspace{0.2cm}
 
-\hspace{0.5cm}\texttt{IF U < r\_cand}
+\hspace{0.5cm}\texttt{IF U < r\_c}
 
 \vspace{0.2cm}
 
@@ -565,11 +634,7 @@ It is implemented in the \texttt{raftery.diag} function of the \texttt{coda} R p
 \frametitle{Good Practices}
 \framesubtitle{Trace plot}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/trace-1} 
 
-\end{knitrout}
 }
 
 \frame{
@@ -582,21 +647,13 @@ Thinning is essentially {\bf subsampling}
 
 \vspace{-0.5cm}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/thining1-1} 
 
-\end{knitrout}
 
-If we ran the same MCMC as above but instead for 50000 steps and we save the $\theta$ at every 10 steps, we obtain
+If we ran the same MCMC as above but instead for 50000 steps and we save $\theta$ at every 10 steps, we obtain
 
 \vspace{-0.2cm}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/thining2-1} 
 
-\end{knitrout}
 
 }
 
@@ -610,21 +667,13 @@ Burn-in is throwing away some iterations at the beginning of the MCMC run
 
 \vspace{-0.5cm}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/burnin1-1} 
 
-\end{knitrout}
 
 After burn-in, we obtain
 
 \vspace{-0.2cm}
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/burnin2-1} 
 
-\end{knitrout}
 
 }
 
@@ -632,7 +681,18 @@ After burn-in, we obtain
 \frame{
 \frametitle{Exercice}
 \framesubtitle{Write your own Metropolis-Hasting Algorithm}
+\large
+\begin{description}
+\item[\bf Problem] Sample from the following target distribution
+\end{description}
 
+$$\frac{e^{-\left(x+\sin\left(3x\right)\right)^2+0.195}}{2}$$
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/MAEx1-1} 
+
+\end{knitrout}
 
 }
 
@@ -644,11 +704,7 @@ After burn-in, we obtain
 \large
 Rerun the estimation procedure multiple time with different starting values
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/multChain-1} 
 
-\end{knitrout}
 }
 
 
@@ -657,11 +713,7 @@ Rerun the estimation procedure multiple time with different starting values
 \framesubtitle{Density plot}
 \large
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-\includegraphics[width=\maxwidth]{figure/densPlot-1} 
 
-\end{knitrout}
 }
 
 \frame{
