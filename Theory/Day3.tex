@@ -71,6 +71,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{enumitem}
+\usepackage{hyperref}
 
 % --- Writing certain lines in courrier 
 \usepackage{courier}
@@ -93,51 +94,6 @@
   \titlepage
 \end{frame}
 
-\section{Intro}
-
-
-\frame{
-\frametitle{Ecological context}
-\framesubtitle{How important is elevation in defining sugar maple distribution on mont Sutton?}
-
-
-\begin{columns}[T]
-\begin{column}{0.6\textwidth}
-
-Mont Sutton
-
-\vspace{-0.7cm}
-
-  \begin{center}
-    \scalebox{0.2}{
-      \includegraphics{Image/Mont_Sutton.jpg}
-    }
-  \end{center}
-
-  \vspace{-0.2cm}
-  
-  {\large\bf Model}
-  
-  \vspace{-0.5cm}
-  
-  {\large $$P(y=1) = \beta x + \epsilon$$}
-
-  \vspace{-0.8cm}
-
- where
- \begin{itemize}
-  \item[$y$] is the distribution of sugar maple
-  \item[$x$] is elevation
-  \textcolor{red}{\large\item[$\beta$] is the importance of elevation}
-  \item[$\epsilon$] is the model residuals
- \end{itemize}
-\end{column}
-\begin{column}{0.5\textwidth}
-\vspace{-0.5cm}
-
-\end{column}
-\end{columns}
-}
 
 \frame{
 \frametitle{Linking Frequentist and Bayesian Statistics}
@@ -272,7 +228,11 @@ with
 \end{columns}
 
 \vspace{0.2cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/uninfoPrior-1} 
 
+\end{knitrout}
 
 }
 
@@ -315,7 +275,11 @@ with
 \end{columns}
 
 \vspace{0.2cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/infoPrior-1} 
 
+\end{knitrout}
 }
 
 
@@ -364,19 +328,23 @@ $$\theta^a(1-\theta)^b$$
 $$\theta^{\alpha-1}(1-\theta)^{\beta-1}$$
 \end{column}
 \end{columns}
+
+\vspace{0.2cm}
+
+\underline{\textcolor{blue}{\url{https://en.wikipedia.org/wiki/Conjugate_prior}}}
 }
 
 \section{Bayesian}
 
-\frame{
-\frametitle{Bayesian Statistics}
-\framesubtitle{Estimating model parameters}
+%\frame{
+%\frametitle{Bayesian Statistics}
+%\framesubtitle{Estimating model parameters}
 
-{\large\bf When the likelihood \textit{can} be solved analytically}
+%{\large\bf When the likelihood \textit{can} be solved analytically}
 
-\textcolor{red}{Is it something worth doing or will it be covered in another day ???}
+%\textcolor{red}{Is it something worth doing or will it be covered in another day ???}
 
-Start from Dominique's day 2 work.
+%Start from Dominique's day 2 work.
 
 %\vspace{0.2cm}
 
@@ -396,18 +364,16 @@ Start from Dominique's day 2 work.
 %  &\propto\theta^y\left(1-\theta\right)^{1-y}\\
 %  &\propto\left(\beta x\right)^y\left(1-\beta x\right)^{1-y}\\
 %\end{align*}
+%}
 
+%\frame{
+%\frametitle{Bayesian Statistics}
+%\framesubtitle{Estimating $\beta$}
 
-}
+%\textcolor{red}{Is it something worth doing or will it be covered in another day ???}
 
-\frame{
-\frametitle{Bayesian Statistics}
-\framesubtitle{Estimating $\beta$}
-
-\textcolor{red}{Is it something worth doing or will it be covered in another day ???}
-
-Exercice (by hand?)
-}
+%Exercice (by hand?)
+%}
 
 \section{MCMC}
 
@@ -430,7 +396,7 @@ Exercice (by hand?)
 
 \vspace{0.3cm}
 
-{\Large Other alternatives}
+{\Large Other alternatives to MCMC}
 
 \vspace{0.1cm}
 
@@ -445,7 +411,12 @@ Exercice (by hand?)
 
 \frame{
 \frametitle{Properties Markov Chain Monte Carlo (MCMC)}
-
+%%% En discuter avec Dominique 
+%%% En discuter avec Dominique 
+%%% En discuter avec Dominique 
+%%% En discuter avec Dominique 
+%%% En discuter avec Dominique 
+%%% En discuter avec Dominique 
 {\large\bf Similarity with simulated annealing}
 \begin{itemize}
   \item New parameter values are chosen sequentially but randomly
@@ -607,7 +578,11 @@ This is known as the \textbf{Metropolis algorithm}
 \frametitle{Good Practices}
 \framesubtitle{Chain length}
 
-{\large\bf A rough procedure to decide how many steps is enough}
+{\Large How many step is enough\dots}
+
+\vspace{0.2cm}
+
+{\large\bf A rough procedure}
 
 \begin{itemize}
   \item[{\bf Step 1}] Perform a pilot run for a reduced number of steps (10 to 100) and measure the time it takes
@@ -618,7 +593,7 @@ This is known as the \textbf{Metropolis algorithm}
 
 \vspace{0.2cm}
 
-{\large\bf The Raftery-Lewis diagnostic}
+{\large\bf A more statistical way - The Raftery-Lewis diagnostic}
 
 \vspace{0.2cm}
 
@@ -634,7 +609,11 @@ It is implemented in the \texttt{raftery.diag} function of the \texttt{coda} R p
 \frametitle{Good Practices}
 \framesubtitle{Trace plot}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/trace-1} 
 
+\end{knitrout}
 }
 
 \frame{
@@ -647,13 +626,21 @@ Thinning is essentially {\bf subsampling}
 
 \vspace{-0.5cm}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/thining1-1} 
 
+\end{knitrout}
 
 If we ran the same MCMC as above but instead for 50000 steps and we save $\theta$ at every 10 steps, we obtain
 
 \vspace{-0.2cm}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/thining2-1} 
 
+\end{knitrout}
 
 }
 
@@ -667,13 +654,21 @@ Burn-in is throwing away some iterations at the beginning of the MCMC run
 
 \vspace{-0.5cm}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/burnin1-1} 
 
+\end{knitrout}
 
 After burn-in, we obtain
 
 \vspace{-0.2cm}
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/burnin2-1} 
 
+\end{knitrout}
 
 }
 
@@ -693,7 +688,6 @@ $$\frac{e^{-\left(x+\sin\left(3x\right)\right)^2+0.195}}{2}$$
 \includegraphics[width=\maxwidth]{figure/MAEx1-1} 
 
 \end{knitrout}
-
 }
 
 \section{Convergence}
@@ -702,9 +696,13 @@ $$\frac{e^{-\left(x+\sin\left(3x\right)\right)^2+0.195}}{2}$$
 \frametitle{Convergence}
 \framesubtitle{Multiple chains}
 \large
-Rerun the estimation procedure multiple time with different starting values
+Rerun the estimation procedure multiple times with different starting values
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/multChain-1} 
 
+\end{knitrout}
 }
 
 
@@ -713,7 +711,11 @@ Rerun the estimation procedure multiple time with different starting values
 \framesubtitle{Density plot}
 \large
 
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/densPlot-1} 
 
+\end{knitrout}
 }
 
 \frame{
@@ -723,7 +725,7 @@ Rerun the estimation procedure multiple time with different starting values
 
 \vspace{0.2cm}
 
-Technically, it is two sample $t$ test of mean with unequal variance 
+Technically, it is a two sample $t$ test of mean with unequal variance 
 
 {\large $$Z = \frac{\bar\theta_A-\bar\theta_B}{\sqrt{\frac{S_A}{n_A}+\frac{S_B}{n_B}}}$$}
 
@@ -833,7 +835,7 @@ where $A$ is a tuning parameter
 
 \hspace{1cm}\texttt{theta[t] = theta\_c}
 
-\textcolor{orange}{\hspace{1cm}\texttt{IF burning}}
+\textcolor{orange}{\hspace{1cm}\texttt{IF burnin}}
 
 \textcolor{orange}{\hspace{1.5cm}\texttt{A = A * 1.01}}
 
@@ -841,7 +843,7 @@ where $A$ is a tuning parameter
 
 \hspace{1cm}\texttt{theta[t] = theta[t-1]}
 
-\textcolor{orange}{\hspace{1cm}\texttt{IF burning}}
+\textcolor{orange}{\hspace{1cm}\texttt{IF burnin}}
 
 \textcolor{orange}{\hspace{1.5cm}\texttt{A = A / 1.01}}
 }
@@ -849,7 +851,18 @@ where $A$ is a tuning parameter
 \frame{
 \frametitle{Exercice}
 \framesubtitle{Build your own adaptive Metropolis-Hasting algorithm}
+\large
+\begin{description}
+\item[\bf Problem] Sample from the following target distribution
+\end{description}
 
+$$e^{-\left(x^2+\sin\left(3x\right)\right)^4-0.344}$$
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/MAEx2-1} 
+
+\end{knitrout}
 }
 
 
@@ -871,11 +884,11 @@ where $A$ is a tuning parameter
 
 \hspace{1cm}\texttt{sample theta\_c\textcolor{orange}{[i]} from j(theta\_c\textcolor{orange}{[i]}|theta[\textcolor{orange}{i,}t-1], A[i])}
   
-\hspace{1cm}\texttt{set r\_cand = r(theta\_c, theta[t-1])}
+\hspace{1cm}\texttt{set r\_c = r(theta\_c, theta[t-1])}
   
 \hspace{1cm}\texttt{sample U from uniform(0, 1)}
 
-\hspace{1cm}\texttt{IF U < r\_cand}
+\hspace{1cm}\texttt{IF U < r\_c}
 
 \hspace{1.5cm}\texttt{theta[t] = theta\_c}
 
@@ -904,7 +917,37 @@ where $A$ is a tuning parameter
 \frame{
 \frametitle{Exercice}
 \framesubtitle{Build your own single component adaptive Metropolis-Hasting algorithm}
+\begin{description}
+\item[\bf Problem] Sample from the following bivariate distribution
+\end{description}
 
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{align*}
+  \frac{\exp\left(-\frac{1}{2}({\mathbf x}-{\boldsymbol\mu})^\mathrm{T}{\boldsymbol\Sigma}^{-1}    ({\mathbf x}-{\boldsymbol\mu})\right)}{\sqrt{|2\pi\boldsymbol\Sigma|}},
+\end{align*}
+
+with 
+
+\begin{description}
+ \item[Mean] $\boldsymbol\mu = [10,30]$
+ \item[Variance] $\boldsymbol\Sigma=\left[\begin{array}{cc}
+                                    1 & 0.7\\
+                                    0.7 & 2\\
+                                    \end{array}\right]$
+\end{description}
+
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/MAEx3-1} 
+
+\end{knitrout}
+\end{column}
+\end{columns}
+
+The probability density function of the bivariate normal distribution can be obtained through the \texttt{dmvnorm} function of the \texttt{mvtnorm} R package.
 }
 
 \section{Gibbs}
@@ -1093,6 +1136,65 @@ $$\log(P(\hat\mu|\hat\sigma,\mathbf{Y}))\propto \sum^n_{i=1}\log\left(\dfrac{1}{
 {\large Standard deviation ($\hat\sigma$)}
 $$\log(P(\hat\sigma|\hat\mu,\mathbf{Y}))\propto \sum^n_{i=1}\log\left(\dfrac{1}{\hat\sigma\sqrt{2\pi}}e^{-\frac{(Y_i-\hat\mu)^2}{2\hat\sigma^2}}\right) + \log(\tau)(\alpha_0-1)-\beta_0\hat\tau$$
 
+}
+
+\section{Bonus}
+
+
+\frame{
+\frametitle{Bonus - An ecological problem}
+\framesubtitle{How important is elevation in defining sugar maple distribution on mont Sutton?}
+
+
+\begin{columns}[T]
+\begin{column}{0.7\textwidth}
+
+%Mont Sutton
+
+%\vspace{-0.7cm}
+
+%  \begin{center}
+%    \scalebox{0.2}{
+%      \includegraphics{Image/Mont_Sutton.jpg}
+%    }
+%  \end{center}
+%
+  \vspace{-0.2cm}
+  
+  {\large\bf Model}
+  
+  \vspace{-0.5cm}
+  
+  {\large $$y = \beta_0 + \beta_1 x + \epsilon$$}
+
+  \vspace{-0.5cm}
+
+\begin{itemize}
+  \item[$y$] is the abundance (or presence-absence\dots you decide!) of sugar maple
+  \item[$x$] is elevation
+  \item[$\beta_0$] is an intercept
+  \item[$\beta_1$] is the importance of elevation
+  \item[$\epsilon$] is the model residuals
+ \end{itemize}
+%  \vspace{0.2cm}
+  
+  {\large\bf Things to think about}
+\begin{itemize}
+  \item What data you choose to analyse
+  \item The type of regression performed
+  \item The way you write the likelihood
+  \item The priors (what do you know or don't know)
+ \end{itemize}
+\end{column}
+\begin{column}{0.45\textwidth}
+\vspace{-0.5cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/acerSacc-1} 
+
+\end{knitrout}
+\end{column}
+\end{columns}
 }
 
 \end{document}
