@@ -18,6 +18,8 @@ output:
 
 
 
+
+
 \huge{PART 1}
 
 \LARGE
@@ -37,23 +39,68 @@ mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las 
 
 
 
-# A few notes on History
-
-- Chevalier De Méré, Pascal and Fermat: *the problem of points*
-  - prediction based on data / envision outcomes
-
 
 # A few notes on History
 
-- Laplace *Théorie Analytique des Probabilités in 1812*
+<!-- 20 min => practice 1  -->
 
-- Reverend Bayes *An Essay Towards Solving a Problem in the Doctrine of Chances* 	(published posthumously)
+Chevalier de Méré (1607-1684), Pascal (1623-1662) and Fermat (1607-1665):
+\pause
 
-- Kolmogorov / Shannon / Fisher
+- de Méré: wit / courtier (Louis XIV) brought Pascal's attention to 2 problems
+(1650-1655):
+
+\pause
+
+  1. dice problem   
+  2. division problem (problèmes des parties)
+\pause
+
+  - Pascal solved the hardest problem (correspondence with Fermat)
+
+
+# A few notes on History
+
+- **dice problem**:
+
+\pause
+
+> "When one throws with two dice, how many throws must one be allowed in order
+to have a better than even chance of getting two sixes at least once?"
+
+\pause
+
+- **division problem**:
+
+\pause
+
+> "An elderly nobleman, staying at his country house, was extremely fond of
+watching ball games, and so he called in two young farmhands, saying, 'Here are
+four ducats for which you may play; the one who first takes eight games is the
+winner.' So they began to play, but when one had five games and the other
+three games, they lost the ball and were unable to finish. The question is how
+the prize should be divided."
+
+\small Ore, O. Pascal and the Invention of Probability Theory (1960).
+
+
+
+# A few notes on History
+
+- Pierre-Simon Laplace (1749–1827) *Théorie Analytique des Probabilités in 1812*
+
+\pause
+
+- Reverend Thomas Bayes (1701 – 1761) *An Essay Towards Solving a Problem in the Doctrine of Chances* (published posthumously)
+
+\pause
+
+- Huygens, de Moivre, Galton, Gauss, von Mises, Kolmogorov, Neyman, Wiener,
+Wald, Pearson, Shannon, Fisher
+
 
 
 # Examples
-
 
 - Allesina and Tang, **Stability criteria for complex ecosystems**, *Nature* (2012), \pause
 based on Tao, Vu & Krishnapur, **Random matrices: Universality of ESDs and the circular law**, *The Annals of Probability* (2010).
@@ -68,7 +115,7 @@ based on Tao, Vu & Krishnapur, **Random matrices: Universality of ESDs and the c
 
 
 
-<!-- 20 min  -->
+
 
 
 # Probability space
@@ -117,7 +164,7 @@ Occurrence of species 1 on an island
 1. $\Omega$: Sample space set of all possible outcomes  
 
 \begin{itemize}
-     \item<2-4>  {"Present", "Absence"} ({"0", "1"})
+     \item<2-4>  {"Present" or "1", "Absent" or "0"}
  \end{itemize}  
 
 \pause
@@ -268,7 +315,7 @@ text(.5*(rc2[1]+rc1[3]) , .5*(rc1[2]+rc2[4]), label= expression(A~intersect(B)),
 box2(1:4, col=mygrey)
 ```
 
-\LARGE $P(A \bigcap B)$
+\LARGE $P(A \bigcap B) = \alert{?}$
 
 
 <!-- we assume this is known we'll come back latter on that -->
@@ -333,7 +380,7 @@ text(mean(rc2[c(1,3)])+.1, mean(rc2[c(2,4)]), label="B", cex=2.6, col=mygrey)
 box2(1:4, col=mygrey)
 ```
 
-\LARGE $P(A \cap B) = 0$
+\LARGE $A \cap B = \emptyset$;  $P(A \cap B) = 0$
 
 
 
@@ -343,11 +390,11 @@ box2(1:4, col=mygrey)
 
 \large
 
-Consider an event B \pause and a set of events: $A_i$ where i $\in$ \{1,...,n\} ($n$ a natural number) such as:
+Consider $B$ \pause and $A_i$ where i $\in$ \{1,...,n\}:
 
 \pause
 
-1. $\forall$ \{i, j\} \\ $i \neq j$, $P(A_i \cap A_j) = 0$ (pairwise disjoint)
+1. $\forall$ \{i, j\} \\ $i \neq j$, $P(A_i \cap A_j) = 0~~$ **pairwise disjoint**
 
 \pause
 
@@ -355,7 +402,7 @@ Consider an event B \pause and a set of events: $A_i$ where i $\in$ \{1,...,n\} 
 
 \pause
 
-then, the set $A_i$ is a partition of B.
+then, the set $A_i$ is a **partition** of B.
 
 
 # Combining events - partition
@@ -491,6 +538,8 @@ Describes a **probability distribution**
 
 
 
+<!-- 20 min  -->
+
 # Let's practice 1 (15 min)
 
 \begin{exampleblock}{PRACTICE 1}
@@ -553,7 +602,7 @@ box2(1:4, col=mygrey)
 # Random variables
 
 - Flipping a coin / occurrence of 1 species on an island / shooting a duck
-\pause $\rightarrow$ we apply similar probabilistic approach.  
+\pause $\rightarrow$ we apply a similar probabilistic approach.  
 
 \pause
 
@@ -566,8 +615,8 @@ box2(1:4, col=mygrey)
 \pause
 
 - Now let $X$ denote a variable such as:
-  - $X=1$ success: $P(X) = p$ ;
-  - $X=0$ failure: $P(\overline{X}) = 1- p$
+    - $X=1$ success: $P(X) = p$ ;
+    - $X=0$ failure: $P(\overline{X}) = 1- p$
 
 \pause
 
@@ -578,7 +627,7 @@ box2(1:4, col=mygrey)
 # Random variables and probability distribution
 
 - A **random variable** $X: \Omega \rightarrow M$ where M is a measurable
-space (natural number, real number, ...)
+space (natural numbers, real numbers, ...)
 
 \pause
 
@@ -589,7 +638,7 @@ under certain constraints:
   1. $f$ specifies $P$ for the partition of $\Omega$ made of singletons  
 \pause
 
-  2. $f$ defines $p_{0}$, $p_{1}$, $p_{2}$, $p_{3}$ such as $\sum p_i = 1$
+  2. $f$ defines $p_{0}$, $p_{1}$, $p_{2}$, ..., $p_{n}$ such as $\sum p_i = 1$
 \pause
 
     - Coin $P("Head") = P(1) = p$; $P("Tail") = P(0) = 1-p$
@@ -784,6 +833,9 @@ He now shoots $n$ independent ducks with a success rate of $p$
 
   4. Find the probability he kills $k$ ducks.
 
+\pause
+
+- bonus: solve the **dice problem**
 
 
 # Solution 2
@@ -964,7 +1016,7 @@ circle(0, 0, col=myblue, border=NA)
 ```
 
 
-# Infinite set - where's the duck?
+# Infinite set - where is the duck?
 
 
 ```{r whereisb, echo = FALSE, fig.width=6, fig.height=4.5}
@@ -977,7 +1029,7 @@ points(rd*cos(agl), rd*sin(agl), bg=mygrey, pch=21)
 ```
 
 
-# Infinite set - where's the duck?
+# Infinite set - where is the duck?
 
 
 ```{r whereisc, echo = FALSE, fig.width=6, fig.height=4.5}
@@ -992,7 +1044,7 @@ points(rd*cos(agl), rd*sin(agl), bg=mygrey, pch=21)
 
 
 
-# Infinite set - where's the duck?
+# Infinite set - where is the duck?
 
 
 ```{r whereisd, echo = FALSE, fig.width=7, fig.height=3}
@@ -1013,9 +1065,6 @@ Let $X$ be the random values x-coordinate
   - $P(X=x) = ?$
   \pause
 
-  - $P(X=0) = 0$
-  \pause
-
   - $P(X \in [a,b])$ makes sense!
   \pause
 
@@ -1023,7 +1072,24 @@ Let $X$ be the random values x-coordinate
   \pause
 
   - $P(X \in [0,.5]) = 0.5$
+  \pause
 
+
+
+# Infinite set - where is the duck?
+
+\Large
+
+- $P(X=x) = 0$ \pause but...
+
+<br/><br/>
+
+```{r whereise, echo = FALSE, fig.width=7, fig.height=3}
+par(xaxs="i", yaxs="i")
+plot0()
+abline(h=0, lwd=4, col = myblue)
+points(-.9+1*runif(20), rep(0,20), bg=mygrey, pch=21)
+```
 
 
 
@@ -1135,11 +1201,11 @@ Conditional probability:
 - $f(x_1)f(x_2)$
 
 
-# Cumulative distribution function
+# Cumulative distribution function (c.d.f.)
 
 \LARGE
 
-$$F(y) = P(X<y) = \int_{-\infty}^yf(x)dx$$
+$$F(y) = P(X \leq y) = \int_{-\infty}^yf(x)dx$$
 
 
 
@@ -1242,11 +1308,14 @@ legend("topleft", legend = c(expression(lambda==1), expression(lambda==.1)), col
 
 \pause
 
-- Find the probability the meeting start on time?
+- Find the probability that you get started on time?
 
 \pause
 
-- Find the probability the meeting start is delayed by at least half an hour?
+- Find the probability that the meeting is delayed by *at least* half an hour?
+
+
+# Solution 3
 
 
 # Dealing with joint distributions
@@ -1254,8 +1323,6 @@ legend("topleft", legend = c(expression(lambda==1), expression(lambda==.1)), col
 <!-- previously fairly simple assuming Independence -->
 
 \pause
-
-Questions regarding $X \cap Y$ \pause "occurence of two species":
 
   1. $P(X \cap Y)$ or $P(X,Y)$ \pause if independent $P(X)P(Y)$
 \pause
@@ -1267,8 +1334,6 @@ Questions regarding $X \cap Y$ \pause "occurence of two species":
 \pause
 
   4. $f(x | y)$, $f(y | x)$
-
-
 
 
 
@@ -1311,10 +1376,15 @@ $$x_{\alpha} ~~ P(X \leq x_{\alpha}) = \alpha$$
 \pause
 
 Examples:
-  - median    
-  - 1st and 3rd quartile    
-  - 5 / 95 percentile     
-  - `dbinom` have a look at `qbinom`
+
+  - median ($\alpha = .5$)
+  - 1st and 3rd quartile ($\alpha = .25$ $\alpha = .75$)
+  - 5 / 95 percentile ($\alpha = .05$ $\alpha = .95$)
+
+\pause
+
+R: `qbinom`, `qpois`, `qnorm`, ...
+
 
 
 # Quantiles
@@ -1330,17 +1400,20 @@ text(1.4, quantile(val, .25)-0.25, labels = c("1st quartile"), pos=4, col = mygr
 text(1.4, quantile(val, .75)+0.25, labels = c("3rd quartile"), pos=4, col = mygreen)
 ```
 
-# Transfer
+
+# More about expectation
 
 \large
 
 $$E(g(X)) = \int g(x)f(x)dx$$
 
+\pause
+
+$$Z = X^2 ~~ E(Z) = \int x^2f(x)dx$$
 
 \pause
 
-
-$$Z = X^2 ~~ E(Z) = \int x^2f(x)dx$$
+$$Z = cos(X) ~~ E(Z) = \int cos(x)f(x)dx$$
 
 
 
@@ -1383,8 +1456,6 @@ $$V(X) = npq$$
 
 
 
-
-
 # Let's practice 4
 
 Elmer and the frightening question!
@@ -1398,6 +1469,9 @@ Elmer and the frightening question!
 \pause
 
 - a duck of the same quality is 60$
+\pause
+
+- "Should Elmer better stop hunting?"
 \pause
 
 - Find $p_{sh}$ the success rate below which Elmer should better stay at home?
@@ -1441,19 +1515,25 @@ $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
 
 \pause
 
+
+$$P(X_1=1|X_2=1) = \frac{P(X_1=1 \cap X_2=1)}{P(X_2=1)}$$
+
+\pause
+
 consequently:
 
 $$P(A \cap B) = P(A|B)P(B)$$
 
 
+
 # Independence act 2
 
+\large
 
 Independence:
 
 $$P(A|B) = P(A)$$
 
-$$P(A|\overline{B}) = P(A)$$
 
 \pause
 
@@ -1481,12 +1561,12 @@ text(.7, .1, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
 ## --
 ## --
 text(.25, .68, labels = expression(P(X[1])), cex=1.1, col=myblue)
-text(.55, .88, labels = expression(paste(P(X[1] , " | ", X[2]))), cex=1.1, col=myblue)
-text(.55, .42, labels = expression(paste(P(X[1] , " | ", bar(X[2])))), cex=1.1, col=myblue)
+text(.55, .9, labels = expression(P(X[1]~l~X[2])), cex=1.1, col=myblue)
+text(.55, .6, labels = expression(P(X[1]~l~bar(X[2]))), cex=1.1, col=myblue)
 #
 text(.25, .32, labels = expression(P(bar(X[1]))), cex=1.1, col=myblue)
-text(.55, .1, labels = expression(paste(P(bar(X[1]), " | ", X[2]))), cex=1.1, col=myblue)
-text(.55, .6, labels = expression(paste(P(bar(X[1]), " | ", bar(X[2])))), cex=1.1, col=myblue)
+text(.55, .42, labels = expression(P(bar(X[1])~l~X[2])), cex=1.1, col=myblue)
+text(.55, .1, labels = expression(P(bar(X[1])~l~bar(X[2]))), cex=1.1, col=myblue)
 ## --
 # text(.25, 1.04, "SHOOT 1", col=mygreen)
 # text(.55, 1.04, "SHOOT 2", col=mygreen)
@@ -1514,16 +1594,24 @@ $$P(A|B)P(B) = P(B|A)P(A)$$
 
 \LARGE
 
-$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
+\alert{$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$}
 
 
 # Bayes theorem
 
-- What the reverend said: the original question he asked!
+
+> "Given the number of times in which an unknown event has happened and
+failed: Required the chance that the probability of its (specific event)
+happening in a single trial lies somewhere between any two degrees of
+probability that can be named."
+
+\pause
 
 $$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
 
-- Implications: cause/consequence
+- information \pause
+- inference  \pause
+- cause/consequence
 
 
 # Bayes theorem
@@ -1546,10 +1634,10 @@ $$f(A|B) = \frac{f(B|A)f(A)}{\int f(b|c)f(c)dc}$$
 
 
 
-# Practice 5 (30 min)
+# Practice 5 - Are you infected? (30 min)
 
 
-Are you infected?
+<br/>
 
 - Prevalence is $\pi$ (0.005)
 \pause
@@ -1617,10 +1705,12 @@ Let's practice more
 3. Elmer has 10 bullets, what's the probability he'll have a nice diner?
 
 
+- bonus: solve the **division problem**
+
 
 # Practice 7 - Elmer... the truth (30 min)
 
-- `val1.csv` or `val1.Rds` 1000 different shoots
+`val1.csv` (or `val1.Rds`) are the results of 1000 shoots Elmer took.
 
 1. Create a function to compute the probability obtaining such results for any $p$.
 \pause
@@ -1630,9 +1720,11 @@ Let's practice more
 
 3. Create a function that computes $P(p|X)$ for any value of $p$.
 
-4. We have a new set of data `val2.csv` or `val2.Rds`, what should we do?
+4. We have a new set of data `val2.csv` or `val2.Rds`, what should you do?
 
-4. 1-3 including the distance (see `val3.csv` or `val3.Rds`)
+5. Bonus: 1-3 including the distance (see `val3.csv` or `val3.Rds`)
+
+
 
 
 
@@ -1667,32 +1759,38 @@ What do we do when we do statistics (simple case):
 
 - Normal: $\theta=(\mu, \sigma)$
 
-- $\mu$ =  
+    - $\hat{\mu} = \frac{1}{n}\sum_{i}^n x_i$
 
-- $\sigma$ =
+    - $\hat{\sigma} = \frac{1}{n}\sum_{i}^n (x_i - \mu)^2$
 
+    - $\hat{\sigma} = \frac{1}{n-1}\sum_{i}^n (x_i - \hat{\mu})^2$
 
 - Then we try to assess the goodness of our estimation : IC / tests
+
+- Bayesian framework offers few other possibilities.
 
 
 
 # Why normal, why?
 
-Theorem central limit..
+Central limit theorem:
 
-and the resultat from Tao is king pf Theo Centrel limit for matric spectrum
+$$X_i, i\in{1, 2, ..., n}$$ **i.i.d.** $\mathcal{L}(\theta)$,
 
+$$\frac{X_i - \mu}{\sigma} \leftarrow N(\mu, \sigma)$$
+
+
+\pause
+
+<!-- Tao pf Central limit theorem matrix spectrum -->
+
+\pause
 
 Poincaré:
 
-> ""
-
-
-# Let's take a step back
-
-- Likelihood
-
-- Bayesian mixture of information and getting distribution of !
+> "Tout le mode croit à la loi normale : les physiciens parcequ'ils pensent
+que les mathématiciens l'ont démontrée et les mathématiciens parcequ'ils
+croient qu'elle a été vérifiée par les physiciens."
 
 
 ----
