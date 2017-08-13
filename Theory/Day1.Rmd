@@ -87,16 +87,29 @@ the prize should be divided."
 
 # A few notes on History
 
-- Pierre-Simon Laplace (1749–1827) *Théorie Analytique des Probabilités in 1812*
-
+- Reverend Thomas Bayes (1701 – 1761) *An Essay Towards Solving a Problem in the Doctrine of Chances* (published posthumously)
 \pause
 
-- Reverend Thomas Bayes (1701 – 1761) *An Essay Towards Solving a Problem in the Doctrine of Chances* (published posthumously)
+- Pierre-Simon Laplace (1749–1827) *Théorie Analytique des Probabilités in 1812*
 
 \pause
 
 - Huygens, de Moivre, Galton, Gauss, von Mises, Kolmogorov, Neyman, Wiener,
 Wald, Pearson, Shannon, Fisher
+
+
+# References
+
+1. [Hacking I., The Emergence of Probability (2006).](https://books.google.ca/books?id=ewqzOGDKYscC&dq=emergence+of+probabilities&hl=fr&source=gbs_navlinks_s)
+
+\pause
+
+2. [Hendricks V. F., Pedersen S. A., Jørgensen K. F. , Probability Theory Philosophy, Recent History and Relations to Science (2001). ](https://books.google.ca/books/about/Probability_Theory.html?id=E5-yAqDhmY8C&redir_esc=y)
+
+\pause
+
+3. [Brémaud P., An Introduction to Probability Modelling (1988). ](https://books.google.ca/books/about/An_Introduction_to_Probabilistic_Modelin.html?hl=de&id=wF5dg0UUXRIC&redir_esc=y)
+
 
 
 
@@ -547,7 +560,7 @@ Describes a **probability distribution**
       \item<1-4> $P(A \cup B \cup C)$
       \item<2-4> the duck hunter 1 bullet
       \item<3-4> the duck hunter 2 bullets / 2 ducks - 1 duck
-      \item<4-4> bonus: how to simulate a dice with a coin?
+      \item<4-4> \alert{bonus}: how to simulate a dice with a coin?
   \end{itemize}    
 \end{exampleblock}
 
@@ -835,7 +848,7 @@ He now shoots $n$ independent ducks with a success rate of $p$
 
 \pause
 
-- bonus: solve the **dice problem**
+- \alert{bonus}: solve the **dice problem**
 
 
 # Solution 2
@@ -1005,6 +1018,7 @@ Moments
 The Bayes theorem
 
 
+<!-- 10 min to practice 3 -->
 
 # Infinite set - where is the duck?
 
@@ -1059,7 +1073,7 @@ points(-1+2*runif(20), rep(0,20), bg=mygrey, pch=21)
 Let $X$ be the random values x-coordinate
 \pause
 
-  - values: x $\in$ [0,1]
+  - values: x $\in$ [0,10]
   \pause
 
   - $P(X=x) = ?$
@@ -1068,10 +1082,10 @@ Let $X$ be the random values x-coordinate
   - $P(X \in [a,b])$ makes sense!
   \pause
 
-  - $P(X \in [0,1]) = 1$
+  - $P(X \in [0,10]) = 1$
   \pause
 
-  - $P(X \in [0,.5]) = 0.5$
+  - $P(X \in [0,5]) = 0.5$
   \pause
 
 
@@ -1080,9 +1094,9 @@ Let $X$ be the random values x-coordinate
 
 \Large
 
-- $P(X=x) = 0$ \pause but...
+- $P(X=x) = \frac{1}{\infty} \pause = 0$ \pause but...
 
-<br/><br/>
+<br/><br/><br/>
 
 ```{r whereise, echo = FALSE, fig.width=7, fig.height=3}
 par(xaxs="i", yaxs="i")
@@ -1090,6 +1104,12 @@ plot0()
 abline(h=0, lwd=4, col = myblue)
 points(-.9+1*runif(20), rep(0,20), bg=mygrey, pch=21)
 ```
+
+<br/><br/><br/>
+
+\pause
+
+We need something else!
 
 
 
@@ -1123,13 +1143,13 @@ plot0(c(-.5,1.5), c(-.2,1.2))
 abline(h=0,v=0)
 abline(v=1, lty=2)
 lines(c(0,1), c(1,1), col=myblue, lwd=3)
-text(c(0,0),c(-.1,1), pos=2, labels=c("0","1"), cex=1.4)
-text(c(1),c(-.1), pos=4, labels=c("1"), cex=1.4)
+text(c(0,0),c(-.1,1), pos=2, labels=c("0",".1"), cex=1.4)
+text(c(1),c(-.1), pos=4, labels=c("10"), cex=1.4)
 ```
 
 \large
 
-$$\forall~x \in [0,1] ~~ f(x) = 1 ~~~ (\mathcal{U}_{[0,1]})$$
+$$\forall~x \in [0,10] ~~ f(x) = .1 ~~~ (\mathcal{U}_{[0,10]})$$
 
 # Infinite set - where's the duck?
 
@@ -1141,13 +1161,13 @@ rect(0,0,1,1, col = lighten(myblue, 60), border=NA)
 abline(h=0,v=0)
 abline(v=1, lty=2)
 lines(c(0,1), c(1,1), col=myblue, lwd=3)
-text(c(0,0),c(-.1,1), pos=2, labels=c("0","1"), cex=1.4)
-text(c(1),c(-.1), pos=4, labels=c("1"), cex=1.4)
+text(c(0,0),c(-.1,1), pos=2, labels=c("0",".1"), cex=1.4)
+text(c(1),c(-.1), pos=4, labels=c("10"), cex=1.4)
 ```
 
 \large
 
-$$\int_0^1f(x)dx = 1$$
+$$\int_0^{10}f(x)dx = 1$$
 
 
 
@@ -1161,13 +1181,13 @@ rect(0,0,.5,1, col = lighten(myblue, 60), border=NA)
 abline(h=0,v=0)
 abline(v=1, lty=2)
 lines(c(0,1), c(1,1), col=myblue, lwd=3)
-text(c(0,0),c(-.1,1), pos=2, labels=c("0","1"), cex=1.4)
-text(c(1),c(-.1), pos=4, labels=c("1"), cex=1.4)
+text(c(0,0),c(-.1,1), pos=2, labels=c("0",".1"), cex=1.4)
+text(c(1),c(-.1), pos=4, labels=c("10"), cex=1.4)
 ```
 
 \large
 
-$$\int_0^{.5}f(x)dx = .5$$
+$$\int_0^{5}f(x)dx = .5$$
 
 
 
@@ -1187,14 +1207,14 @@ Probability distribution function:
 # Probability distribution - act 2
 
 
-- $f(x)$  (pmf or pdf)  
-- $\int f(x)$
+- $f(x)~~~[x]$ (pmf or pdf)  
+- $\int f(x)dx~~~\int [x]dx$
 
 \pause
 
 Conditional probability:
 
-- $f(x|y)$
+- $f(x|y)~~~[x|y]$
 - f(x) = $f(x|y)f(y)$
 - f(x) = $f(x|y)P(y)$
 
@@ -1292,15 +1312,15 @@ legend("topleft", legend = c(expression(lambda==1), expression(lambda==.1)), col
 
 
 
-# Practice 3
+# Practice 3 (10 min)
 
-- You've set up a meeting with three colleagues:
+- You've set up a meeting with 2 colleagues:
 
 \pause
 
-  1. regular behavior
-  2. often late and we never never really know when he'll show up
-  3. right on time if the starting time were 1 hour earlier...
+  1. you = regular behavior
+  2. colleague 1 = often late but you never really know when he'll show up
+  3. colleague 2 = regular behavior if the starting time were 30 min earlier...
 
 \pause
 
@@ -1315,8 +1335,11 @@ legend("topleft", legend = c(expression(lambda==1), expression(lambda==.1)), col
 - Find the probability that the meeting is delayed by *at least* half an hour?
 
 
+
 # Solution 3
 
+
+<!-- 10 min to practice 4 -->
 
 # Dealing with joint distributions
 
@@ -1456,7 +1479,7 @@ $$V(X) = npq$$
 
 
 
-# Let's practice 4
+# Let's practice 4 (10 min)
 
 Elmer and the frightening question!
 
@@ -1479,6 +1502,8 @@ Elmer and the frightening question!
 
 # Solution 4  
 
+
+<!-- 15 min -->
 
 # Independence act 2
 
@@ -1607,6 +1632,24 @@ probability that can be named."
 
 \pause
 
+**Proposition 3:**
+
+
+> "The probability that two subsequent events will both happen is a ratio compounded of the probability of the 1st, and the probability of the 2nd on supposition the 1st happens."
+
+\pause
+
+\small *An Essay Towards Solving a Problem in the Doctrine of Chances*
+
+
+# Bayes theorem
+
+**Proposition 5:**
+
+> "If there be two subsequent events, the probability of the 2nd b/N and the probability both together P/N, and it being first discovered that the 2nd event has happened, from hence I guess that the 1st event has also happened, the probability I am in the right is P/b"
+
+\pause
+
 $$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
 
 - information \pause
@@ -1634,12 +1677,12 @@ $$f(A|B) = \frac{f(B|A)f(A)}{\int f(b|c)f(c)dc}$$
 
 
 
-# Practice 5 - Are you infected? (30 min)
+# Practice 5 - Are you infected? (25 min)
 
 
 <br/>
 
-- Prevalence is $\pi$ (0.005)
+- Prevalence is $\pi$ (0.01)
 \pause
 
 - test to determine whether or not you are infected
@@ -1655,7 +1698,12 @@ $$f(A|B) = \frac{f(B|A)f(A)}{\int f(b|c)f(c)dc}$$
 - You take the test, it is negative, are you infected?
 \pause
 
-- bonus: build a function to answer the questions above for any parameters' value.
+- \alert{bonus}: build a function to answer the questions above for any parameters' value.
+
+
+# Solution 5
+
+<!-- answer during pm if needed -->
 
 
 # LUNCH
@@ -1697,15 +1745,21 @@ Let's practice more
 \pause
 
 - Ducks escape when Elmer gets too close
+\pause
 
 1. Model $P(X=1 | D=d)$
+\pause
 
-2. Find the effective rate of success $p$
+2. Find the effective rate of success $p$ \pause (how to model $P(D=d)$)
+\pause
 
-3. Elmer has 10 bullets, what's the probability he'll have a nice diner?
+3. Elmer brings 10 bullets, what's the probability he'll have a nice diner?
+\pause
+
+- \alert{bonus}: solve the **division problem**
 
 
-- bonus: solve the **division problem**
+# Solution 6
 
 
 # Practice 7 - Elmer... the truth (30 min)
@@ -1719,13 +1773,17 @@ Let's practice more
 \pause
 
 3. Create a function that computes $P(p|X)$ for any value of $p$.
+\pause
 
 4. We have a new set of data `val2.csv` or `val2.Rds`, what should you do?
+\pause
 
-5. Bonus: 1-3 including the distance (see `val3.csv` or `val3.Rds`)
+5. \alert{bonus}: 1-3 including the distance (see `val3.csv` or `val3.Rds`)
+
+6. \alert{bonus} 2: Answer Bayes orginal question
 
 
-
+# Solution 7
 
 
 <!-- (10 min) -->
@@ -1760,12 +1818,18 @@ What do we do when we do statistics (simple case):
 - Normal: $\theta=(\mu, \sigma)$
 
     - $\hat{\mu} = \frac{1}{n}\sum_{i}^n x_i$
+\pause
 
     - $\hat{\sigma} = \frac{1}{n}\sum_{i}^n (x_i - \mu)^2$
+\pause
 
     - $\hat{\sigma} = \frac{1}{n-1}\sum_{i}^n (x_i - \hat{\mu})^2$
+\pause
 
-- Then we try to assess the goodness of our estimation : IC / tests
+
+- Then we assess the goodness of our estimation : IC / tests
+\pause
+
 
 - Bayesian framework offers few other possibilities.
 
@@ -1773,16 +1837,14 @@ What do we do when we do statistics (simple case):
 
 # Why normal, why?
 
-Central limit theorem:
+\pause
+
+**Central limit theorem**:
 
 $$X_i, i\in{1, 2, ..., n}$$ **i.i.d.** $\mathcal{L}(\theta)$,
 
-$$\frac{X_i - \mu}{\sigma} \leftarrow N(\mu, \sigma)$$
+$$\frac{X_i - \mu}{\sigma} \rightarrow N(\mu, \sigma)$$
 
-
-\pause
-
-<!-- Tao pf Central limit theorem matrix spectrum -->
 
 \pause
 

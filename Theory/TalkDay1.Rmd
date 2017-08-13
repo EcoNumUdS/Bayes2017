@@ -1,0 +1,47 @@
+---
+title: "Day 1 - A few notes on the probability theory"
+subtitle: "Flip a coin and compute the likelihood"
+author: Kevin Cazelles
+institute: University of Guelph
+date: August 14, 2017
+documentclass: eecslides
+babel-lang: english
+output:
+  beamer_presentation:
+    highlight: tango
+    includes:
+      in_header: headerb.tex
+# Rscript -e 'rmarkdown::render("Day1.Rmd", "all")'
+# (am: 1h20 + 1h20 / pm 2h + 15min)
+---
+
+
+
+
+
+
+\huge{PART 1}
+
+\LARGE
+
+Probability theory from scratch
+
+
+
+```{r setup, echo = FALSE}
+library(graphicsutils)
+myblue <- "#7eb6d6"
+myred <- "#e080a3"
+mygreen <- "#d4e09b"
+mygrey <- "grey35"
+mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las = 1, cex.main=2, cex.axis=1.4, cex.lab=1.4, bty="l")
+```
+
+
+
+# Context
+
+
+----
+
+\HUGE{To be continued}
