@@ -11,7 +11,7 @@ output:
     highlight: tango
     includes:
       in_header: headerb.tex
-# Rscript -e 'rmarkdown::render("Day1.Rmd", "all")'
+# Rscript -e 'rmarkdown::render("TalkDay1.Rmd", "all")'
 # (am: 1h20 + 1h20 / pm 2h + 15min)
 ---
 
@@ -20,12 +20,7 @@ output:
 
 
 
-\huge{PART 1}
-
-\LARGE
-
-Probability theory from scratch
-
+\huge{CONTEXT}
 
 
 ```{r setup, echo = FALSE}
@@ -41,7 +36,131 @@ mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las 
 
 # Context
 
+![](Image/figMW1.png)
+
+# Context
+
+![](Image/figMW2.png)
+
+# Context
+
+![](Image/figMW3.png)
+
+# Context
+
+![](Image/figMW4.png)
+
+# Context
+
+![](Image/figMW5.png)
+
+# Context
+
+![](Image/figMW6.png)
+
+# Context
+
+![](Image/figMW7.png)
+
+# Context
+
+![](Image/figMW8.png)
+
 
 ----
 
-\HUGE{To be continued}
+\huge{GOAL}
+
+
+# Goal
+
+![](Image/figeco1.png)
+
+# Goal
+
+![](Image/figeco2.png)
+
+# Goal
+
+![](Image/figeco3.png)
+
+# Goal
+
+![](Image/figeco4.png)
+
+# Goal
+
+![](Image/figeco5.png)
+
+# Goal
+
+![](Image/figeco6.png)
+
+# Goal
+
+![](Image/figeco7.png)
+
+# Goal
+
+![](Image/figeco8.png)
+
+
+
+# Classical ODE
+
+1. $S$: species richness on the island
+
+2. $p_i$: occupation rate of species $i$
+
+3. $e_i$: extinction rate
+
+4. $c_i$: colonisation rate
+
+\pause
+
+\large
+
+$$\frac{dp_i}{dt} = c_i(1-p_i) + e_ip_i$$
+
+
+$$\frac{dS}{dt} = \sum_i \frac{dp_i}{dt}$$
+
+
+# Classical ODE
+
+
+$$\frac{dS}{dt} = \sum_i \frac{dp_i}{dt}$$
+
+<br/><br/>
+
+\large
+
+INDEPENDENCE
+
+
+
+# Use probability theory
+
+\large
+
+1. $X_i$ is now a **random variable**: 1 presence / 0 absence
+
+2. $X_{i,t}$ presence / absence at time $t$
+
+3. $X_{i,t>0}$ **random process**
+
+
+# Use probability theory
+
+\large
+
+$X_{i,t>0}$ probability distribution?
+
+\pause
+
+$X_{i,t} \rightarrow X_{i,t+dt}$ \alert{?}
+
+\pause
+
+
+$P(X_{i,t} \cap X_{i,t+dt}) \pause = P(X_{i,t+dt} | X_{i,t})P(X_{i,t})$
