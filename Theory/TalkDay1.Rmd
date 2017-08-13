@@ -226,7 +226,7 @@ $P(X_{i,t+dt} =1 | X_{i,t} = 0, D = d)~~~$ \alert{colonisation = f(d)}
 
 # Adding biotic interactions
 
-2 species :
+2 species:
 
 - $X_{1,t} = 0 \cap X_{2,t} = 0 ~~~ Y_{0, t}$
 - $X_{1,t} = 0 \cap X_{2,t} = 1 ~~~ Y_{1, t}$
@@ -240,7 +240,15 @@ Law of total probability:
 $P(Y_{0, t+dt}) = P(Y_{0, t+dt}|Y_{0, t})P(Y_{0, t}) + P(Y_{0, t+dt}|Y_{1, t})P(Y_{1, t}) + P(Y_{0, t+dt}|Y_{2, t})P(Y_{2, t})+ P(Y_{0, t+dt}|Y_{3, t})P(Y_{3, t})$
 
 
-# Table
+# Adding biotic interactions
+
+n species:
+
+$Y_k~~k\in{0,...2^n-1}$
+
+Find $P(Y_{k,t+1}|Y_{l,t})$
+
+
 
 # Results
 
