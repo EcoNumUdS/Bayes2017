@@ -1479,7 +1479,7 @@ $$V(X) = npq$$
 
 
 
-# Let's practice 4 (10 min)
+# Let's practice 4 (15 min)
 
 Elmer and the frightening question!
 
@@ -1677,7 +1677,7 @@ $$f(A|B) = \frac{f(B|A)f(A)}{\int f(b|c)f(c)dc}$$
 
 
 
-# Practice 5 - Are you infected? (25 min)
+# Practice 5 - Are you infected? (20 min)
 
 
 <br/>
@@ -1739,7 +1739,7 @@ $$f(A|B) = \frac{f(B|A)f(A)}{\int f(b|c)f(c)dc}$$
 Let's practice more
 
 
-# Practice 6 - Elmer is back (20 min)
+# Practice 6 - Elmer is back (25 min)
 
 - Elmer's precision decreases as distance increases
 \pause
@@ -1762,7 +1762,7 @@ Let's practice more
 # Solution 6
 
 
-# Practice 7 - Elmer... the truth (30 min)
+# Practice 7 - Elmer... the truth (25 min)
 
 `val1.csv` (or `val1.Rds`) are the results of 1000 shoots Elmer took.
 
@@ -1780,17 +1780,17 @@ Let's practice more
 
 5. \alert{bonus}: 1-3 including the distance (see `val3.csv` or `val3.Rds`)
 
-6. \alert{bonus} 2: Answer Bayes orginal question
+6. \alert{bonus} 2: Answer Bayes' original question
 
 
 # Solution 7
 
 
-<!-- (10 min) -->
+<!-- (5 min) -->
 
 # Let's step back
 
-What do we do when we do statistics (simple case):
+What do we do when we do statistics? (simple case)
 
 \pause
 
