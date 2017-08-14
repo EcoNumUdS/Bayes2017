@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[Introduction](introduction.pdf)
+[Introduction](Introduction.pdf)
 
 ## Day 1
 
