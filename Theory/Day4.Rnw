@@ -353,6 +353,8 @@ This is one way\dots, there is another using conjugate prior
 
 {\Large Using conjugate prior distribution}
 
+What 
+
 \vspace{0.3cm}
 
 }
