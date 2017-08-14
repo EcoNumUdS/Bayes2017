@@ -1,6 +1,17 @@
+# Material
+
+## Day 1
+
+[Day1_material](Day1_material.zip)
+
+
+-----------
+
+
 # Informations générales pour l'école d'été en statistiques Bayésienne pour écologistes
 
 #### English follows French
+
 
 ## Transport et Hébergement
 
