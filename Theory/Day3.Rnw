@@ -346,6 +346,110 @@ $$\theta^{\alpha-1}(1-\theta)^{\beta-1}$$
 %Exercice (by hand?)
 %}
 
+\section{Rejection Sampling}
+
+\frame{
+\frametitle{Rejection Sampling}
+
+\vspace{-0.3cm}
+
+It is designed so that we can sample from any distribution 
+
+\begin{description}
+  \item[Step 1] Define an easy to sample candidate distribution ($c(x)$)
+
+\vspace{0.1cm}
+\textit{Uniform distribution}
+{\large $$\left\{
+  \begin{array}{cl}
+    \frac{1}{b-a} & \text{for } x\in [a,b]\\
+    0 &\text{otherwise}\\
+  \end{array}
+\right.$$}
+  \item[Step 2] Define the target (hard) distribution ($t(x)$)
+{\large $$e^{-(x^2+\sin(2x))^4-0.473}$$}
+<<diffTarg,dev="pdf",fig.height=1.75,fig.width=8,echo=FALSE,eval=TRUE>>=
+par(mar=c(4,5,0,0))
+diffTarg <- function(x) exp(-(x^2+sin(2*x))^4-0.473)
+curve(diffTarg,-2,2,xlab="x",ylab="Density",lwd = 4, col = "purple",cex.lab=1.75,las=1)
+@
+  \item[Step 3] Reject candidates with a probability proportional to the difference between the two distributions
+\end{itemize}
+
+\vspace{0.2cm}
+Define $M$ such that $Mc(x)\ge t(x)$ for all $x$
+
+}
+
+\frame{
+\frametitle{Rejection Sampling}
+\bf
+\footnotesize
+{\Large Algorithm in \texttt{pseudocode}}
+
+
+\vspace{0.4cm}
+
+\texttt{REPEAT}
+
+\vspace{0.2cm}
+
+\hspace{0.5cm}\texttt{sample y from cand(x)}
+  
+\vspace{0.2cm}
+
+\hspace{0.5cm}\texttt{Calculate acceptance probability p = target(y) / (M*cand(y))}
+  
+\vspace{0.2cm}
+
+\hspace{0.5cm}\texttt{Draw a value U a random uniform distribution (0,1)}
+  
+\vspace{0.2cm}
+
+\hspace{0.5cm}\texttt{IF U < p}
+
+\vspace{0.2cm}
+
+\hspace{1cm}\texttt{accept y}
+
+\vspace{0.2cm}
+
+\hspace{0.5cm}\texttt{ELSE}
+
+\vspace{0.2cm}
+
+\hspace{1cm}\texttt{reject y}
+
+\vspace{0.2cm}
+
+\texttt{UNTIL y is accepted}
+
+}
+
+
+\frame{
+\frametitle{Rejection Sampling}
+\framesubtitle{Write your own rejection sampling algorithm}
+\large
+\begin{description}
+\item[\bf Problem] Sample from the following target distribution
+\end{description}
+{\large $$e^{-(x^2+\sin(2x))^4-0.473}$$}
+<<diffTarg2,dev="pdf",fig.height=2,fig.width=8,echo=FALSE,eval=TRUE>>=
+par(mar=c(4,5,0,0))
+diffTarg <- function(x) exp(-(x^2+sin(2*x))^4-0.473)
+curve(diffTarg,-2,2,xlab="x",ylab="Density",lwd = 4, col = "purple",cex.lab=1.75,las=1)
+@
+
+{\bf Hint}
+\begin{itemize}
+  \item Use \texttt{dunif} and \texttt{runif} as candidate distribution with a range that covers a little more than the span of the target distribution
+  \item 
+\end{itemize}
+
+}
+
+
 \section{MCMC}
 
 \frame{
