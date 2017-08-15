@@ -3,7 +3,7 @@
 
 ## Projects
 
-| Participant          | Title | Notes                                                                                                                                                                                                                                                                                                                      |
+| Participants          | Title | Notes                                                                                                                                                                                                                                                                                                                     |
 |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Annie-Claude Belisle | Modeling cumulative impacts of climate change and natural resource extraction on cultural landscapes. | Participatory modeling is assed with two indigenous communities from boreal Quebec.  Local experts will provide conceptual models of landscape values for seven ecosystem services and prior distributions for parameters. |
 
@@ -11,7 +11,7 @@
 
 | | Lesson  | Speaker                                                 |
 |:--------------------------------------------------------------------|
-| Day 1 | [Introduction](Introduction.pdf)     | Dominique            |
+| Day 1 | [Introduction](Introduction.pdf)     | Dominique Gravel     |
 | Day 1 | [Probability theory](Day1_material.zip)    | Kevin Cazelles |
 
 
