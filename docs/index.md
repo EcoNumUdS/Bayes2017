@@ -26,6 +26,8 @@
 | Day 2 | [Likelihood](Day2_material.zip) | Dominique Gravel          |
 
 
+Pick up your distribution: [McLaughlin - 2014 - A compendium of common probability distributions](McLaughlin2014.pdf)
+
 Back to [Github](https://github.com/TheoreticalEcosystemEcology/BayesSummer)
 
 
