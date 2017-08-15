@@ -1,19 +1,21 @@
-# Material
 
-## Introduction
+## Bayes Summer School - August, 14th to 18th 2017
 
-[Introduction](Introduction.pdf)
+## Projects
 
-## Day 1
+| Participant          | Title | Notes                                                                                                                                                                                                                                                                                                                      |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Annie-Claude Belisle | Modeling cumulative impacts of climate change and natural resource extraction on cultural landscapes. | Participatory modeling is assed with two indigenous communities from boreal Quebec.  Local experts will provide conceptual models of landscape values for seven ecosystem services and prior distributions for parameters. |
 
-[Day1_material](Day1_material.zip)
+## Materials
 
+| | Lesson  | Speaker                                                 |
+|:--------------------------------------------------------------------|
+| Day 1 | [Introduction](Introduction.pdf)     | Dominique            |
+| Day 1 | [Probability theory](Day1_material.zip)    | Kevin Cazelles |
 
-<br/>
 
 Back to [Github](https://github.com/TheoreticalEcosystemEcology/BayesSummer)
-
-<br/><br/><br/>
 
 
 -----------
