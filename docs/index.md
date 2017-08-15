@@ -3,10 +3,10 @@
 
 ## Projects
 
-| Participants          | Title | Notes                                                                                                                                                                                                                                                                                                                     |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Annie-Claude Belisle | Modeling cumulative impacts of climate change and natural resource extraction on cultural landscapes. | Participatory modeling is assed with two indigenous communities from boreal Quebec.  Local experts will provide conceptual models of landscape values for seven ecosystem services and prior distributions for parameters. |
-| Francois Rousseu | Taking spatial correlation into account when measuring the effect of landscape on the occurence of attacks on cattle by Jaguars. |                                                                                                                                                                                                     |
+| Participants          | Title | Notes                                                                                                                                                                                                                                                                                                                       |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Annie-Claude Belisle | Modeling cumulative impacts of climate change and natural resource extraction on cultural landscapes. | Participatory modeling is assed with two indigenous communities from boreal Quebec.  Local experts will provide conceptual models of landscape values for seven ecosystem services and prior distributions for parameters.   |
+| Francois Rousseu | Taking spatial correlation into account when measuring the effect of landscape on the occurence of attacks on cattle by Jaguars. |                                                                                                                                                                                                     | |
 
 
 ## Materials
