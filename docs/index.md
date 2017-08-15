@@ -16,6 +16,7 @@
 | Louis Donelle | Accounting for intraspecific trait variation in community trait-environment relationship: A Bayesian approach.                                                                                                                                                                                                                                                                                                                                                                                                                                      | [Document complémentaire](louis_project.docx) |
 | Elliot Dreujou | Create an anthropogenic stress map on benthic communities | Starting from a dataset of human usage of the environment (gathered by expert consultation and quantitative sampling), I wish to model the spatial distribution of several anthropogenic stressors that affect benthic communities.                                                                                                                                                                                                                                                                                                    |
 
+
 ## Material
 
 | | Lesson  | Speaker                                                 |
