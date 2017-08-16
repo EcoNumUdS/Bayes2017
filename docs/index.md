@@ -27,6 +27,7 @@
 | Day 1 | [Introduction](Introduction.pdf)     | Dominique Gravel     |
 | Day 1 | [Probability theory](Day1_material.zip)    | Kevin Cazelles |
 | Day 2 | [Likelihood](Day2_material.zip) | Dominique Gravel          |
+| Day 3 | [MCMC](Day3.pdf) | Guillaume Blanchet          |
 
 
 Pick up your distribution: [McLaughlin - 2014 - A compendium of common probability distributions](McLaughlin2014.pdf)

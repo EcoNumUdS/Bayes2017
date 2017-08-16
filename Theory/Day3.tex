@@ -98,7 +98,7 @@
 \frame{
 \frametitle{Linking Frequentist and Bayesian Statistics}
 \framesubtitle{How can we estimate model parameters and what does it imply?}
-
+\large
 {\Large\bf Frequentist}
 
 \vspace{0.1cm}
@@ -118,7 +118,9 @@ Want to find the best model parameter(s) for the data at hand
 
 \vspace{0.2cm}
 
-{\bf This can be done using}
+
+
+{\large\bf This can be done using}
 
 \begin{itemize}
   \item Simulated annealing
@@ -137,7 +139,7 @@ Want to find the best model parameter(s) for the data at hand
 \vspace{0.1cm}
 
 %Want to find how good the model parameter(s) ($\beta$) given some data (sugar maple distribution)
-Want to find how good the model parameter(s) are given some data
+\large Want to find how good the model parameter(s) are given some data
 
 {\Large 
 	$$\textcolor{orange}{\text{Posterior}}\hspace{1.5cm}P(\text{Model}|\text{Data})$$
@@ -149,6 +151,8 @@ Want to find how good the model parameter(s) are given some data
 
 {\large They need {\bf data} and {\bf prior} information}
 
+
+
 \vspace{0.2cm}
 
 {\large\bf Recall that}
@@ -156,6 +160,39 @@ Want to find how good the model parameter(s) are given some data
 	$$\underbrace{P(\text{Model}|\text{Data})}_{\textcolor{orange}{Posterior}}\propto \underbrace{P(\text{Data}|\text{Model})}_\text{\textcolor{blue}{Likelihood}}\underbrace{P(\text{Model})}_\text{\textcolor{green!50!black}{Prior}}$$
 }
 
+}
+
+
+\frame{
+\frametitle{Some ecological context}
+\framesubtitle{How important is elevation in defining sugar maple distribution on mont Sutton?}
+
+
+\begin{columns}[T]
+\begin{column}{0.7\textwidth}
+
+Mont Sutton
+
+\vspace{0.2cm}
+
+  \begin{center}
+    \scalebox{0.2}{
+      \includegraphics{Image/Mont_Sutton.jpg}
+    }
+  \end{center}
+
+  \vspace{-0.2cm}
+  
+\end{column}
+\begin{column}{0.45\textwidth}
+\vspace{-0.5cm}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
+\includegraphics[width=\maxwidth]{figure/acerSacc0-1} 
+
+\end{knitrout}
+\end{column}
+\end{columns}
 }
 
 \frame{
@@ -210,13 +247,15 @@ These priors have the same functional form (mathematically speaking) as the like
 
 \vspace{0.1cm}
 
+
+
 {\bf Gaussian distribution}
 
 \vspace{0.1cm}
 
 \begin{columns}
 \begin{column}{0.5\textwidth}
-\large $$\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+\large $$f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
 \end{column}
 with
 \begin{column}{0.5\textwidth}
@@ -252,13 +291,15 @@ with
 
 \vspace{0.1cm}
 
+
+
 {\bf Uniform distribution}
 
 \vspace{0.1cm}
 
 \begin{columns}
 \begin{column}{0.5\textwidth}
-\large $$\left\{
+\large $$f(x)=\left\{
   \begin{array}{cl}
     \frac{1}{b-a} & \text{for } x\in [a,b]\\
     0 &\text{otherwise}\\
@@ -531,9 +572,9 @@ Define $M$ such that $Mc(x)\ge t(x)$ for all $x$
 
 {\large\bf Difference with simulated annealing}
 \begin{itemize}
-  \item The main goal of MCMC is to sample the \textcolor{orange}{posterior} distribution
+  \item The main goal of MCMC is to sample the \textcolor{orange}{posterior} distribution {\bf not} to find ``the best'' value  
   \item No ``temperature'' is defined
-  \item It is impossible to get stuck in a loop while iterating
+  \item It does not impossible to get stuck in a loop while iterating
 \end{itemize}
 
 \vspace{0.2cm}
@@ -1239,7 +1280,60 @@ $$\log(P(\hat\mu|\hat\sigma,\mathbf{Y}))\propto \sum^n_{i=1}\log\left(\dfrac{1}{
 
 {\large Standard deviation ($\hat\sigma$)}
 $$\log(P(\hat\sigma|\hat\mu,\mathbf{Y}))\propto \sum^n_{i=1}\log\left(\dfrac{1}{\hat\sigma\sqrt{2\pi}}e^{-\frac{(Y_i-\hat\mu)^2}{2\hat\sigma^2}}\right) + \log(\tau)(\alpha_0-1)-\beta_0\hat\tau$$
+This is one way\dots, there is another using conjugate prior
+}
 
+
+\frame{
+\frametitle{Exercice - Write your own Gibbs sampler}
+\framesubtitle{A few guidelines}
+{\Large How to sample parameters using conjugate priors}
+
+\vspace{0.5cm}
+
+When using conjugate prior, we {\bf do not} need to define the likelihood; to obtain the posterior we simply need to sample from the right conjugate prior distribution.
+
+\vspace{0.5cm}
+
+{\large\bf Important points to consider}
+
+\vspace{0.5cm}
+
+\begin{itemize}
+  \item ``Special'' priors need to be define
+  \item This gives less flexibility to the choice of priors we can choose
+  \item It is computationally faster
+\end{itemize}
+}
+
+\frame{
+\frametitle{Exercice - Write your own Gibbs sampler}
+\framesubtitle{A few guidelines}
+{\Large How to sample parameters using conjugate priors}
+
+\vspace{0.2cm}
+
+At this point, Wikipedia can be {\bf very} useful
+
+\vspace{0.2cm}
+
+\underline{\textcolor{blue}{\url{https://en.wikipedia.org/wiki/Conjugate_prior}}}
+
+\vspace{0.2cm}
+
+It tells us that
+
+$$\hat\mu \sim {\cal N}\left(\frac{\frac{\mu_0}{\sigma^2_0}+\frac{\sum_{i=1}^n\mathbf{Y}_i}{\sigma^2}}{\frac{1}{\sigma^2_0}+\frac{n}{\sigma^2}}\right)$$
+
+\vspace{0.2cm}
+
+$$\hat\tau \sim {\cal \Gamma}\left(\alpha+\frac{n}{2},\beta+\frac{\sum_{i=1}^n(\mathbf{Y}_i-\hat\mu)}{2}\right)$$
+
+If we sample $\hat\mu$ and $\hat\tau$ from the previous distributions we should be able to obtain the ``true'' value.
+
+\vspace{0.2cm}
+
+At this point, the choice of priors may affect the result. Try different ones !!
 }
 
 \section{Bonus}
