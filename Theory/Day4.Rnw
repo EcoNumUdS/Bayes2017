@@ -551,9 +551,6 @@ $$P(\textcolor{brown}{\sigma}|\textcolor{blue}{\mathbf{Y}_j}, \textcolor{blue}{\
         ^{\textcolor{green!50!black}{\tau_0}-1}
         e^{-\textcolor{green!50!black}{\phi_0}\frac{1}{\textcolor{brown}{\sigma^2}}}$$
 
-\vspace{0.2cm}
-
-This is one way\dots, there is another using conjugate prior
 }
 
 
