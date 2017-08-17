@@ -630,7 +630,7 @@ curve(diffTarg,-2,2,xlab="x",ylab="Density",lwd = 4, col = "purple",cex.lab=1.75
 
   \vspace{0.2cm}
   
-  \hspace{0.2cm} The normal distribution ($\mu$ = $\theta_{cand}$, $\sigma^2$ = 1) is a good starting point
+  \hspace{0.2cm} The normal distribution ($\mu$ = $\theta_{t-1}$, $\sigma^2$ = 1) is a good starting point
      $$\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
   
 
@@ -1350,7 +1350,7 @@ At this point, Wikipedia can be {\bf very} useful
 
 It tells us that
 
-$$\hat\mu \sim {\cal N}\left(\frac{\frac{\mu_0}{\sigma^2_0}+\frac{\sum_{i=1}^n\mathbf{Y}_i}{\sigma^2}}{\frac{1}{\sigma^2_0}+\frac{n}{\sigma^2}}\right)$$
+$$\hat\mu \sim {\cal N}\left(\frac{\frac{\mu_0}{\sigma^2_0}+\frac{\sum_{i=1}^n\mathbf{Y}_i}{\sigma^2}}{\frac{1}{\sigma^2_0}+\frac{n}{\sigma^2}},\left(\frac{1}{\sigma^2_0}+\frac{n}{\sigma^2}\right)^{-1}\right)$$
 
 \vspace{0.2cm}
 
