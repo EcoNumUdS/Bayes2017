@@ -29,6 +29,7 @@
 | Day 2 | [Likelihood](Day2_material.zip) | Dominique Gravel          |
 | Day 3 | [MCMC](Day3.pdf) | Guillaume Blanchet          |
 | Day 4 | [Hierarchical modelling](Day4.pdf) | Guillaume Blanchet          |
+| Day 4 | [Solution to Exercices](SolutionEx.pdf) | Guillaume Blanchet          |
 | Day 4 | [HMSC presentation](HMSCPres.pdf) | Guillaume Blanchet          |
 
 
