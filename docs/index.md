@@ -22,13 +22,17 @@
 
 ## Material
 
-| | Lesson  | Speaker                                                 |
-|:--------------------------------------------------------------------|
-| Day 1 | [Introduction](Introduction.pdf)     | Dominique Gravel     |
-| Day 1 | [Probability theory](Day1_material.zip)    | Kevin Cazelles |
-| Day 2 | [Likelihood](Day2_material.zip) | Dominique Gravel          |
-| Day 3 | [MCMC](Day3.pdf) | Guillaume Blanchet          |
-| Day 3 | [Hierarchical modelling](Day4.pdf) | Guillaume Blanchet          |
+| | Lesson  | Speaker                                                  |
+|:---------------------------------------------------------------------|
+| Day 1 | [Introduction](Introduction.pdf)     | Dominique Gravel      |
+| Day 1 | [Probability theory](Day1_material.zip)    | Kevin Cazelles  |
+| Day 2 | [Likelihood](Day2_material.zip) | Dominique Gravel           |
+| Day 3 | [MCMC](Day3.pdf) | Guillaume Blanchet                        |
+| Day 4 | [Hierarchical modelling](Day4.pdf) | Guillaume Blanchet      |
+| Day 4 | [Solution to Exercices](SolutionEx.pdf) | Guillaume Blanchet |
+| Day 4 | [HMSC presentation](HMSCPres.pdf) | Guillaume Blanchet       |
+| Day 5 | [Model comparison](Day5.pdf) | Matthew Talluto               |
+| Day 5 | [Hooten & Hobbs (2015) on model selection](Hooten_Hobbs-2015-Ecological_Monographs.pdf) | Matthew Talluto               |
 
 
 Pick up your distribution: [McLaughlin - 2014 - A compendium of common probability distributions](McLaughlin2014.pdf)
