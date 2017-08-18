@@ -42,8 +42,6 @@ mypar <- list(fg=mygrey, col.lab=mygrey, col.axis=mygrey, bg="transparent", las 
 
 # A few notes on History
 
-<!-- 20 min => practice 1  -->
-
 Chevalier de Méré (1607-1684), Pascal (1623-1662) and Fermat (1607-1665):
 \pause
 
@@ -57,6 +55,7 @@ Chevalier de Méré (1607-1684), Pascal (1623-1662) and Fermat (1607-1665):
 \pause
 
   - Pascal solved the hardest problem (correspondence with Fermat)
+
 
 
 # A few notes on History
@@ -95,7 +94,10 @@ the prize should be divided."
 \pause
 
 - Huygens, de Moivre, Galton, Gauss, von Mises, Kolmogorov, Neyman, Wiener,
-Wald, Pearson, Shannon, Fisher
+Wald, Pearson, Shannon, Fisher.
+
+
+
 
 
 # References
@@ -115,8 +117,9 @@ Wald, Pearson, Shannon, Fisher
 
 # Examples
 
-- Allesina and Tang, **Stability criteria for complex ecosystems**, *Nature* (2012), \pause
-based on Tao, Vu & Krishnapur, **Random matrices: Universality of ESDs and the circular law**, *The Annals of Probability* (2010).
+- Allesina and Tang, **Stability criteria for complex ecosystems**,
+*Nature* (2012), \pause based on Tao, Vu & Krishnapur, **Random matrices:
+Universality of ESDs and the circular law**, *The Annals of Probability* (2010).
 
 \pause
 
@@ -124,9 +127,7 @@ based on Tao, Vu & Krishnapur, **Random matrices: Universality of ESDs and the c
 
 \pause
 
-- Expending the classical TIB: short talk this pm!
-
-
+- Expending the classical TIB!
 
 
 
@@ -168,7 +169,7 @@ Let's flip a coin \pause and define $\left(\Omega, \mathcal{F}, P\right)$
 # Probability space
 
 \begin{large}
-Occurrence of species 1 on an island
+Occurrence of species 1 on an island:
 \end{large}
 
 \pause
@@ -196,8 +197,6 @@ Occurrence of species 1 on an island
      \item<4-4> $P(\emptyset)=0$;  $P("1") = p$;  $P("0") = 1-p$; $P(\Omega) = 1$
  \end{itemize}  
 
- <!-- Understanding the difference between Omega and F is ++ -->
- <!-- The set of question F allows is huge and we need to combine outcomes properly -->
 
 
 
@@ -415,7 +414,9 @@ Consider $B$ \pause and $A_i$ where i $\in$ \{1,...,n\}:
 
 \pause
 
-then, the set $A_i$ is a **partition** of B.
+then, the set $A_i$ is a **partition** of $B$.
+
+
 
 
 # Combining events - partition
@@ -427,6 +428,7 @@ rect(rc2[1]+.1, rc2[2], rc2[3]+.1, rc2[4], col = myblue, border=mygrey)
 text(mean(rc2[c(1,3)])+.1, mean(rc2[c(2,4)]), label="B", cex=2.6, col=mygrey)
 box2(1:4, col=mygrey)
 ```
+
 
 
 # Combining events - partition
@@ -441,7 +443,9 @@ text(c(.58,.73,.85), rep(mean(rc2[c(2,4)]), 3), label=c("A1", "A2", "A3"), cex=2
 box2(1:4, col=mygrey)
 ```
 
+
 \LARGE $P(B) = P(A_1 \cup A_2 \cup A_3) \pause = P(A_1) + P(A_2) + P(A_3)$
+
 
 
 # Combining events - partition
@@ -456,6 +460,8 @@ for (i in 1:5){
 ```
 
 
+
+
 # Combining events - partition
 
 \large
@@ -463,6 +469,7 @@ for (i in 1:5){
 $A_i$ where $i \in \{1, 2, 3, 4, 5\}$ is a partition of $\Omega$
 
 $$\sum_i^5 P(A_i) = 1$$
+
 
 
 
@@ -490,6 +497,7 @@ par(new = T, fig = c(0.2, .4, .1, .8))
 plot0(fill="#CCCCCCCC")
 text(0,0, "B", col="white", cex=2.8)
 ```
+
 
 
 # Combining events - formula (law) of total probability
@@ -527,9 +535,9 @@ $$P(B) = \sum_i^5 P(B \cap A_i)$$
 - $p_{00}$ + $p_{01}$ + $p_{10}$ + $p_{11}$ = 1
 
 
+
+
 # Occurrence of species 1 and species 2 on an island
-
-
 
 - "00", "01", "10", "11" are **singleton sets** (a.k.a unit sets)
 
@@ -587,6 +595,7 @@ box2(1:4, col=mygrey)
 \LARGE $P(A \bigcup B \bigcup C) = ?$
 
 
+
 # Let's practice 1 - Elmer, the duck hunter
 
 ![Daffy & Elmer](Image/duckHunter.png){width=50%}
@@ -600,12 +609,53 @@ box2(1:4, col=mygrey)
 - Elmer, two bullets, one duck
 
 
-# Solution 1
+# Solution 1 - $P(A \bigcup B \bigcup C)$
+
+```{r eventABCs, echo = FALSE}
+par(xaxs="i", yaxs="i")
+plot0(c(0,1))
+##--
+rect(rc2[1]+.1, rc2[2]+.1, rc2[3]+.1, rc2[4]+.1, col = paste0(myblue, "88"), border = NA, lwd=.4)
+rect(rc1[1]+.1, rc1[2]+.1, rc1[3]+.1, rc1[4]+.1, col = paste0(myblue, "88"), border = NA, lwd=.4)
+rect(rc2[1]-.15, rc2[2]-.05, rc2[3]-.15, rc2[4]-.05, col = paste0(myblue, "88"), border = NA, lwd=.4)
+##--
+rect(rc2[1]+.1, rc2[2]+.1, rc2[3]+.1, rc2[4]+.1, col = NA, border = mygrey, lwd=.4)
+rect(rc1[1]+.1, rc1[2]+.1, rc1[3]+.1, rc1[4]+.1, col = NA, border = mygrey, lwd=.4)
+rect(rc2[1]-.15, rc2[2]-.05, rc2[3]-.15, rc2[4]-.05, col = NA, border = mygrey, lwd=.4)
+##--
+text(c(.35,.8,.3), c(.8,.5,.2), labels=LETTERS[1:3], col=mygrey, cex=2)
+box2(1:4, col=mygrey)
+```
+
+$$P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A \cap B) - P(A \cap C) - P(C \cap B) + P(C \cap B \cap A)$$
 
 
-<!--  x
+
+
+# Solution 1 - $P(A \bigcup B \bigcup C)$
+
  - See the [Inclusion–exclusion principle](https://en.wikipedia.org/wiki/Inclusion–exclusion_principle) article on wikipedia (formule du crible de Poincaré).
-  -->
+
+
+# Solution 1 - the duck paradigm
+
+- Elmer, one bullet, one duck
+
+  - "sucess" ("1")/ "failure" ("0")
+  - $P("sucess") = p$ ; $P("failure") = 1-p$
+
+\pause
+
+- Elmer, two bullets, two ducks / one duck
+\pause
+
+  - {"00", "01", "10", "11"}
+\pause
+
+  - two ducks: $p_{00}$, $p_{01}$, $p_{10}$, $p{11}$
+\pause
+
+  - two ducks: $p_{00}$, $p_{01}$, $p_{10}$, $p{11}$
 
 
 
@@ -616,6 +666,7 @@ box2(1:4, col=mygrey)
 
 - Flipping a coin / occurrence of 1 species on an island / shooting a duck
 \pause $\rightarrow$ we apply a similar probabilistic approach.  
+
 
 \pause
 
@@ -634,6 +685,7 @@ box2(1:4, col=mygrey)
 \pause
 
 - Define a random variable + assign a probability distribution.
+
 
 
 
@@ -657,7 +709,7 @@ under certain constraints:
     - Coin $P("Head") = P(1) = p$; $P("Tail") = P(0) = 1-p$
 \pause
 
-    - Dice $P(1)=P(2)=...=P(6)=1/6$
+    - Dice $P(1)=P(2)=...=P(6)=\frac{1}{6}$
 
 <!-- choices we made -->
 
@@ -761,7 +813,6 @@ text(c(.25), c(.32), labels = "1-p", cex=1.4, col=myblue)
 text(.25, 1.04, "SHOOT 1", col=mygreen)
 text(.55, 1.04, "SHOOT 2", col=mygreen)
 ## --
-# text(rep(.78, 4), c(.9,.6,.4,.1), labels = "?", cex=1.4, col=myblue, pos=4)
 y2 <- c(.9, .6, .4, .1)
 for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
 ## --
@@ -782,7 +833,7 @@ text(.7, .4, labels = expression(X[2]), pos = 4, cex=cexx, col=mygrey)
 #
 text(.4, .25, labels = expression(bar(X[1])), pos = 4, cex=cexx, col=mygrey)
 text(.7, .6, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
-text(.7, .1, labels = expression(bar(X[2])), pos = 4, cex=cexx, col=mygrey)
+text(.7, .1, labels = expression(bar(X[2])), cex=cexx, pos=4, col=mygrey)
 ## --
 text(c(.25, .55, .55), c(.68, .88, .42), labels = c("p", 0, 0), cex=1.4, col=myblue)
 text(c(.25, .55, .55), c(.32, .1, .6), labels = c("1-p", 1, 1), cex=1.4, col=myblue)
@@ -796,7 +847,7 @@ for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
 ## --
 ```
 
-<!-- it depends on what happens before -->
+
 
 
 
@@ -804,7 +855,7 @@ for (i in y2) arrows(.47, .25+(i>.5)*.5, .7, i, col=mygrey, lwd = 2)
 
 \large
 
-To events are independent if and only if:
+Two events are independent iif:
 
 - $P(A \cap B) = P(A)P(B)$
 
@@ -851,7 +902,45 @@ He now shoots $n$ independent ducks with a success rate of $p$
 - \alert{bonus}: solve the **dice problem**
 
 
+
 # Solution 2
+
+**Assumption**: 3 random variables *i.i.d.* $X_1, X_2, X_3$,
+$P(X_1=1)=P(X_2=1)=P(X_3=1)=p$
+
+\pause
+
+1. $P(X_1 = 0 \cap X_2 = 0 \cap X_3 = 1) = P(X_1 = 0)P(X_2 = 0)P(X_3 = 1) = (1-p)^2p$
+
+\pause
+
+2. $P(X_1 = 0 \cap X_2 = 0 \cap X_3 = 1) = 3p^2(1-p)$
+
+\pause
+
+1. $P(Y = 2)=?$ \pause (1,1,0) (1,0,1) (0,1,1); \pause $P(Y = 2) = 3*p^2*(1-p)$
+
+2. $P(Z = 2)=?$ \pause (0,0,1) ; $P(X = 2) = (1-p)^2p$
+
+
+
+# Solution 2
+
+Y = "number of duck Elmer killed", $Y\in{0,1,2,3}$
+
+Z = "number of failure before first success" \pause $Z={0,1,...,n}$
+
+
+<!-- 1. $Y\in{0,1,...,n}~~~P(Y = k)=?$
+
+$$P(Y = k) = \binom{n}{k} p^k(1-p)^{n-k}$$
+
+\pause
+
+2. $P(Z = n-1)=?$
+
+$$P(X = k) = p(1-p)^{n-1}$$ -->
+
 
 
 
@@ -940,7 +1029,7 @@ $$P(X = k) = \binom{n}{k} p^k(1-p)^{n-k}$$
 ```{r unifd, echo = FALSE, fig.width=7, fig.height=4}
 par(mypar)
 par(lend=2)
-plot(c(0.5,10.5), c(0,.6), xlab="Values (x)", ylab="Probability", type="n")
+plot(c(0.5,10.5), c(0,0.5), c(0,.6), xlab="Values (x)", ylab="Probability", type="n")
 points(1:2, rep(.5, 2), col=mygreen, type="h", lwd=3)
 points(1:6+.1, rep(1/6, 6), col=mygrey, type="h", lwd=3)
 points(1:10-.1, rep(.1, 10), col=myblue, type="h", lwd=3)
@@ -1320,7 +1409,7 @@ legend("topleft", legend = c(expression(lambda==1), expression(lambda==.1)), col
 
   1. you = regular behavior
   2. colleague 1 = often late but you never really know when he'll show up
-  3. colleague 2 = regular behavior if the starting time were 30 min earlier...
+  3. colleague 2 = regular behavior if the starting time were 30 min later...
 
 \pause
 
@@ -1334,10 +1423,51 @@ legend("topleft", legend = c(expression(lambda==1), expression(lambda==.1)), col
 
 - Find the probability that the meeting is delayed by *at least* half an hour?
 
+- \alert{bonus}: How many people after 30 min?
 
 
 # Solution 3
 
+1- You: $\mathcal{N}(0,1)$
+
+2- Amael: $\mathcal{N}(.5,3)$
+
+3- Will: $\mathcal{N}(.5,.5)$
+
+<!-- insert figure -->
+
+```{r normalPractice, echo=FALSE, fig.width=7, fig.height=4.5}
+seqx <- seq(-6,6,0.1)
+par(mypar)
+plot(seqx, dnorm(seqx, .5, .5), type="n")
+lines(seqx, dnorm(seqx), type="l", col=myblue, lwd=2)
+lines(seqx, dnorm(seqx, .5, 3), col=mygreen, lwd=2)
+lines(seqx, dnorm(seqx, .5, .5), col=myred, lwd=2)
+legend("topleft", legend = c("You", " Amael",  "Will"), col=c(myblue, mygreen, myred), lwd=3, bty="n")
+```
+
+
+# Solution 3
+
+
+1. Starting on time
+
+
+<!-- $$P("all there before 0") = P(X_1<0)P(X_2<0)P(X_3<0)$$
+
+
+$$P("all there before 0") = \int_{-\infty}^0f_1(x)dx\int_{-\infty}^0f_2(x)dx\int_{-\infty}^0f_3(x)dx$$
+ -->
+
+
+2. Meeting delayed by at least half an hour
+
+
+<!-- $$P("at least one is 30min late") = 1-P("all there before")$$
+
+$$P("at least one is 30min late") = 1-P(X_1<.5)P(X_2<.5)P(X_3<.5)$$
+
+ -->
 
 <!-- 10 min to practice 4 -->
 
@@ -1400,8 +1530,8 @@ $$x_{\alpha} ~~ P(X \leq x_{\alpha}) = \alpha$$
 
 Examples:
 
-  - median ($\alpha = .5$)
-  - 1st and 3rd quartile ($\alpha = .25$ $\alpha = .75$)
+  - median ($\alpha = .5$)    
+  - 1st and 3rd quartile ($\alpha = .25$ $\alpha = .75$)    
   - 5 / 95 percentile ($\alpha = .05$ $\alpha = .95$)
 
 \pause
@@ -1500,7 +1630,16 @@ Elmer and the frightening question!
 - Find $p_{sh}$ the success rate below which Elmer should better stay at home?
 
 
+
 # Solution 4  
+
+<!-- 60\$ = 20*3\$
+
+$$E(X) < 20$$
+
+$$\frac{1-p}{p} < 20$$
+
+$$p < \frac{1}{21}$$ -->
 
 
 <!-- 15 min -->
@@ -1653,7 +1792,7 @@ probability that can be named."
 $$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
 
 - information \pause
-- inference  \pause
+- inferences \pause
 - cause/consequence
 
 
@@ -1704,6 +1843,13 @@ $$f(A|B) = \frac{f(B|A)f(A)}{\int f(b|c)f(c)dc}$$
 # Solution 5
 
 <!-- answer during pm if needed -->
+Let's use 2 random variables:
+
+- X = 1 ("sick"); X = 0 ("sane")
+
+- T = 1 ("test positive"); T = 0 ("test negative")
+
+
 
 
 # LUNCH
@@ -1786,7 +1932,6 @@ Let's practice more
 # Solution 7
 
 
-<!-- (5 min) -->
 
 # Let's step back
 
@@ -1807,6 +1952,7 @@ What do we do when we do statistics? (simple case)
 \pause
 
 - We try to find out $\theta$ 's value(s) given $x_i$ : **inference**
+
 
 
 # Let's take a step back
@@ -1835,6 +1981,8 @@ What do we do when we do statistics? (simple case)
 
 
 
+
+
 # Why normal, why?
 
 \pause
@@ -1843,16 +1991,17 @@ What do we do when we do statistics? (simple case)
 
 $$X_i, i\in{1, 2, ..., n}$$ **i.i.d.** $\mathcal{L}(\theta)$,
 
-$$\frac{X_i - \mu}{\sigma} \rightarrow N(\mu, \sigma)$$
+$$\frac{X_i - \mu}{\sigma} \rightarrow N(0, 1)$$
 
 
 \pause
 
 Poincaré:
 
-> "Tout le mode croit à la loi normale : les physiciens parcequ'ils pensent
+> "Tout le monde croit à la loi normale : les physiciens parcequ'ils pensent
 que les mathématiciens l'ont démontrée et les mathématiciens parcequ'ils
 croient qu'elle a été vérifiée par les physiciens."
+
 
 
 ----

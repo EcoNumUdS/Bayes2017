@@ -37,6 +37,8 @@
 
 Pick up your distribution: [McLaughlin - 2014 - A compendium of common probability distributions](McLaughlin2014.pdf)
 
+[How to use a natural conjugate distribution - an example](Conjugate.pdf)
+
 Back to [Github](https://github.com/TheoreticalEcosystemEcology/BayesSummer)
 
 
