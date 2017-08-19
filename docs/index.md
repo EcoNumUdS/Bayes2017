@@ -42,7 +42,17 @@ Pick up your distribution: [McLaughlin - 2014 - A compendium of common probabili
 Back to [Github](https://github.com/TheoreticalEcosystemEcology/BayesSummer)
 
 
+## Books
+
+1. [Gelman, A. et al. Bayesian Data Analysis, Third Edition. (CRC Press, 2013)](http://www.stat.columbia.edu/~gelman/book/)
+
+2. [Gelman, A. & Hill, J. Data Analysis Using Regression and Multilevel/Hierarchical Models. (Cambridge University Press, 2006)](http://www.stat.columbia.edu/~gelman/arm/)
+
+
+
 -----------
+
+
 
 
 # Informations générales pour l'école d'été en statistiques Bayésienne pour écologistes
@@ -140,4 +150,4 @@ Ludwig, D. 1996. Uncertainty and the assessment of extinction probabilities. Eco
 
 Orford Musique is an exceptional site located at the base of Mont Orford National Park. As such, it will be possible for you to hike in the numerous path outside of class hours.
 
-It will also be possible to have a drink (alcoholic or not) around a campfire in the evening. Even though some alcoholic beverages can be bought on site, you can also bring your own. Also, feel free to bring your guitar !
+It will also be possible to have a drink (alcoholic or not) around a campfire in the evening. Even though some alcoholic beverages can be bought on site, you can also bring your own. Also, feel free to bring your guitar!
